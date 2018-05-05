@@ -42,6 +42,8 @@ return [
     'abbsdel' => 'admin/index/bbsdel',
 
 
+
+
     //前台
     'pdd'=>'index/index/pdd',
     'jd'=>'index/index/jd',
@@ -64,6 +66,6 @@ return [
 ];
 
 
- 
 
-                     
+
+

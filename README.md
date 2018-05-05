@@ -1,3 +1,12 @@
+php版本5.5.38
+mysql版本5.5.53
+apache
+后台视频上传:
+	修改PHP配置(取消文件上传限制)
+		upload_max_filesize = 0
+		post_max_size = 0
+
+
 ThinkPHP 5.0
 ===============
 
