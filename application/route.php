@@ -36,6 +36,8 @@ return [
     'adtvideo' => 'admin/index/dtvideo',
 
 
+
+
     //前台
     'pdd'=>'index/index/pdd',
     'jd'=>'index/index/jd',
@@ -58,6 +60,6 @@ return [
 ];
 
 
- 
 
-                     
+
+
