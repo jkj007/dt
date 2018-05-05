@@ -61,16 +61,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
        
 	   								<i class="glyphicon glyphicon-plus"></i>
 							        <span>添加文件</span>
-									<input data-form-data='{"field": "files"}' id="fileupload" multiple name="files[]" type="file">
-									<input id="video_src" type="hidden" name="video" value="">
+									<input data-form-data='{"field": "video"}' id="fileupload" multiple name="video" type="file">
 								</span>
-								<div id="progress" class="progress" style="background-color: #fff;margin-top: 10px;">
+								<div id="progress" class="progress">
 							        <div class="progress-bar progress-bar-success"></div>
 							    </div>
 							    <!-- The container for the uploaded files -->
-							    <div id="files" class="files">
-
-								</div>
+							    <div id="files" class="files"></div>
 							</div>	
 							<!-- 文件上传 -->
 							
@@ -93,7 +90,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="form-group">
 							<label for="checkbox" class="col-sm-2 control-label">描述</label>
 							<div class="col-sm-8">
-								<script id="editor" type="text/plain" name="desc" style="width:700px;height:500px;"></script>
+							<script id="editor" type="text/plain" name="desc" style="width:700px;height:500px;"></script>
 							</div>
 						</div>
 					<div class="form-group">
@@ -189,11 +186,11 @@ $(function () {
         previewMaxWidth: 100,
         previewMaxHeight: 100,
         previewCrop: true
-        //图片添加完成后触发的事件
     }).on('fileuploadadd', function (e, data) {
-        data.context = $('<span/>').appendTo('#files');
+        data.context = $('<div/>').appendTo('#files');
         $.each(data.files, function (index, file) {
-            var node = $('<span/>').text(file.name);
+            var node = $('<p/>')
+                    .append($('<span/>').text(file.name));
             if (!index) {
                 node
                     .append('<br>')
@@ -201,7 +198,6 @@ $(function () {
             }
             node.appendTo(data.context);
         });
-        //当一个单独的文件处理队列结束触发(验证文件格式和大小)
     }).on('fileuploadprocessalways', function (e, data) {
         var index = data.index,
             file = data.files[index],
@@ -221,20 +217,20 @@ $(function () {
                 .text('Upload')
                 .prop('disabled', !!data.files.error);
         }
-        //显示上传进度条
     }).on('fileuploadprogressall', function (e, data) {
         var progress = parseInt(data.loaded / data.total * 100, 10);
         $('#progress .progress-bar').css(
             'width',
             progress + '%'
         );
-        //上传请求成功时触发的回调函数
     }).on('fileuploaddone', function (e, data) {
         $.each(data.result.files, function (index, file) {
             if (file.url) {
-                data.context = $('<span style="color:green;">上传成功</span>').prependTo('#files');
-				$('#video_src').val(file.name);
-
+                var link = $('<a>')
+                    .attr('target', '_blank')
+                    .prop('href', file.url);
+                $(data.context.children()[index])
+                    .wrap(link);
             } else if (file.error) {
                 var error = $('<span class="text-danger"/>').text(file.error);
                 $(data.context.children()[index])
@@ -242,7 +238,6 @@ $(function () {
                     .append(error);
             }
         });
-        //上传请求失败时触发的回调函数
     }).on('fileuploadfail', function (e, data) {
         $.each(data.files, function (index) {
             var error = $('<span class="text-danger"/>').text('File upload failed.');
