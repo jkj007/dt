@@ -41,6 +41,7 @@ return [
     'aupdatebbs' => 'admin/index/updatebbs',
     'abbsdel' => 'admin/index/bbsdel',
 
+
     //视频路由-pm
     '__rest__'=>[
         'avideo'=>'admin/video',
@@ -67,6 +68,7 @@ return [
     'loginin'=>'index/index/loginin',
     'findpass'=>'index/index/findpass',
     'codecheck'=>'index/index/codecheck',
+    'com'=>'index/index/com',
 
 
 ];

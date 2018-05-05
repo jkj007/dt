@@ -53,7 +53,7 @@ class Index extends Controller
          //组装注册信息
         $data=array('phone'=>$_POST['phone'],'pass'=>mymd5($_POST['pass']),'addtime'=>time(),'state'=>1);
         if(db('users')->insert($data)){
-          $this->success("注册成功!",'./admin');
+          $this->success("注册成功!",'admin/admin/admin');
         }
     }
     //登陆验证
@@ -62,7 +62,7 @@ class Index extends Controller
         if($res){
           //登陆成功
           session($_SERVER['REMOTE_ADDR']."islogin",$_POST['phone']);
-          $this->redirect('../admin');
+          $this->redirect('admin/admin/admin');
         }else{
           //登录失败
           $this->error('账号或密码错误');
@@ -122,7 +122,7 @@ class Index extends Controller
     public function addbbs(){
          $data=array('title'=>$_POST['title'],'addtime'=>time(),'type'=>$_POST['type'],'author'=>'管理员','content'=>$_POST['editorValue']);
         if(db('bbs')->insert($data)){
-          $this->success("添加成功!",'./admin');
+          $this->success("添加成功!",'admin/admin/admin');
         }
     }
     //文章管理
@@ -149,14 +149,14 @@ class Index extends Controller
     //修改文章
     public function updatebbs(){
       if(db('bbs')->where('id',$_POST['id'])->update(['title' =>$_POST['title'],'content'=>$_POST['editorValue'],'type'=>$_POST['type']])){
-         $this->success("修改成功!",'./bbs');
+         $this->success("修改成功!",'admin/admin/bbs');
       }
     }
     //文章评论
 
     public function bbsdel(){
       if(db('bbs')->where('id',$_GET['id'])->delete()){
-        $this->success("删除成功!",'admin/bbs');
+        $this->success("删除成功!",'admin/admin/bbs');
       }
     }
 

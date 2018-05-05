@@ -43,14 +43,28 @@ class Index extends Controller
     	return view();
     }
     public function bloginfo(){
+      //查看用户是否已收藏该文章
+      $res3=db('com')->where("userid",$_SESSION['username']['id'])->
+      where("bbsid",$_GET['id']) ->find();
+      if($res3){
+        $com="yes";
+      }else{
+        $com="no";
+      }
+      //该文章浏览量+1
+      //
+      
+
+
+
+      
       $res=db('bbs')->where("id",$_GET['id'])->find();
       $this->assign('info',$res);
       $res2=db('bbs')->order("addtime desc")->limit(5)->select();
       $this->assign('info2',$res2);
+      $this->assign('com',$com);
       return view();
     }
-  
-
 
 
     public function  login(){
@@ -86,10 +100,10 @@ class Index extends Controller
         }
     }
     public function loginin(){
-        $res=db('users')->where('phone',$_POST['phone'])->where('pass',mymd5($_POST['pass']))->select();
+        $res=db('users')->where('phone',$_POST['phone'])->where('pass',mymd5($_POST['pass']))->find();
         if($res){
           //登陆成功
-          $_SESSION['users'][$_POST['phone']]=$res;
+          $_SESSION['username']=$res;
           $this->redirect('../index');
         }else{
           //登录失败
@@ -107,6 +121,25 @@ class Index extends Controller
               session($_SERVER['REMOTE_ADDR'], null);
               echo "no";
          }
+    }
+    //收藏文章
+    public function com(){
+     
+     // 判断是否登录
+      if(!empty($_SESSION['username'])){
+        //添加收藏信息
+       
+        $data=array('userid'=>$_SESSION['username']['id'],'bbsid'=>$_POST['id']);
+        db('com')->insert($data);
+        //更新文章的收藏数目
+        $res=db('bbs')->where('id',$_POST['id'])->find();
+        $res['collnum']+=1;
+        db('bbs')->where('id',$_POST['id'])->update($res);
+        echo "yes";
+      }else{
+           echo "no";
+      }
+      //添加收藏信息
     }
 
 }

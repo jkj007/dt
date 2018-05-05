@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:62:"D:\phpStudy\WWW\dt./application/index\view\index\bloginfo.html";i:1525507057;s:35:"public/static/index/common/nav.html";i:1525506979;s:38:"public/static/index/common/footer.html";i:1524878979;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:62:"D:\phpStudy\WWW\dt./application/index\view\index\bloginfo.html";i:1525518520;s:35:"public/static/index/common/nav.html";i:1525508231;s:38:"public/static/index/common/footer.html";i:1524878979;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +23,25 @@
         article img{
            max-width:100%;
         }
-</style>
+    </style>
+    <script>
+        function comment(){
+            $.post("./com", { id: <?php echo $info['id'] ?> },
+               function(data){
+                 if(data=='yes'){
+                    $('#com2').addClass("text-orange");
+                    $('#com3').removeAttr("href");
+                    $('#com').attr("color","#f97307");
+                    $('#com').html("已收藏");
+                 }else if(data=='no'){
+                    //请登录
+                    alert("请登录");
+                   $(location).attr('href', './login');
+                 }
+               });
+           
+        }
+    </script>
 </head>
 <body>
     <header class="main">
@@ -70,6 +88,7 @@
                             </ul>
                         </li> -->
                         <li><a href="blog"><span>文章</span></a></li>
+                        <li><a href="lt"><span>论坛</span></a></li>
                         <li><a href="contact"><span>联系我们</span></a></li>
                     </ul>
                     <a class="btn btn-theme navbar-btn btn-default sign-in" href="login">登陆</a>
@@ -108,8 +127,23 @@
                             <center><h2><?php echo $info['title']; ?></h2></center>  
                             <p class="blue-box blog-params">
                                 <span><i class="fa fa-calendar"></i> <time datetime="2013-01-10T21:01"><?php    echo date("Y-m-d",$info['addtime']);   ?></time></span>
-                                <span><i class="fa fa-user"></i> <a href="http://localhost/dt/public/static/index/blog-list.htm"><?php echo $info['author']; ?></a></span>
-                                <span class="text-orange"><i class="fa fa-comments-o"></i><?php echo $info['collnum']; ?>人已收藏</span>
+                                <span><i class="fa fa-user"></i> <?php echo $info['author']; ?></span>
+                                <span><i class="fa fa-comments-o"></i><?php echo $info['collnum']; ?>人已收藏</span>
+
+                        <?php
+                            if($com=='yes'){
+                                echo  "<span class='text-orange' id=\"com2\"><i class=\"fa fa-comments-o\"></i><font id=\"com\">已收藏</font></span>";
+
+                            }else{
+                              echo  "<span id=\"com2\"><i class=\"fa fa-comments-o\"></i><a href=\"javascript:comment()\" id='com3'><font id=\"com\">点击收藏</font></a></span>";
+
+                            }
+                                 
+
+                        ?>
+                               
+
+
                             </p>
                         </header>
                         

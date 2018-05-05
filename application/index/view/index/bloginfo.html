@@ -22,7 +22,25 @@
         article img{
            max-width:100%;
         }
-</style>
+    </style>
+    <script>
+        function comment(){
+            $.post("./com", { id: <?php echo $info['id'] ?> },
+               function(data){
+                 if(data=='yes'){
+                    $('#com2').addClass("text-orange");
+                    $('#com3').removeAttr("href");
+                    $('#com').attr("color","#f97307");
+                    $('#com').html("已收藏");
+                 }else if(data=='no'){
+                    //请登录
+                    alert("请登录");
+                   $(location).attr('href', './login');
+                 }
+               });
+           
+        }
+    </script>
 </head>
 <body>
     <header class="main">
@@ -59,8 +77,23 @@
                             <center><h2>{$info.title}</h2></center>  
                             <p class="blue-box blog-params">
                                 <span><i class="fa fa-calendar"></i> <time datetime="2013-01-10T21:01"><?php    echo date("Y-m-d",$info['addtime']);   ?></time></span>
-                                <span><i class="fa fa-user"></i> <a href="__PUBLIC__/index/blog-list.htm">{$info.author}</a></span>
-                                <span class="text-orange"><i class="fa fa-comments-o"></i>{$info.collnum}人已收藏</span>
+                                <span><i class="fa fa-user"></i> {$info.author}</span>
+                                <span><i class="fa fa-comments-o"></i>{$info.collnum}人已收藏</span>
+
+                        <?php
+                            if($com=='yes'){
+                                echo  "<span class='text-orange' id=\"com2\"><i class=\"fa fa-comments-o\"></i><font id=\"com\">已收藏</font></span>";
+
+                            }else{
+                              echo  "<span id=\"com2\"><i class=\"fa fa-comments-o\"></i><a href=\"javascript:comment()\" id='com3'><font id=\"com\">点击收藏</font></a></span>";
+
+                            }
+                                 
+
+                        ?>
+                               
+
+
                             </p>
                         </header>
                         
