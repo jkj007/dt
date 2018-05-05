@@ -8,5 +8,15 @@ class Video extends Controller
     $info = M::paginate(15);
     return $this->fetch('index',compact('info'));
   }
+  public function create()
+  {
+    return $this->fetch();
+  }
+
+  public function save()
+  {
+    dump(input('post.'));
+    return 111;
+  }
 
 }

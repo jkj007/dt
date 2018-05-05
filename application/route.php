@@ -35,6 +35,12 @@ return [
     'abbs' => 'admin/index/bbs',
     'adtvideo' => 'admin/index/dtvideo',
 
+    //视频路由-pm
+    '__rest__'=>[
+        'avideo'=>'admin/video',
+    ],
+    'uploadfile'=>['admin/upload_file/upload',['method'=>'post']],
+
 
 
 
