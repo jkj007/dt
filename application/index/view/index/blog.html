@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>分享号 - 常见问题</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />	
+    <!-- CSS Files -->
+	 {include file="public/static/index/common/head.html"/}
+</head>
+<body>
+    <header class="main">
+        <div class="container">
+            {include file="public/static/index/common/nav.html"/}
+        </div>
+    </header>
+    
+    <div class="page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <h1>分享号-论坛</h1>
+                </div>
+                <div class="col-md-5">
+                    <ol class="breadcrumb pull-right">
+                        <li><a href="__PUBLIC__/index/index.htm">Home</a></li>
+                        <li class="active">Blog</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Blog list -->
+    <section class="content content-light  blog">
+        <div class="container">
+            <div class="row">
+                <!-- Blog list - center -->
+                <div class="col-md-8">
+
+
+                {volist name="info" id="vo"}
+                    <article class="blog-item">
+                        <header>
+                            <h2 class="blog-title">标题:{$vo.title}</h2>
+                         
+                            <p class="blue-box blog-params">
+                                <span><i class="fa fa-calendar"></i>发布时间:{$vo.addtime}</span>
+                                <span><i class="fa fa-user"></i> <a href="__PUBLIC__/index/blog-list.htm">作者:{$vo.author}</a></span>
+                                <span><i class="fa fa-user"></i> 浏览量:{$vo.clicknum}</span>
+                                <span class="text-orange"><i class="fa fa-comments-o"></i>收藏数:{$vo.collnum}</span>
+                            </p>
+                        </header>
+                        <p class="blog-description">
+                            {$vo.content}
+                        </p>
+                        <p class="text-right blog-link-more"><a href="./bloginfo?id={$vo.id}" class="btn btn-theme btn-orange">详细信息</a></p>
+                    </article>
+                {/volist}
+
+
+
+
+                    <!-- Pagination -->
+                    <ul class="pagination">
+                        <li class="disabled"><a href="__PUBLIC__/index/#"><i class="fa fa-angle-left"></i></a></li>
+                        <li class="active"><a href="__PUBLIC__/index/videos-list.htm">1 <span class="sr-only">(current)</span></a></li>
+                        <li><a href="__PUBLIC__/index/#">2</a></li>
+                        <li><a href="__PUBLIC__/index/#">3</a></li>
+                        <li><a href="__PUBLIC__/index/#"><i class="fa fa-angle-right"></i></a></li>
+                    </ul>
+                </div>
+                
+                <!-- Blog - sidebar -->
+                <aside class="col-md-4" role="complementary">
+                
+                    <!-- Widget: Search -->
+                    <section class="widget search">
+                        <h2>搜索</h2>
+                        <form action="blog-list.htm" class="search-blog" method="get" role="search">
+                            <input type="search" class="form-control input-lg" name="q" placeholder="search for something..." />
+                            <a href="__PUBLIC__/index/#" class="submit"><i class="fa fa-search"></i></a>
+                        </form>
+                    </section>
+                    
+                    <!-- Widget: Gallery -->
+                 
+                    
+                    <!-- Widget: Twitter -->
+                    <section class="widget twitter">
+                        <h2>推荐文章</h2>
+                        <article class="twitter-item">
+                            <p class="author"><span class="btn btn-social social-twitter"><i class="fa fa-twitter"></i></span> Jonathan Doe</p>
+                            <p>We can't boast years and years of service we can ensure you that is a good thing in this industry <a href="__PUBLIC__/index/http://goo.gl/cx6ZuM">http://goo.gl/cx6ZuM</a></p>
+                            <time datetime="2014-01-22T22:11" class="cute-time">2014/01/22 22:11:19</time>
+                        </article>
+                        <article class="twitter-item">
+                            <p class="author"><span class="btn btn-social social-twitter"><i class="fa fa-twitter"></i></span>  Marc Adams</p>
+                            <p>Lorem ipsum and years of service we can ensure you that is a good thing in this industry <a href="__PUBLIC__/index/http://goo.gl/uSSrMW">http://goo.gl/uSSrMW</a></p>
+                            <time datetime="2014-01-21T22:11" class="cute-time">2014/01/21 22:11:19</time>
+                        </article>
+                    </section>
+              
+                </aside>
+            </div>
+        </div>        
+    </section>
+    
+   {include file="public/static/index/common/footer.html"/}
+</body>
+</html>
