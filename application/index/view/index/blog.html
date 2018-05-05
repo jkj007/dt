@@ -7,6 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />	
     <!-- CSS Files -->
 	 {include file="public/static/index/common/head.html"/}
+     <style>
+        article img{
+           max-width:100%;
+        }
+     </style>
 </head>
 <body>
     <header class="main">
@@ -57,17 +62,10 @@
                     </article>
                 {/volist}
 
+                {$info->render()}
 
 
-
-                    <!-- Pagination -->
-                    <ul class="pagination">
-                        <li class="disabled"><a href="__PUBLIC__/index/#"><i class="fa fa-angle-left"></i></a></li>
-                        <li class="active"><a href="__PUBLIC__/index/videos-list.htm">1 <span class="sr-only">(current)</span></a></li>
-                        <li><a href="__PUBLIC__/index/#">2</a></li>
-                        <li><a href="__PUBLIC__/index/#">3</a></li>
-                        <li><a href="__PUBLIC__/index/#"><i class="fa fa-angle-right"></i></a></li>
-                    </ul>
+                 
                 </div>
                 
                 <!-- Blog - sidebar -->
@@ -76,29 +74,25 @@
                     <!-- Widget: Search -->
                     <section class="widget search">
                         <h2>搜索</h2>
-                        <form action="blog-list.htm" class="search-blog" method="get" role="search">
-                            <input type="search" class="form-control input-lg" name="q" placeholder="search for something..." />
+                        <form action="./blog" class="search-blog" method="post" role="search">
+                            <input type="search" class="form-control input-lg" name="title" placeholder="请输入标题后回车" />
                             <a href="__PUBLIC__/index/#" class="submit"><i class="fa fa-search"></i></a>
                         </form>
                     </section>
-                    
-                    <!-- Widget: Gallery -->
-                 
-                    
-                    <!-- Widget: Twitter -->
-                    <section class="widget twitter">
-                        <h2>推荐文章</h2>
-                        <article class="twitter-item">
-                            <p class="author"><span class="btn btn-social social-twitter"><i class="fa fa-twitter"></i></span> Jonathan Doe</p>
-                            <p>We can't boast years and years of service we can ensure you that is a good thing in this industry <a href="__PUBLIC__/index/http://goo.gl/cx6ZuM">http://goo.gl/cx6ZuM</a></p>
-                            <time datetime="2014-01-22T22:11" class="cute-time">2014/01/22 22:11:19</time>
-                        </article>
-                        <article class="twitter-item">
-                            <p class="author"><span class="btn btn-social social-twitter"><i class="fa fa-twitter"></i></span>  Marc Adams</p>
-                            <p>Lorem ipsum and years of service we can ensure you that is a good thing in this industry <a href="__PUBLIC__/index/http://goo.gl/uSSrMW">http://goo.gl/uSSrMW</a></p>
-                            <time datetime="2014-01-21T22:11" class="cute-time">2014/01/21 22:11:19</time>
-                        </article>
+                     <section class="widget category">
+                        <h2>最新文章</h2>
+                        <nav>
+                        <ul>
+                             {volist name="info2" id="vo2"}
+                            <li><a href="./bloginfo?id={$vo2.id}"><i class="fa fa-play"></i>{$vo2.title}</a></li>
+                               {/volist}
+                        </ul>
+                        </nav>
                     </section>
+
+
+
+            
               
                 </aside>
             </div>

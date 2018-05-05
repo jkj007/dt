@@ -1,34 +1,96 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:62:"D:\phpStudy\WWW\dt./application/index\view\index\bloginfo.html";i:1525507057;s:35:"public/static/index/common/nav.html";i:1525506979;s:38:"public/static/index/common/footer.html";i:1524878979;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:62:"D:\phpStudy\WWW\dt./application/index\view\index\findpass.html";i:1523440776;s:36:"public/static/index/common/head.html";i:1525505717;s:35:"public/static/index/common/nav.html";i:1525506979;s:38:"public/static/index/common/footer.html";i:1524878979;}*/ ?>
 <!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>eLearn - Blog</title>
+    <title>分享号 - 密码找回</title>
     <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />	
     <!-- CSS Files -->
 	<link rel="stylesheet" href="http://localhost/dt/public/static/index/plugin/bootstrap/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="http://localhost/dt/public/static/index/plugin/font-awesome/css/font-awesome.min.css" />
 	<link rel="stylesheet" href="http://localhost/dt/public/static/index/plugin/pretty-photo/css/prettyPhoto.css" />
 	<link rel="stylesheet" href="http://localhost/dt/public/static/index/css/style.css" />
 	<link rel="stylesheet" href="http://localhost/dt/public/static/index/css/animate.min.css" />
-	<!-- / CSS Files -->
-	
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="http://localhost/dt/public/static/index/https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="http://localhost/dt/public/static/index/https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
+    <script src="http://localhost/dt/public/static/admin/js/jquery.min.js"></script>
+    <script src="http://localhost/dt/public/static/admin/js/xcConfirm.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="http://localhost/dt/public/static/admin/css/xcConfirm.css"/>
     <style>
-        article img{
-           max-width:100%;
+        #senddx{
+            position: relative;
+            top:-48px;
+            left:300px;
+            width:100px;
+            height:50px;
         }
-</style>
+        .btn-green{
+            position: relative;
+            top: -40px;
+        }
+    </style>
+    <script type="text/javascript">
+        function myCheck(){
+             //判断验证码是否正确
+            usercode=$("input[name='code']").val();
+            $.post('codecheck',{code:usercode},function(data){
+            if(data=="yes"){
+                 //弹出重置密码信息
+                  var txt="请输入新密码";
+                 window.wxc.xcConfirm(txt, window.wxc.xcConfirm.typeEnum.input,{
+                        onOk:function(v){
+                   password=$("input[class='inputBox']").val();
+                   userphone=$("input[name='phone']").val();
+                  $.post('./aeditpass',{pass:password,phone:userphone},function(data){
+                   if(data=="yes"){
+                       window.wxc.xcConfirm("密码修改成功!", window.wxc.xcConfirm.typeEnum.info);
+                  }else{
+                     window.wxc.xcConfirm("密码修改失败!", window.wxc.xcConfirm.typeEnum.info);
+                    }
+                        });
+                    }
+                    });
+                  }else{
+                     window.wxc.xcConfirm("验证码错误!", window.wxc.xcConfirm.typeEnum.info);
+                  }
+            });
+            return false;
+        }
+        function dx(){
+          var userphone=$("input[name='phone']").val();
+           if(!$("input[name='phone']").val().match(/^\d{11}$/)){
+                 window.wxc.xcConfirm("手机号错误!", window.wxc.xcConfirm.typeEnum.info);
+                    return false;
+           }else{
+               $.post("asenddx", {phone:userphone},
+                     function(data){
+                    if(data=="yes"){
+                      window.wxc.xcConfirm("短信发送成功", window.wxc.xcConfirm.typeEnum.info);
+                        $("#senddx").attr("disabled", true);
+                          var time =60;
+                          function Countdown(){
+                            if (time >= 1) {
+                               $("#senddx").html(time);
+                                time -= 1;
+                                setTimeout(function() {
+                                    Countdown();
+                                }, 1000)
+                            }else if(time == 0){
+                                   $("#senddx").attr("disabled", false).html("发送");
+                            }
+                        }
+                         Countdown()
+                    }else{
+                       window.wxc.xcConfirm(data, window.wxc.xcConfirm.typeEnum.info);
+                    }
+            });
+           }
+     }
+
+</script>
 </head>
 <body>
     <header class="main">
         <div class="container">
-           <nav class="navbar" role="navigation">
+             <nav class="navbar" role="navigation">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="sr-only">Toggle navigation</span>
@@ -77,88 +139,40 @@
                 </div>
                 </div>
             </nav>
-            </nav>
         </div>
     </header>
-    
     <div class="page-header">
         <div class="container">
             <div class="row">
                 <div class="col-md-7">
-                    <h1>1000 Teacher Tutorials</h1>
-                </div>
-                <div class="col-md-5">
-                    <ol class="breadcrumb pull-right">
-                        <li><a href="http://localhost/dt/public/static/index/index.htm">Home</a></li>
-                        <li class="active">Blog</li>
-                    </ol>
+                    <h1>密码找回</h1>
                 </div>
             </div>
         </div>
     </div>
-    
-    <!-- Blog post -->
-    <section class="content content-light  blog">
+    <section>
         <div class="container">
-            <div class="row">
-                <!-- Blog post - center -->
-                <div class="col-md-8">
-                    <article>
-                        <header>
-                            <center><h2><?php echo $info['title']; ?></h2></center>  
-                            <p class="blue-box blog-params">
-                                <span><i class="fa fa-calendar"></i> <time datetime="2013-01-10T21:01"><?php    echo date("Y-m-d",$info['addtime']);   ?></time></span>
-                                <span><i class="fa fa-user"></i> <a href="http://localhost/dt/public/static/index/blog-list.htm"><?php echo $info['author']; ?></a></span>
-                                <span class="text-orange"><i class="fa fa-comments-o"></i><?php echo $info['collnum']; ?>人已收藏</span>
-                            </p>
-                        </header>
-                        
-                        <!-- blog description - content -->
-                        <div class="blog-content">
-                           
-                            <?php echo $info['content']; ?>
-
-                        </div>
-                  
-                  
-                    </article>
+            <form action="codecheck" role="form" method="post" onSubmit="return  myCheck()">
+               <!--  <h2 class="title-form">个人信息</h2> -->
+                <div class="row">
+                    <div class="col-md-4"></div>
+                     <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="fieldInputUsername">*手机号</label>
+                                <input type="text" name="phone" class="form-control input-lg"  placeholder="请输入手机号" />
+                            </div>
+                           <div class="form-group">
+                                <label for="fieldInputPassword1">*验证码</label>
+                                <input type="text" name="code" class="form-control input-lg code"  placeholder="请输入验证码" />
+                                <button class="btn btn-theme btn-orange" onclick="dx()" type="button" id='senddx'>发送</button>
+                            </div>
+                            <p><input type="submit"  class="btn btn-theme btn-green" value="&nbsp;&nbsp;&nbsp;&nbsp;验证账号&nbsp;&nbsp;&nbsp;&nbsp;" /></p>
+                    </div>
                 </div>
-                
-                <!-- Blog - sidebar -->
-                <aside class="col-md-4" role="complementary">
-                
-                    <!-- Widget: Search -->
-                    <section class="widget search">
-                        <h2>搜索</h2>
-                        <form action="./blog" class="search-blog" method="post" role="search">
-                            <input type="search" class="form-control input-lg" name="title" placeholder="请输入标题后回车" />
-                            <a href="http://localhost/dt/public/static/index/#" class="submit"><i class="fa fa-search"></i></a>
-                        </form>
-                    </section>
-                    
-                    <!-- Widget: Gallery -->
-                  
-                    <!-- Widget: Twitter -->
-                 
-                    
-                    <!-- Widget: Categories -->
-                      <section class="widget category">
-                        <h2>最新文章</h2>
-                        <nav>
-                        <ul>
-                             <?php if(is_array($info2) || $info2 instanceof \think\Collection || $info2 instanceof \think\Paginator): $i = 0; $__LIST__ = $info2;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo2): $mod = ($i % 2 );++$i;?>
-                            <li><a href="./bloginfo?id=<?php echo $vo2['id']; ?>"><i class="fa fa-play"></i><?php echo $vo2['title']; ?></a></li>
-                               <?php endforeach; endif; else: echo "" ;endif; ?>
-                        </ul>
-                        </nav>
-                    </section>
-
-                </aside>
-            </div>
+            </form>
         </div>        
     </section>
-    
-   <footer class="main bg-dark-img">
+      <footer class="main bg-dark-img">
         <section class="widgets">
         <div class="container">
             <div class="row">
@@ -202,6 +216,5 @@
 
 
 
-    <!-- / JavaScript Files -->
 </body>
 </html>

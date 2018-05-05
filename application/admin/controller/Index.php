@@ -93,32 +93,71 @@ class Index extends Controller
       }
     }
     public function users(){
-      $res=db('users')->where('state',1)->select();
-      $this->assign('info',$res);
-      return view();
+      if($_POST){
+          //将数组转成字符串
+          if($_POST['name']){
+            $where[]=" name like '%{$_POST['name']}%' ";
+          }
+          if($_POST['phone']){
+            $where[]=" phone='{$_POST['phone']}' ";
+          }
+          if($_POST['come']){
+            $where[]=" come='{$_POST['come']}' ";
+          }
+        }
+        $where[]=" state=1";
+        $select=implode('and', $where);
+        $res=db('users')->where($select)->paginate(3);
+        $this->assign('info',$res);
+        return view("users");
     }
-    public function ssusers(){
-      
 
-
-    }
     public function userinfo(){
          return view();
     }
     public function editbbs(){
        return view();
     }
+    //添加文章
     public function addbbs(){
          $data=array('title'=>$_POST['title'],'addtime'=>time(),'type'=>$_POST['type'],'author'=>'管理员','content'=>$_POST['editorValue']);
         if(db('bbs')->insert($data)){
           $this->success("添加成功!",'./admin');
         }
     }
+    //文章管理
     public function bbs(){
-      $res=db('bbs')->select();
+      if(!empty($_POST['title'])){
+         $res=db('bbs')->where('title','like','%'.$_POST['title']."%")->paginate(3);
+       }else{
+         $res=db('bbs')->paginate(3);
+       }
       $this->assign('info',$res);
       return view();
       
+    }
+    //文章修改
+    public function bbsinfo(){
+      $res=db('bbs')->where('id',$_GET['id'])->find();
+      $this->assign('info',$res);
+      return view();
+    }
+    //文章详情
+    public function bbsmessage(){
+       return view();
+    }
+    //修改文章
+    public function updatebbs(){
+      if(db('bbs')->where('id',$_POST['id'])->update(['title' =>$_POST['title'],'content'=>$_POST['editorValue'],'type'=>$_POST['type']])){
+         $this->success("修改成功!",'./bbs');
+      }
+    }
+    //文章评论
+
+    public function bbsdel(){
+      if(db('bbs')->where('id',$_GET['id'])->delete()){
+        $this->success("删除成功!",'admin/bbs');
+      }
     }
 
 

@@ -34,6 +34,12 @@ return [
     'aaddbbs' => 'admin/index/addbbs',
     'abbs' => 'admin/index/bbs',
     'adtvideo' => 'admin/index/dtvideo',
+    'assuser' => 'admin/index/ssuser',
+    'abbsinfo' => 'admin/index/bbsinfo',
+    'abbsmessage' => 'admin/index/bbsmessage',
+    'abbscomment' => 'admin/index/bbscomment',
+    'aupdatebbs' => 'admin/index/updatebbs',
+    'abbsdel' => 'admin/index/bbsdel',
 
 
     //前台

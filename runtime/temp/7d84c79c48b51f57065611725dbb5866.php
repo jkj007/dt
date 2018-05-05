@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:61:"D:\phpStudy\WWW\dt./application/admin\view\index\editbbs.html";i:1524888694;s:35:"public/static/admin/common/nav.html";i:1525342357;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:61:"D:\phpStudy\WWW\dt./application/admin\view\index\editbbs.html";i:1524888694;s:35:"public/static/admin/common/nav.html";i:1525342768;}*/ ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -83,7 +83,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <a href="http://localhost/dt/public/static/admin/#"><i class="fa fa-indent nav_icon"></i>电淘管理<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="http://localhost/dt/public/static/admin/dtvideo.html">视频管理</a>
+                                    <a href="adtvideo.html">视频管理</a>
                                 </li>
                                 <li>
                                     <a href="http://localhost/dt/public/static/admin/dtvideo.html">软件管理</a>

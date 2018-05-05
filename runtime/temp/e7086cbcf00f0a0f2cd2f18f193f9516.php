@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:58:"D:\phpStudy\WWW\dt./application/index\view\index\blog.html";i:1525339205;s:36:"public/static/index/common/head.html";i:1523431074;s:35:"public/static/index/common/nav.html";i:1524641164;s:38:"public/static/index/common/footer.html";i:1524878979;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:58:"D:\phpStudy\WWW\dt./application/index\view\index\blog.html";i:1525507032;s:36:"public/static/index/common/head.html";i:1525505717;s:35:"public/static/index/common/nav.html";i:1525508172;s:38:"public/static/index/common/footer.html";i:1524878979;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,8 +8,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />	
     <!-- CSS Files -->
 	 <link rel="stylesheet" href="http://localhost/dt/public/static/index/plugin/bootstrap/css/bootstrap.min.css" />
-<link rel="stylesheet" href="http://localhost/dt/public/static/index/css/style.css" />
-<link rel="stylesheet" href="http://localhost/dt/public/static/index/plugin/animate.min.css" />
+	<link rel="stylesheet" href="http://localhost/dt/public/static/index/plugin/font-awesome/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="http://localhost/dt/public/static/index/plugin/pretty-photo/css/prettyPhoto.css" />
+	<link rel="stylesheet" href="http://localhost/dt/public/static/index/css/style.css" />
+	<link rel="stylesheet" href="http://localhost/dt/public/static/index/css/animate.min.css" />
+     <style>
+        article img{
+           max-width:100%;
+        }
+     </style>
 </head>
 <body>
     <header class="main">
@@ -55,7 +62,8 @@
                                 <li><a href="http://localhost/dt/public/static/index/blog-post.htm">详细信息</a></li>
                             </ul>
                         </li> -->
-                        <li><a href="blog"><span>提问社区</span></a></li>
+                        <li><a href="blog"><span>文章</span></a></li>
+                        <li><a href="lt"><span>论坛</span></a></li>
                         <li><a href="contact"><span>联系我们</span></a></li>
                     </ul>
                     <a class="btn btn-theme navbar-btn btn-default sign-in" href="login">登陆</a>
@@ -108,17 +116,10 @@
                     </article>
                 <?php endforeach; endif; else: echo "" ;endif; ?>
 
+                <?php echo $info->render(); ?>
 
 
-
-                    <!-- Pagination -->
-                    <ul class="pagination">
-                        <li class="disabled"><a href="http://localhost/dt/public/static/index/#"><i class="fa fa-angle-left"></i></a></li>
-                        <li class="active"><a href="http://localhost/dt/public/static/index/videos-list.htm">1 <span class="sr-only">(current)</span></a></li>
-                        <li><a href="http://localhost/dt/public/static/index/#">2</a></li>
-                        <li><a href="http://localhost/dt/public/static/index/#">3</a></li>
-                        <li><a href="http://localhost/dt/public/static/index/#"><i class="fa fa-angle-right"></i></a></li>
-                    </ul>
+                 
                 </div>
                 
                 <!-- Blog - sidebar -->
@@ -127,29 +128,25 @@
                     <!-- Widget: Search -->
                     <section class="widget search">
                         <h2>搜索</h2>
-                        <form action="blog-list.htm" class="search-blog" method="get" role="search">
-                            <input type="search" class="form-control input-lg" name="q" placeholder="search for something..." />
+                        <form action="./blog" class="search-blog" method="post" role="search">
+                            <input type="search" class="form-control input-lg" name="title" placeholder="请输入标题后回车" />
                             <a href="http://localhost/dt/public/static/index/#" class="submit"><i class="fa fa-search"></i></a>
                         </form>
                     </section>
-                    
-                    <!-- Widget: Gallery -->
-                 
-                    
-                    <!-- Widget: Twitter -->
-                    <section class="widget twitter">
-                        <h2>推荐文章</h2>
-                        <article class="twitter-item">
-                            <p class="author"><span class="btn btn-social social-twitter"><i class="fa fa-twitter"></i></span> Jonathan Doe</p>
-                            <p>We can't boast years and years of service we can ensure you that is a good thing in this industry <a href="http://localhost/dt/public/static/index/http://goo.gl/cx6ZuM">http://goo.gl/cx6ZuM</a></p>
-                            <time datetime="2014-01-22T22:11" class="cute-time">2014/01/22 22:11:19</time>
-                        </article>
-                        <article class="twitter-item">
-                            <p class="author"><span class="btn btn-social social-twitter"><i class="fa fa-twitter"></i></span>  Marc Adams</p>
-                            <p>Lorem ipsum and years of service we can ensure you that is a good thing in this industry <a href="http://localhost/dt/public/static/index/http://goo.gl/uSSrMW">http://goo.gl/uSSrMW</a></p>
-                            <time datetime="2014-01-21T22:11" class="cute-time">2014/01/21 22:11:19</time>
-                        </article>
+                     <section class="widget category">
+                        <h2>最新文章</h2>
+                        <nav>
+                        <ul>
+                             <?php if(is_array($info2) || $info2 instanceof \think\Collection || $info2 instanceof \think\Paginator): $i = 0; $__LIST__ = $info2;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo2): $mod = ($i % 2 );++$i;?>
+                            <li><a href="./bloginfo?id=<?php echo $vo2['id']; ?>"><i class="fa fa-play"></i><?php echo $vo2['title']; ?></a></li>
+                               <?php endforeach; endif; else: echo "" ;endif; ?>
+                        </ul>
+                        </nav>
                     </section>
+
+
+
+            
               
                 </aside>
             </div>
