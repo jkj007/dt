@@ -41,13 +41,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	   <div class="xs">
       
   	 <h3>论坛管理</h3>
-    <form action="./assusers" class="form-horizontal" method="post">
+    <form action="./abbs" class="form-horizontal" method="post">
        <div class="form-group">
             <label for="focusedinput" class="col-sm-1 control-label">标题:</label>
                   <div class="col-sm-3">
-                    <input type="text" class="form-control1" id="focusedinput" placeholder="标题">
+                    <input type="text" name="title" class="form-control1" id="focusedinput" placeholder="标题">
                   </div>
-           <button type="button" class="btn btn-warning warning_22">搜索</button>
+           <button  class="btn btn-warning warning_22">搜索</button>
       </div>
      </form>
   	<div class="bs-example4" data-example-id="contextual-table">
@@ -79,9 +79,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           <td>{$vo.returnnum}</td>
           <td>{$vo.collnum}</td>
           <td>
-              <a href="./auserinfo"><button type="button" class="btn btn-xs btn-info">内容管理</button></a>
-              <a href="./auserinfo"><button type="button" class="btn btn-xs btn-info">评论管理</button></a>
-              <a href="./auserinfo"><button type="button" class="btn btn-xs btn-info">查看详情</button></a>
+              <a href="./abbsinfo?id={$vo['id']}"><button type="button" class="btn btn-xs btn-info">内容修改</button></a>
+              <a href="./abbscomment?id={$vo['id']}"><button type="button" class="btn btn-xs btn-info">评论管理</button></a>
+              <a href="./abbsdel?id={$vo['id']}"><button type="button" class="btn btn-xs btn-info">删除</button></a>
+
+           
           </td>
         </tr>
 {/volist}
@@ -89,6 +91,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
       </tbody>
     </table>
+    {$info->render()}
    </div>
   </div>
   <div class="copy_layout">

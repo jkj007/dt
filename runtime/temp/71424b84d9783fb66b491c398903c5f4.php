@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:59:"D:\phpStudy\WWW\dt./application/admin\view\index\users.html";i:1524884021;s:35:"public/static/admin/common/nav.html";i:1525342768;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:59:"D:\phpStudy\WWW\dt./application/admin\view\index\users.html";i:1525496791;s:35:"public/static/admin/common/nav.html";i:1525342768;}*/ ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -146,21 +146,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	   <div class="xs">
       
   	 <h3>普通用户</h3>
-    <form action="./assusers" class="form-horizontal" method="post">
+    <form action="./ausers" class="form-horizontal" method="post">
        <div class="form-group">
             <label for="focusedinput" class="col-sm-1 control-label">姓名:</label>
                   <div class="col-sm-2">
-                    <input type="text" class="form-control1" id="focusedinput" placeholder="姓名">
+                    <input type="text" name="name" class="form-control1" id="focusedinput" placeholder="姓名">
                   </div>
             <label for="focusedinput" class="col-sm-1 control-label">手机号:</label>
                   <div class="col-sm-3">
-                    <input type="text" class="form-control1" id="focusedinput" placeholder="手机号">
+                    <input type="text" name="phone" class="form-control1" id="focusedinput" placeholder="手机号">
                   </div>
             <label for="focusedinput" class="col-sm-1 control-label">邀请人:</label>
                   <div class="col-sm-2">
-                    <input type="text" class="form-control1" id="focusedinput" placeholder="邀请人">
+                    <input type="text" name="come" class="form-control1" id="focusedinput" placeholder="邀请人">
                   </div>
-           <button type="button" class="btn btn-warning warning_22">搜索</button>
+           <button class="btn btn-warning warning_22">搜索</button>
       </div>
      </form>
   	<div class="bs-example4" data-example-id="contextual-table">
@@ -201,6 +201,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <?php endforeach; endif; else: echo "" ;endif; ?>
       </tbody>
     </table>
+
+<?php echo $info->render(); ?>
+
+
+
    </div>
   </div>
   <div class="copy_layout">

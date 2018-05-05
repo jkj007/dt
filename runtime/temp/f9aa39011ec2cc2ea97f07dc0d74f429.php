@@ -1,8 +1,8 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:57:"D:\phpStudy\WWW\dt./application/admin\view\index\bbs.html";i:1525509054;s:35:"public/static/admin/common/nav.html";i:1525342768;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:61:"D:\phpStudy\WWW\dt./application/admin\view\index\bbsinfo.html";i:1525504890;s:35:"public/static/admin/common/nav.html";i:1525342768;}*/ ?>
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Basic_tables</title>
+<title>Forms</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Modern Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
@@ -15,10 +15,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="http://localhost/dt/public/static/admin/css/font-awesome.css" rel="stylesheet"> 
 <!-- jQuery -->
 <script src="http://localhost/dt/public/static/admin/js/jquery.min.js"></script>
-<!--webfonts-->
-<!--//webfonts-->  
-<!-- Bootstrap Core JavaScript -->
+
 <script src="http://localhost/dt/public/static/admin/js/bootstrap.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="http://localhost/dt/public/static/common/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="http://localhost/dt/public/static/common/ueditor.all.min.js"> </script>
+<script type="text/javascript" charset="utf-8" src="http://localhost/dt/public/static/common/lang/zh-cn/zh-cn.js"></script>
+<style>
+        article img{
+           max-width:100%;
+        }
+</style>
 </head>
 <body>
 <div id="wrapper">
@@ -34,7 +40,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <a class="navbar-brand" href="http://localhost/dt/public/static/admin/index.html">Modern</a>
             </div>
             <!-- /.navbar-header -->
-             <ul class="nav navbar-nav navbar-right">
+           <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a href="http://localhost/dt/public/static/admin/#" class="dropdown-toggle avatar" data-toggle="dropdown"><img src="http://localhost/dt/public/static/admin/images/1.png" alt=""/><span class="badge">9</span></a>
                     <ul class="dropdown-menu">
@@ -142,71 +148,75 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <!-- /.navbar-static-side -->
         </nav>
         <div id="page-wrapper">
-        <div class="col-md-12 graphs">
-	   <div class="xs">
-      
-  	 <h3>论坛管理</h3>
-    <form action="./abbs" class="form-horizontal" method="post">
-       <div class="form-group">
-            <label for="focusedinput" class="col-sm-1 control-label">标题:</label>
-                  <div class="col-sm-3">
-                    <input type="text" name="title" class="form-control1" id="focusedinput" placeholder="标题">
-                  </div>
-           <button  class="btn btn-warning warning_22">搜索</button>
-      </div>
-     </form>
-  	<div class="bs-example4" data-example-id="contextual-table">
-      <table class="table">
-      <thead>
-        <tr>
-          <th>论坛标题</th>
-          <th>种类</th>
-          <th>点击数</th>
-          <th>评论数</th>
-          <th>收藏数</th>
-          <th>操作</th>
-        </tr>
-      </thead>
-      <tbody>
-<?php if(is_array($info) || $info instanceof \think\Collection || $info instanceof \think\Paginator): $i = 0; $__LIST__ = $info;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;
-           $i+=2; 
-        
-           if($i%2==1){
-            echo "<tr class=\"success\">";
-          }else{
-            echo "<tr class=\"active\">";
-          }
-        ?>
-          <th scope="row"><?php echo $vo['title']; ?></th>
-          <td><?php echo $vo['type']; ?></td>
-          <td><?php echo $vo['clicknum']; ?></td>
-          <td><?php echo $vo['returnnum']; ?></td>
-          <td><?php echo $vo['collnum']; ?></td>
-          <td>
-              <a href="./abbsinfo?id=<?php echo $vo['id']; ?>"><button type="button" class="btn btn-xs btn-info">内容修改</button></a>
-              <a href="./abbscomment?id=<?php echo $vo['id']; ?>"><button type="button" class="btn btn-xs btn-info">评论管理</button></a>
-              <a href="./abbsdel?id=<?php echo $vo['id']; ?>"><button type="button" class="btn btn-xs btn-info">删除</button></a>
+        <div class="graphs">
+	     <div class="xs">
+  	       <h3>修改帖子</h3>
+  	         <div class="tab-content">
+						<div class="tab-pane active" id="horizontal-form">
+							<form action="./aupdatebbs" method="post" class="form-horizontal">
+								<input name="id" value="<?php echo $info['id']; ?>" type="hidden" />
 
-           
-          </td>
-        </tr>
-<?php endforeach; endif; else: echo "" ;endif; ?>
-
-
-      </tbody>
-    </table>
-    <?php echo $info->render(); ?>
-   </div>
-  </div>
+								<div class="form-group">
+									<label for="focusedinput" class="col-sm-2 control-label">标题</label>
+									<div class="col-sm-8">
+										<input name="title" value="<?php echo $info['title']; ?>" type="text" class="form-control1" id="focusedinput" placeholder="请填写标题">
+									</div>
+									<!-- <div class="col-sm-2">
+										<p class="help-block">Your help text!</p>
+									</div> -->
+								</div>
+								<div class="form-group">
+									<label for="checkbox" class="col-sm-2 control-label">种类</label>
+									<div class="col-sm-8">
+										<div class="checkbox-inline1"><label><input 
+											<?php 
+												if($info['type']==1){
+													echo "checked";
+												}
+											?> name="type" value="1" type="radio"> 普通</label></div>
+										<div class="checkbox-inline1"><label><input name="type" value="2" <?php 
+												if($info['type']==2){
+													echo "checked";
+												}
+											?> type="radio"> 精选</label></div>
+										<div class="checkbox-inline1"><label><input name="type" value="3" <?php 
+												if($info['type']==3){
+													echo "checked";
+												}
+											?> type="radio"> 顶置</label></div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="checkbox" class="col-sm-2 control-label">内容</label>
+									<div class="col-sm-8">
+									<!-- <script id="editor" type="text/plain" style="width:700px;height:500px;"></script> -->
+									<textarea style="width:700px;height:500px;" name='' id='editor'><?php echo $info['content']; ?></textarea>
+									</div>
+								</div>
+							<div class="form-group">
+								<label for="checkbox" class="col-sm-2 control-label"></label>
+								<div class="col-sm-8">
+									<button   class="btn btn_5  btn-info">修改</button>
+								</div>
+							</div>
+						</form>
+						</div>
+					</div>
+  			</div>
   <div class="copy_layout">
       <p>Copyright &copy; 2015.Company name All rights reserved.More Templates <a href="http://localhost/dt/public/static/admin/http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://localhost/dt/public/static/admin/http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
   </div>
-   </div>
+  </div>
       </div>
       <!-- /#page-wrapper -->
    </div>
     <!-- /#wrapper -->
 <!-- Nav CSS -->
+
+<script type="text/javascript">
+    var ue = UE.getEditor('editor');
+</script>
+
 <link href="http://localhost/dt/public/static/admin/css/custom.css" rel="stylesheet">
 <!-- Metis Menu Plugin JavaScript -->
 <script src="http://localhost/dt/public/static/admin/js/metisMenu.min.js"></script>

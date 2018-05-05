@@ -18,55 +18,16 @@
     <script src="__PUBLIC__/index/https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="__PUBLIC__/index/https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
+    <style>
+        article img{
+           max-width:100%;
+        }
+</style>
 </head>
 <body>
     <header class="main">
         <div class="container">
-            <nav class="navbar" role="navigation">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="__PUBLIC__/index/index.htm"><img id="logo" src="__PUBLIC__/index/img/logo.png" alt="eLearn" /></a>
-                </div>
-                <div class="collapse navbar-collapse">
-                <div class="navbar-right menu-main"> 
-                    <ul class="nav navbar-nav">
-                        <li class="dropdown">
-                            <a href="__PUBLIC__/index/#" class="dropdown-toggle" data-toggle="dropdown"><span>Home</span> <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="__PUBLIC__/index/index.htm">Home, version 1</a></li>
-                                <li><a href="__PUBLIC__/index/index2.htm">Home, version 2</a></li>
-                                <li><a href="__PUBLIC__/index/index3.htm">Home, version 3</a></li><li><a href="__PUBLIC__/index/http://www.cssmoban.com/">Home, version 4</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="__PUBLIC__/index/about-us.htm"><span>About us</span></a></li>
-                        <li class="dropdown">
-                            <a href="__PUBLIC__/index/#" class="dropdown-toggle" data-toggle="dropdown"><span>Video</span> <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="__PUBLIC__/index/categories.htm">Categories of video</a></li>
-                                <li><a href="__PUBLIC__/index/videos-list.htm">Video list</a></li>
-                                <li><a href="__PUBLIC__/index/videos-grid.htm">Video list (grid)</a></li>
-                                <li><a href="__PUBLIC__/index/video.htm">Video film detail</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="__PUBLIC__/index/features.htm"><span>Features</span></a></li>
-                        <li class="dropdown active">
-                            <a href="__PUBLIC__/index/#" class="dropdown-toggle" data-toggle="dropdown"><span>Blog</span> <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="__PUBLIC__/index/blog-list.htm">Blog list</a></li>
-                                <li><a href="__PUBLIC__/index/blog-post.htm">Blog post detail</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="__PUBLIC__/index/contact.htm"><span>Contact us</span></a></li>
-                    </ul>
-                    <a class="btn btn-theme navbar-btn btn-default sign-in" href="__PUBLIC__/index/#">Sign in</a>
-                    <a class="btn btn-theme navbar-btn btn-orange  sign-up" href="__PUBLIC__/index/register.htm">Sign up</a>
-                </div>
-                </div>
+           {include file="public/static/index/common/nav.html"/}
             </nav>
         </div>
     </header>
@@ -110,67 +71,7 @@
 
                         </div>
                   
-                        <!-- blog comments -->
-                        <section class="comments">
-                            <h2>Comments</h2>
-                            <ul class="media-list">
-                                <!-- comment #1 -->
-                                <li class="media">
-                                    <a href="__PUBLIC__/index/#" class="pull-left"><img src="__PUBLIC__/index/img/100x100.gif" class="img-rounded user-img" alt="John Doe" /></a>
-                                    <div class="media-body">
-                                        <div class="media-heading">
-                                            <strong>John Doe</strong> - <time datetime="2014-01-20T22:11" class="cute-time">2014/01/20 22:11:19</time>
-                                            <a href="__PUBLIC__/index/#" class="pull-right btn btn-lightblue"><i class="fa fa-reply"></i> Reply</a>
-                                        </div>
-                                        <p>Whether you need to create a brand from scratch, including marketing materials and a beautiful and functional website or whether you are looking for a design.</p>
-                                        
-                                        <!-- reply #1 comment #1 -->
-                                        <div class="media">
-                                            <a href="__PUBLIC__/index/#" class="pull-left"><img src="__PUBLIC__/index/img/75x75.gif" class="img-rounded user-img" alt="Susan Edwards" /></a>
-                                            <div class="media-body">
-                                                <div class="media-heading">
-                                                    <strong>Susan Edwards</strong> - <time datetime="2014-01-21T21:11" class="cute-time">2014/01/21 21:11:19</time>
-                                                    <a href="__PUBLIC__/index/#" class="pull-right btn btn-lightblue"><i class="fa fa-reply"></i> Reply</a>
-                                                </div>
-                                                <p>Joey and Phoebe focus on bringing new business to the company. They have won a number of big clients recently.</p>
-                                            </div>
-                                        </div>
-                                        
-                                        <!-- reply #2 comment #1 -->
-                                        <div class="media">
-                                            <a href="__PUBLIC__/index/#" class="pull-left"><img src="__PUBLIC__/index/img/75x75.gif" class="img-rounded user-img" alt="Adam Johnson" /></a>
-                                            <div class="media-body">
-                                                <div class="media-heading">
-                                                    <strong>Adam Johnson</strong> - <time datetime="2014-01-24T20:11" class="cute-time">2014/01/22 22:11:19</time>
-                                                    <a href="__PUBLIC__/index/#" class="pull-right btn btn-lightblue"><i class="fa fa-reply"></i> Reply</a>
-                                                </div>
-                                                <p>Our teams are up to date with the latest technologies, media trends and are keen to prove themselves in this industry.</p>
-                                            </div>
-                                        </div>
-                                  </div>
-                                </li>
-                                
-                                <!-- comment #2 -->
-                                <li class="media">
-                                    <a href="__PUBLIC__/index/#" class="pull-left"><img src="__PUBLIC__/index/img/100x100.gif" class="img-rounded user-img" alt="Adam Johnson" /></a>
-                                    <div class="media-body">
-                                        <div class="media-heading">
-                                            <strong>Adam Johnson</strong> - <time datetime="2014-01-24T20:14" class="cute-time">2014/01/24 20:14:19</time>
-                                            <a href="__PUBLIC__/index/#" class="pull-right btn btn-lightblue"><i class="fa fa-reply"></i> Reply</a>
-                                        </div>
-                                        <p>Our teams are up to date with the latest technologies, media trends and are keen to prove themselves in this industry.</p>
-                                    </div>
-                                </li>
-                            </ul>
-                            
-                            <hr class="invisible" />
-                            
-                            <!-- Form add comment -->
-                         
-                            <hr class="invisible" />
-                            
-                         
-                        </section>
+                  
                     </article>
                 </div>
                 
@@ -179,63 +80,30 @@
                 
                     <!-- Widget: Search -->
                     <section class="widget search">
-                        <h2>Search</h2>
-                        <form action="blog-list.htm" class="search-blog" method="get" role="search">
-                            <input type="search" class="form-control input-lg" name="q" placeholder="search for something..." />
+                        <h2>搜索</h2>
+                        <form action="./blog" class="search-blog" method="post" role="search">
+                            <input type="search" class="form-control input-lg" name="title" placeholder="请输入标题后回车" />
                             <a href="__PUBLIC__/index/#" class="submit"><i class="fa fa-search"></i></a>
                         </form>
                     </section>
                     
                     <!-- Widget: Gallery -->
-                    <section class="widget float-inside gallery">
-                        <h2>Gallery Widget</h2>
-                        <a href="__PUBLIC__/index/img/800x600.gif" rel="prettyPhoto[gallery1]" title="MacBook pro"><img src="__PUBLIC__/index/img/88x88.gif" class="img-rounded" alt="" /></a>
-                        <a href="__PUBLIC__/index/img/800x600.gif" rel="prettyPhoto[gallery1]" title="People in work"><img src="__PUBLIC__/index/img/88x88.gif" class="img-rounded" alt="" /></a>
-                        <a href="__PUBLIC__/index/img/800x600.gif" rel="prettyPhoto[gallery1]" title="Apple hard drive"><img src="__PUBLIC__/index/img/88x88.gif" class="img-rounded" alt="" /></a>
-                        <a href="__PUBLIC__/index/img/800x600.gif" rel="prettyPhoto[gallery1]" title="Woman with laptop"><img src="__PUBLIC__/index/img/88x88.gif" class="img-rounded" alt="" /></a>
-                        <a href="__PUBLIC__/index/img/800x600.gif" rel="prettyPhoto[gallery1]" title="No music no fun"><img src="__PUBLIC__/index/img/88x88.gif" class="img-rounded" alt="" /></a>
-                        <a href="__PUBLIC__/index/img/800x600.gif" rel="prettyPhoto[gallery1]" title="Old analog camera"><img src="__PUBLIC__/index/img/88x88.gif" class="img-rounded" alt="" /></a>
-                    </section>
-                    
+                  
                     <!-- Widget: Twitter -->
-                    <section class="widget twitter">
-                        <h2>Latest Tweets</h2>
-                        <article class="twitter-item">
-                            <p class="author"><span class="btn btn-social social-twitter"><i class="fa fa-twitter"></i></span> Jonathan Doe</p>
-                            <p>We can't boast years and years of service we can ensure you that is a good thing in this industry <a href="__PUBLIC__/index/http://goo.gl/cx6ZuM">http://goo.gl/cx6ZuM</a></p>
-                            <time datetime="2014-01-22T22:11" class="cute-time">2014/01/22 22:11:19</time>
-                        </article>
-                        <article class="twitter-item">
-                            <p class="author"><span class="btn btn-social social-twitter"><i class="fa fa-twitter"></i></span>  Marc Adams</p>
-                            <p>Lorem ipsum and years of service we can ensure you that is a good thing in this industry <a href="__PUBLIC__/index/http://goo.gl/uSSrMW">http://goo.gl/uSSrMW</a></p>
-                            <time datetime="2014-01-21T22:11" class="cute-time">2014/01/21 22:11:19</time>
-                        </article>
-                    </section>
+                 
                     
                     <!-- Widget: Categories -->
-                    <section class="widget category">
-                        <h2>Categories</h2>
+                      <section class="widget category">
+                        <h2>最新文章</h2>
                         <nav>
                         <ul>
-                            <li><a href="__PUBLIC__/index/blog-list.htm"><i class="fa fa-play"></i>Webdesign &amp; Graphicdesign</a></li>
-                            <li><a href="__PUBLIC__/index/blog-list.htm"><i class="fa fa-play"></i>Learn another language</a></li>
-                            <li><a href="__PUBLIC__/index/blog-list.htm"><i class="fa fa-play"></i>Webdevelopement</a></li>
-                            <li><a href="__PUBLIC__/index/blog-list.htm"><i class="fa fa-play"></i>Drawing &amp; Painting</a></li>
-                            <li><a href="__PUBLIC__/index/blog-list.htm"><i class="fa fa-play"></i>Video Making</a></li>
-                            <li><a href="__PUBLIC__/index/blog-list.htm"><i class="fa fa-play"></i>Internet Marketing</a></li>
+                             {volist name="info2" id="vo2"}
+                            <li><a href="./bloginfo?id={$vo2.id}"><i class="fa fa-play"></i>{$vo2.title}</a></li>
+                               {/volist}
                         </ul>
                         </nav>
                     </section>
-                    
-                    <!-- Widget: Categories -->
-                    <section class="widget posts">
-                        <h2>Recent Postings</h2>
-                        <ul>
-                            <li><a href="__PUBLIC__/index/blog-post.htm"><h3>1000 Teacher Tutorials</h3> Jan 12, 2013 in General</a></li>
-                            <li><a href="__PUBLIC__/index/blog-post.htm"><h3>Updated our servers in LA</h3> Jan 02, 2013 in Webdesign</a></li>
-                            <li><a href="__PUBLIC__/index/blog-post.htm"><h3>Currently not available</h3> Jan 01, 2013 in Webdesign</a></li>
-                        </ul>
-                    </section>
+
                 </aside>
             </div>
         </div>        

@@ -30,16 +30,26 @@ class Index extends Controller
     	 return view();
     }
     public function  blog(){
-      $res=db('bbs')->select();
+      //查询所有数据
+      if(!empty($_POST['title'])){
+         $res=db('bbs')->where('title','like','%'.$_POST['title']."%")->paginate(2);
+       }else{
+         $res=db('bbs')->paginate(2);
+       }
       $this->assign('info',$res);
+      //查询最新三条数据
+      $res2=db('bbs')->order("addtime desc")->limit(5)->select();
+      $this->assign('info2',$res2);
     	return view();
     }
     public function bloginfo(){
       $res=db('bbs')->where("id",$_GET['id'])->find();
       $this->assign('info',$res);
+      $res2=db('bbs')->order("addtime desc")->limit(5)->select();
+      $this->assign('info2',$res2);
       return view();
     }
-
+  
 
 
 
@@ -79,7 +89,7 @@ class Index extends Controller
         $res=db('users')->where('phone',$_POST['phone'])->where('pass',mymd5($_POST['pass']))->select();
         if($res){
           //登陆成功
-          session($_SERVER['REMOTE_ADDR']."islogin",$_POST['phone']);
+          $_SESSION['users'][$_POST['phone']]=$res;
           $this->redirect('../index');
         }else{
           //登录失败
@@ -98,4 +108,5 @@ class Index extends Controller
               echo "no";
          }
     }
+
 }

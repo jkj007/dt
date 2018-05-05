@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:57:"D:\phpStudy\WWW\dt./application/admin\view\index\bbs.html";i:1525509054;s:35:"public/static/admin/common/nav.html";i:1525342768;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:64:"D:\phpStudy\WWW\dt./application/admin\view\index\bbsmessage.html";i:1525496791;s:35:"public/static/admin/common/nav.html";i:1525342768;}*/ ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -145,30 +145,44 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="col-md-12 graphs">
 	   <div class="xs">
       
-  	 <h3>论坛管理</h3>
-    <form action="./abbs" class="form-horizontal" method="post">
+  	 <h3>普通用户</h3>
+    <form action="./ausers" class="form-horizontal" method="post">
        <div class="form-group">
-            <label for="focusedinput" class="col-sm-1 control-label">标题:</label>
-                  <div class="col-sm-3">
-                    <input type="text" name="title" class="form-control1" id="focusedinput" placeholder="标题">
+            <label for="focusedinput" class="col-sm-1 control-label">姓名:</label>
+                  <div class="col-sm-2">
+                    <input type="text" name="name" class="form-control1" id="focusedinput" placeholder="姓名">
                   </div>
-           <button  class="btn btn-warning warning_22">搜索</button>
+            <label for="focusedinput" class="col-sm-1 control-label">手机号:</label>
+                  <div class="col-sm-3">
+                    <input type="text" name="phone" class="form-control1" id="focusedinput" placeholder="手机号">
+                  </div>
+            <label for="focusedinput" class="col-sm-1 control-label">邀请人:</label>
+                  <div class="col-sm-2">
+                    <input type="text" name="come" class="form-control1" id="focusedinput" placeholder="邀请人">
+                  </div>
+           <button class="btn btn-warning warning_22">搜索</button>
       </div>
      </form>
   	<div class="bs-example4" data-example-id="contextual-table">
-      <table class="table">
+    <table class="table">
       <thead>
         <tr>
-          <th>论坛标题</th>
-          <th>种类</th>
-          <th>点击数</th>
-          <th>评论数</th>
-          <th>收藏数</th>
+          <th>姓名</th>
+          <th>手机号</th>
+          <th>邀请人</th>
+          <th>注册时间</th>
+          <th>充值金额</th>
           <th>操作</th>
         </tr>
       </thead>
       <tbody>
-<?php if(is_array($info) || $info instanceof \think\Collection || $info instanceof \think\Paginator): $i = 0; $__LIST__ = $info;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;
+       <!--  <tr class="active">
+          <th scope="row">1</th>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+        </tr> -->
+<?php $i=1;      if(is_array($info) || $info instanceof \think\Collection || $info instanceof \think\Paginator): $i = 0; $__LIST__ = $info;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;
            $i+=2; 
         
            if($i%2==1){
@@ -177,25 +191,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             echo "<tr class=\"active\">";
           }
         ?>
-          <th scope="row"><?php echo $vo['title']; ?></th>
-          <td><?php echo $vo['type']; ?></td>
-          <td><?php echo $vo['clicknum']; ?></td>
-          <td><?php echo $vo['returnnum']; ?></td>
-          <td><?php echo $vo['collnum']; ?></td>
-          <td>
-              <a href="./abbsinfo?id=<?php echo $vo['id']; ?>"><button type="button" class="btn btn-xs btn-info">内容修改</button></a>
-              <a href="./abbscomment?id=<?php echo $vo['id']; ?>"><button type="button" class="btn btn-xs btn-info">评论管理</button></a>
-              <a href="./abbsdel?id=<?php echo $vo['id']; ?>"><button type="button" class="btn btn-xs btn-info">删除</button></a>
-
-           
-          </td>
+          <th scope="row"><?php echo $vo['name']; ?></th>
+          <td><?php echo $vo['phone']; ?></td>
+          <td><?php if($vo['come']==1){echo "网站";}else{}  ?></td>
+          <td><?php echo  date("Y-m-d",$vo['addtime']);   ?></td>
+          <td>100</td>
+          <td><a href="./auserinfo"><button type="button" class="btn btn-xs btn-info">查看详情</button></a></td>
         </tr>
 <?php endforeach; endif; else: echo "" ;endif; ?>
-
-
       </tbody>
     </table>
-    <?php echo $info->render(); ?>
+
+<?php echo $info->render(); ?>
+
+
+
    </div>
   </div>
   <div class="copy_layout">
