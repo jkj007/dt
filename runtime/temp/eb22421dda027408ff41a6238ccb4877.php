@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:59:"D:\phpStudy\WWW\dt./application/index\view\index\login.html";i:1523432390;s:36:"public/static/index/common/head.html";i:1525505717;s:35:"public/static/index/common/nav.html";i:1525508231;s:38:"public/static/index/common/footer.html";i:1524878979;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:59:"D:\phpStudy\WWW\dt./application/index\view\index\login.html";i:1523432390;s:36:"public/static/index/common/head.html";i:1525505717;s:35:"public/static/index/common/nav.html";i:1525575336;s:38:"public/static/index/common/footer.html";i:1524878979;}*/ ?>
 <!DOCTYPE html>
 <head>
     <meta charset="utf-8" />
@@ -44,7 +44,7 @@
                                 <li><a href="pdd">拼多多</a></li>
                                 <li><a href="jd">京东</a></li>
                                 <li><a href="lazada">lazada</a></li>
-                                <li><a href="other">其他</a></li>
+                            
                          
                             </ul>
                         </li>

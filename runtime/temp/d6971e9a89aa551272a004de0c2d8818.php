@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:57:"D:\phpStudy\WWW\dt./application/index\view\index\dtx.html";i:1524644560;s:36:"public/static/index/common/head.html";i:1523431074;s:35:"public/static/index/common/nav.html";i:1524641164;s:38:"public/static/index/common/footer.html";i:1524878979;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:57:"D:\phpStudy\WWW\dt./application/index\view\index\dtx.html";i:1525509765;s:36:"public/static/index/common/head.html";i:1525505717;s:35:"public/static/index/common/nav.html";i:1525575336;s:38:"public/static/index/common/footer.html";i:1524878979;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,8 +7,10 @@
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />	
     <link rel="stylesheet" href="http://localhost/dt/public/static/index/plugin/bootstrap/css/bootstrap.min.css" />
-<link rel="stylesheet" href="http://localhost/dt/public/static/index/css/style.css" />
-<link rel="stylesheet" href="http://localhost/dt/public/static/index/plugin/animate.min.css" />
+	<link rel="stylesheet" href="http://localhost/dt/public/static/index/plugin/font-awesome/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="http://localhost/dt/public/static/index/plugin/pretty-photo/css/prettyPhoto.css" />
+	<link rel="stylesheet" href="http://localhost/dt/public/static/index/css/style.css" />
+	<link rel="stylesheet" href="http://localhost/dt/public/static/index/css/animate.min.css" />
 
 </head>
 <body>
@@ -43,7 +45,7 @@
                                 <li><a href="pdd">拼多多</a></li>
                                 <li><a href="jd">京东</a></li>
                                 <li><a href="lazada">lazada</a></li>
-                                <li><a href="other">其他</a></li>
+                            
                          
                             </ul>
                         </li>
@@ -55,7 +57,8 @@
                                 <li><a href="http://localhost/dt/public/static/index/blog-post.htm">详细信息</a></li>
                             </ul>
                         </li> -->
-                        <li><a href="blog"><span>提问社区</span></a></li>
+                        <li><a href="blog"><span>文章</span></a></li>
+                        <li><a href="lt"><span>论坛</span></a></li>
                         <li><a href="contact"><span>联系我们</span></a></li>
                     </ul>
                     <a class="btn btn-theme navbar-btn btn-default sign-in" href="login">登陆</a>
@@ -74,9 +77,9 @@
                 </div>
                 <div class="col-md-5">
                     <ol class="breadcrumb pull-right">
-                        <li><a href="http://localhost/dt/public/static/index/index.htm">Home</a></li>
-                        <li><a href="http://localhost/dt/public/static/index/categories.htm">Tutorials</a></li>
-                        <li class="active">Video</li>
+                        <li><a href="http://localhost/dt/public/static/index/index.htm">资源</a></li>
+                        <li><a href="http://localhost/dt/public/static/index/index.htm">电淘系</a></li>
+                        <li class="active">视频</li>
                     </ol>
                 </div>
             </div>
@@ -86,100 +89,47 @@
     <!-- Video list boxes: list -->
     <section class="content content-light  videos-list videos-list-list">
         <div class="container">
-            <div class="pull-right list-view-change">
-                <a href="http://localhost/dt/public/static/index/videos-grid.htm"><i class="fa fa-th-large"></i> Grid view</a>
-                <a href="http://localhost/dt/public/static/index/videos-list.htm" class="active"><i class="fa fa-th-list"></i> List view</a>
-            </div>
             <div class="filter">
                 <a href="http://localhost/dt/public/static/index/#" class="btn btn-theme navbar-btn btn-orange">小白</a> &nbsp; 
-                <a href="http://localhost/dt/public/static/index/#" class="btn btn-theme navbar-btn btn-lightblue">Webdesign</a>
-                <a href="http://localhost/dt/public/static/index/#" class="btn btn-theme navbar-btn btn-lightblue">Coding</a>
-                <a href="http://localhost/dt/public/static/index/#" class="btn btn-theme navbar-btn btn-lightblue">Languages</a>
-                <a href="http://localhost/dt/public/static/index/#" class="btn btn-theme navbar-btn btn-lightblue">Music</a>                
+                <a href="http://localhost/dt/public/static/index/#" class="btn btn-theme navbar-btn btn-orange">高端</a> &nbsp; 
+                <a href="http://localhost/dt/public/static/index/#" class="btn btn-theme navbar-btn btn-orange">专业</a> &nbsp;             
             </div>
             
             <hr class="invisible" />
             
             <article class="row video-item">
                 <div class="col-md-4">
-                    <a href="http://localhost/dt/public/static/index/video.htm" class="video-prev video-prev-small"></a>
-                    <p class="button-full"><a href="http://localhost/dt/public/static/index/video.htm" class="btn btn-theme btn-green"><i class="fa fa-play"></i> Watch the video <small>215 <i class="fa fa-heart"></i></small></a></p>
+                    <a href="./jd" class="video-prev video-prev-small"></a>
+                    <p class="button-full"><a href="./jd" class="btn btn-theme btn-green"><i class="fa fa-play"></i> 购买视频 <small>￥888 <i class="fa fa-heart"></i></small></a></p>
                 </div>
                 <div class="col-md-8">
-                    <h3 class="video-title"><a href="http://localhost/dt/public/static/index/video.htm">How to draw a painting</a></h3>
-                    <p class="video-description">handler has just finished his Graphic Design degree and enjoys continuing to learn from Monica and building his experience. Joey and Phoebe focus on bringing new business to the company. They have won a number of big clients recently and both also have qualifications in project management to ensure that the projects run smoothly from start to finish.</p>
+                    <h3 class="video-title"><a href="http://localhost/dt/public/static/index/video.htm">视频标题</a></h3>
+                    <p class="video-description">视频内容视频内容视频内容视频内容视频内容视频内容视频内容视频内容视频内容视频内容视频内视频内容视频内容容视频内容视频内容视频内容视频内容视频内容视频内容视频内容视频内容视频内容视频内容视频内容视频内容视频内容视频内容视频内容视频内容视频内容视频内容视频内容.</p>
                     <div class="row video-params">
                         <div class="col-md-4">
-                            Author: <b>Joe Doe</b>
+                            作者: <b>admin1</b>
                         </div>
                         <div class="col-md-3">
-                            Date: <b>13, Jan 2013</b>
+                            日期: <b>2018年8月8日</b>
                         </div>
                         <div class="col-md-3">
-                            Category: <b>Drawing</b>
+                            标签: <b>小白</b>
                         </div>
                         <div class="col-md-2">
-                            Views: <b>312</b>
+                            浏览量: <b>312</b>
                         </div>
                     </div>                        
                 </div>
             </article>
-            <article class="row video-item">
-                <div class="col-md-4">
-                    <a href="http://localhost/dt/public/static/index/video.htm" class="video-prev video-prev-small"></a>
-                    <p class="button-full"><a href="http://localhost/dt/public/static/index/video.htm" class="btn btn-theme btn-green"><i class="fa fa-play"></i> Watch the video <small>215 <i class="fa fa-heart"></i></small></a></p>
-                </div>
-                <div class="col-md-8">
-                    <h3 class="video-title"><a href="http://localhost/dt/public/static/index/video.htm">How to draw a painting</a></h3>
-                    <p class="video-description">handler has just finished his Graphic Design degree and enjoys continuing to learn from Monica and building his experience. Joey and Phoebe focus on bringing new business to the company. They have won a number of big clients recently and both also have qualifications in project management to ensure that the projects run smoothly from start to finish.</p>
-                    <div class="row video-params">
-                        <div class="col-md-4">
-                            Author: <b>Joe Doe</b>
-                        </div>
-                        <div class="col-md-3">
-                            Date: <b>13, Jan 2013</b>
-                        </div>
-                        <div class="col-md-3">
-                            Category: <b>Drawing</b>
-                        </div>
-                        <div class="col-md-2">
-                            Views: <b>312</b>
-                        </div>
-                    </div>                        
-                </div>
-            </article>
-            <article class="row video-item">
-                <div class="col-md-4">
-                    <a href="http://localhost/dt/public/static/index/video.htm" class="video-prev video-prev-small"></a>
-                    <p class="button-full"><a href="http://localhost/dt/public/static/index/video.htm" class="btn btn-theme btn-green"><i class="fa fa-play"></i> Watch the video <small>215 <i class="fa fa-heart"></i></small></a></p>
-                </div>
-                <div class="col-md-8">
-                    <h3 class="video-title"><a href="http://localhost/dt/public/static/index/video.htm">How to draw a painting</a></h3>
-                    <p class="video-description">handler has just finished his Graphic Design degree and enjoys continuing to learn from Monica and building his experience. Joey and Phoebe focus on bringing new business to the company. They have won a number of big clients recently and both also have qualifications in project management to ensure that the projects run smoothly from start to finish.</p>
-                    <div class="row video-params">
-                        <div class="col-md-4">
-                            Author: <b>Joe Doe</b>
-                        </div>
-                        <div class="col-md-3">
-                            Date: <b>13, Jan 2013</b>
-                        </div>
-                        <div class="col-md-3">
-                            Category: <b>Drawing</b>
-                        </div>
-                        <div class="col-md-2">
-                            Views: <b>312</b>
-                        </div>
-                    </div>                        
-                </div>
-            </article>
-            
+           
+          
             <!-- Pagination -->
             <ul class="pagination">
-                <li class="disabled"><a href="http://localhost/dt/public/static/index/#"><i class="fa fa-angle-left"></i></a></li>
+                <li class="disabled"><a href="http://localhost/dt/public/static/index/#"><</a></li>
                 <li class="active"><a href="http://localhost/dt/public/static/index/videos-list.htm">1 <span class="sr-only">(current)</span></a></li>
                 <li><a href="http://localhost/dt/public/static/index/#">2</a></li>
                 <li><a href="http://localhost/dt/public/static/index/#">3</a></li>
-                <li><a href="http://localhost/dt/public/static/index/#"><i class="fa fa-angle-right"></i></a></li>
+                <li><a href="http://localhost/dt/public/static/index/#">></i></a></li>
             </ul>
 
         </div>        

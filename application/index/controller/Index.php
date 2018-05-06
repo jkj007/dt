@@ -32,9 +32,11 @@ class Index extends Controller
     public function  blog(){
       //查询所有数据
       if(!empty($_POST['title'])){
-         $res=db('bbs')->where('title','like','%'.$_POST['title']."%")->paginate(2);
+         $res=db('bbs')->where('title','like','%'.$_POST['title']."%")->order('type desc')->paginate(2);
+       }elseif(!empty($_GET['type'])){
+         $res=db('bbs')->where('type',$_GET['type'])->order('type desc')->paginate(2);
        }else{
-         $res=db('bbs')->paginate(2);
+          $res=db('bbs')->order('type desc')->paginate(2);
        }
       $this->assign('info',$res);
       //查询最新三条数据

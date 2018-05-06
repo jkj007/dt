@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:61:"D:\phpStudy\WWW\dt./application/index\view\index\aboutus.html";i:1525339757;s:36:"public/static/index/common/head.html";i:1523431074;s:35:"public/static/index/common/nav.html";i:1524641164;s:38:"public/static/index/common/footer.html";i:1524878979;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:61:"D:\phpStudy\WWW\dt./application/index\view\index\aboutus.html";i:1525339757;s:36:"public/static/index/common/head.html";i:1525505717;s:35:"public/static/index/common/nav.html";i:1525575336;s:38:"public/static/index/common/footer.html";i:1524878979;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,8 +7,10 @@
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="http://localhost/dt/public/static/index/plugin/bootstrap/css/bootstrap.min.css" />
-<link rel="stylesheet" href="http://localhost/dt/public/static/index/css/style.css" />
-<link rel="stylesheet" href="http://localhost/dt/public/static/index/plugin/animate.min.css" />
+	<link rel="stylesheet" href="http://localhost/dt/public/static/index/plugin/font-awesome/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="http://localhost/dt/public/static/index/plugin/pretty-photo/css/prettyPhoto.css" />
+	<link rel="stylesheet" href="http://localhost/dt/public/static/index/css/style.css" />
+	<link rel="stylesheet" href="http://localhost/dt/public/static/index/css/animate.min.css" />
 </head>
 <body>
     <header class="main">
@@ -42,7 +44,7 @@
                                 <li><a href="pdd">拼多多</a></li>
                                 <li><a href="jd">京东</a></li>
                                 <li><a href="lazada">lazada</a></li>
-                                <li><a href="other">其他</a></li>
+                            
                          
                             </ul>
                         </li>
@@ -54,7 +56,8 @@
                                 <li><a href="http://localhost/dt/public/static/index/blog-post.htm">详细信息</a></li>
                             </ul>
                         </li> -->
-                        <li><a href="blog"><span>提问社区</span></a></li>
+                        <li><a href="blog"><span>文章</span></a></li>
+                        <li><a href="lt"><span>论坛</span></a></li>
                         <li><a href="contact"><span>联系我们</span></a></li>
                     </ul>
                     <a class="btn btn-theme navbar-btn btn-default sign-in" href="login">登陆</a>

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:56:"D:\phpStudy\WWW\dt./application/index\view\index\jd.html";i:1523342202;s:36:"public/static/index/common/head.html";i:1523431074;s:35:"public/static/index/common/nav.html";i:1524641164;s:38:"public/static/index/common/footer.html";i:1524878979;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:56:"D:\phpStudy\WWW\dt./application/index\view\index\jd.html";i:1525509765;s:36:"public/static/index/common/head.html";i:1525505717;s:35:"public/static/index/common/nav.html";i:1525575336;s:38:"public/static/index/common/footer.html";i:1524878979;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,8 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />	
     <!-- CSS Files -->
 	<link rel="stylesheet" href="http://localhost/dt/public/static/index/plugin/bootstrap/css/bootstrap.min.css" />
-<link rel="stylesheet" href="http://localhost/dt/public/static/index/css/style.css" />
-<link rel="stylesheet" href="http://localhost/dt/public/static/index/plugin/animate.min.css" />
+	<link rel="stylesheet" href="http://localhost/dt/public/static/index/plugin/font-awesome/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="http://localhost/dt/public/static/index/plugin/pretty-photo/css/prettyPhoto.css" />
+	<link rel="stylesheet" href="http://localhost/dt/public/static/index/css/style.css" />
+	<link rel="stylesheet" href="http://localhost/dt/public/static/index/css/animate.min.css" />
 </head>
 <body>
     <header class="main">
@@ -43,7 +45,7 @@
                                 <li><a href="pdd">拼多多</a></li>
                                 <li><a href="jd">京东</a></li>
                                 <li><a href="lazada">lazada</a></li>
-                                <li><a href="other">其他</a></li>
+                            
                          
                             </ul>
                         </li>
@@ -55,7 +57,8 @@
                                 <li><a href="http://localhost/dt/public/static/index/blog-post.htm">详细信息</a></li>
                             </ul>
                         </li> -->
-                        <li><a href="blog"><span>提问社区</span></a></li>
+                        <li><a href="blog"><span>文章</span></a></li>
+                        <li><a href="lt"><span>论坛</span></a></li>
                         <li><a href="contact"><span>联系我们</span></a></li>
                     </ul>
                     <a class="btn btn-theme navbar-btn btn-default sign-in" href="login">登陆</a>
@@ -70,13 +73,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-7">
-                    <h1>How to draw a painting</h1>
+                    <h1>视频标题</h1>
                 </div>
                 <div class="col-md-5">
                     <ol class="breadcrumb pull-right">
-                        <li><a href="http://localhost/dt/public/static/index/index.htm">Home</a></li>
-                        <li><a href="http://localhost/dt/public/static/index/categories.htm">Tutorials</a></li>
-                        <li class="active">Video</li>
+                        <li><a href="http://localhost/dt/public/static/index/index.htm">资源</a></li>
+                        <li><a href="http://localhost/dt/public/static/index/categories.htm">电淘系</a></li>
+                        <li class="active">视频</li>
                     </ol>
                 </div>
             </div>
@@ -94,7 +97,7 @@
                         <a href="http://localhost/dt/public/static/index/http://www.youtube.com/v/9QscURRuF0g&amp;autoplay=1" class="video-prev video-play-here" style="height:350px; background-image:url('img/617x350.gif'); "></a>
                         
                         <div class="video-content">
-                            <p>handler has just finished his Graphic Design degree and enjoys continuing to learn from Monica and building his experience. Joey and Phoebe focus on bringing new business to the company. They have won a number of big clients recently and both also have qualifications in project management to ensure that the projects run smoothly from start to finish.</p>
+                            <p>视频内容视频内容视频内容视频内容视频内容视频内容视频内容视频内容视频内容视频内容视频内视频内容视频内容容视频内容视频内容视频内容视频内容视频内容视频内容视频内容视频内容视频内容视频内容视频内容视频内容视频内容视频内容视频内容视频内容视频内容视频内容视频内容.</p>
                         </div>
                         
                         <hr class="invisible" />
@@ -102,60 +105,60 @@
                         
                         <!-- Video - related -->
                         <section class="related">
-                            <h2>Similar videotutorials</h2>
+                            <h2>相关软件</h2>
                             <div class="row  videos-list">
                                 <article class="col-md-6  video-item">
                                     <a href="http://localhost/dt/public/static/index/video.htm" class="video-prev video-prev-small"></a>
-                                    <p class="button-full"><a href="http://localhost/dt/public/static/index/video.htm" class="btn btn-theme btn-green">How to draw a painting</a></p>
+                                    <p class="button-full"><a href="http://localhost/dt/public/static/index/video.htm" class="btn btn-theme btn-green">软件1</a></p>
                                 </article>
                                 <article class="col-md-6  video-item">
                                     <a href="http://localhost/dt/public/static/index/video.htm" class="video-prev video-prev-small"></a>
-                                    <p class="button-full"><a href="http://localhost/dt/public/static/index/video.htm" class="btn btn-theme btn-green">How to draw a painting</a></p>
+                                    <p class="button-full"><a href="http://localhost/dt/public/static/index/video.htm" class="btn btn-theme btn-green">软件2</a></p>
                                 </article>
                             </div>
                             <div class="row">
                                 <article class="col-md-6  video-item">
                                     <a href="http://localhost/dt/public/static/index/video.htm" class="video-prev video-prev-small"></a>
-                                    <p class="button-full"><a href="http://localhost/dt/public/static/index/video.htm" class="btn btn-theme btn-green">How to draw a painting</a></p>
+                                    <p class="button-full"><a href="http://localhost/dt/public/static/index/video.htm" class="btn btn-theme btn-green">软件3</a></p>
                                 </article>
                                 <article class="col-md-6  video-item">
                                     <a href="http://localhost/dt/public/static/index/video.htm" class="video-prev video-prev-small"></a>
-                                    <p class="button-full"><a href="http://localhost/dt/public/static/index/video.htm" class="btn btn-theme btn-green">How to draw a painting</a></p>
+                                    <p class="button-full"><a href="http://localhost/dt/public/static/index/video.htm" class="btn btn-theme btn-green">软件4</a></p>
                                 </article>
                             </div>
                         </section>
                     </article>
                 </div>
                 <aside class="col-md-4">
-                    <h3 class="video-title">How to draw a painting</h3>
+                    <h3 class="video-title">视频标题</h3>
                     <p class="video-params">
-                        Author: <b>Joe Doe</b> <br />
-                        Date: <b>13, Jan 2013</b> <br />
-                        Category: <b>Drawing</b> <br />
-                        Views: <b>312</b> <br />
-                        Likes: <b>15</b> <a href="http://localhost/dt/public/static/index/#"><i class="fa fa-heart"></i></a>
+                        作者: <b>admin1</b> <br />
+                        日期: <b>2018年8月8日</b> <br />
+                        标签: <b>小白</b> <br />
+                        浏览量: <b>312</b> <br />
+                        喜欢: <b>999</b> <a href="http://localhost/dt/public/static/index/#"><i class="fa fa-heart"></i></a>
                     </p>
-                    <!--<p class="video-description">handler has just finished his Graphic Design degree and enjoys continuing to learn from Monica and building his experience. Joey and Phoebe focus on bringing new business to the company. They have won a number of big clients recently and both also have qualifications in project management to ensure that the projects run smoothly from start to finish.</p>-->
                     <div class="row buttons-margin-horizontal">
                         <div class="col-md-6 button-full">
-                            <a class="btn btn-theme btn-red"><i class="fa fa-heart"></i> Like</a>
+                            <a class="btn btn-theme btn-red"><i class="fa fa-heart"></i> 喜欢</a>
                         </div>
                         <div class="col-md-6 button-full">
-                            <a class="btn btn-theme btn-orange"><i class="fa fa-plus"></i> Collect</a>
+                            <a class="btn btn-theme btn-orange"><i class="fa fa-plus"></i>收藏</a>
                         </div>
                     </div>
-                    <p class="button-full buttons-margin-horizontal"><a class="btn btn-theme btn-green"><i class="fa fa-download"></i> Download the video</a></p>
+                    <p class="button-full buttons-margin-horizontal"><a class="btn btn-theme btn-green"><i class="fa fa-download"></i> 购买 (已出售999份)</a></p>
                     <div class="blue-box video-social">
                         <div class="row">
-                            <div class="col-md-5">
-                                <iframe src="http://localhost/dt/public/static/index///www.facebook.com/plugins/like.php?href=hhttp://localhost/dt/public/static/index/ttps%3A%2F%2Fwww.facebook.com%2Fpages%2FKL-Webmedia%2F131260293670757&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=false&amp;height=21&amp;appId=188835154460780" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px;" allowTransparency="true"></iframe>
+                            <div class="col-md-4">
+                                分享微信
                             </div>
-                            <div class="col-md-3">
-                                <iframe scrolling="no" allowtransparency="true" frameborder="0" src="http://localhost/dt/public/static/index/https://platform.twitter.com/widgets/tweet_button.html#count=none&amp;url=https%3A%2F%2F.twitter.com%2FKLWebmedia" data-twttr-rendered="true" style="width: 58px; height: 20px;"></iframe>
+                            <div class="col-md-4">
+                                分享微博
                             </div>
-                            <div class="col-md-2">
-                                <iframe src="http://localhost/dt/public/static/index/https://plusone.google.com/_/+1/fastbutton?bsv&amp;size=medium&amp;hl=en-US&amp;url=https://plus.google.com/113174627408639682462/&amp;parent=https://plus.google.com/113174627408639682462/&amp;annotation=none" allowtransparency="true" frameborder="0" scrolling="no" title="+1"></iframe>
+                            <div class="col-md-4">
+                                分享QQ
                             </div>
+                        
                         </div>
                     </div>
                 </aside>

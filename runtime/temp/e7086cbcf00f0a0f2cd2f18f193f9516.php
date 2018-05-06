@@ -1,9 +1,9 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:58:"D:\phpStudy\WWW\dt./application/index\view\index\blog.html";i:1525507032;s:36:"public/static/index/common/head.html";i:1525505717;s:35:"public/static/index/common/nav.html";i:1525508231;s:38:"public/static/index/common/footer.html";i:1524878979;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:58:"D:\phpStudy\WWW\dt./application/index\view\index\blog.html";i:1525578888;s:36:"public/static/index/common/head.html";i:1525505717;s:35:"public/static/index/common/nav.html";i:1525575336;s:38:"public/static/index/common/footer.html";i:1524878979;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>分享号 - 常见问题</title>
+    <title>分享号 - 文章</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />	
     <!-- CSS Files -->
@@ -50,7 +50,7 @@
                                 <li><a href="pdd">拼多多</a></li>
                                 <li><a href="jd">京东</a></li>
                                 <li><a href="lazada">lazada</a></li>
-                                <li><a href="other">其他</a></li>
+                            
                          
                             </ul>
                         </li>
@@ -78,7 +78,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-7">
-                    <h1>分享号-论坛</h1>
+                    <h1>分享号-文章</h1>
                 </div>
                 <div class="col-md-5">
                     <ol class="breadcrumb pull-right">
@@ -92,7 +92,15 @@
     <!-- Blog list -->
     <section class="content content-light  blog">
         <div class="container">
+            <div class="filter">
+                    <a href="./blog?type=1" class="btn btn-theme navbar-btn btn-orange">普通</a> &nbsp; 
+                    <a href="./blog?type=2" class="btn btn-theme navbar-btn btn-orange">精选</a> &nbsp; 
+                    <a href="./blog?type=3" class="btn btn-theme navbar-btn btn-orange">顶置</a> &nbsp;             
+            </div>
             <div class="row">
+                 <hr class="invisible" />
+                  <hr class="invisible" />
+               
                 <!-- Blog list - center -->
                 <div class="col-md-8">
 
@@ -100,17 +108,38 @@
                 <?php if(is_array($info) || $info instanceof \think\Collection || $info instanceof \think\Paginator): $i = 0; $__LIST__ = $info;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
                     <article class="blog-item">
                         <header>
-                            <h2 class="blog-title">标题:<?php echo $vo['title']; ?></h2>
+                            <span class="text-orange">
+                                <?php
+                                    if($vo['type']==1){
+                                       
+                                    }elseif($vo['type']==2){
+                                        echo "精选";
+                                    }elseif($vo['type']==3){
+                                        echo "顶置";
+                                    }
+                                ?>
+                            </span>
+                            <font size="5"  class="blog-title">
+                                <b>
+                                <?php echo $vo['title']; ?>
+                                </b>
+                            </font>
                          
                             <p class="blue-box blog-params">
-                                <span><i class="fa fa-calendar"></i>发布时间:<?php echo $vo['addtime']; ?></span>
-                                <span><i class="fa fa-user"></i> <a href="http://localhost/dt/public/static/index/blog-list.htm">作者:<?php echo $vo['author']; ?></a></span>
+                                <span><i class="fa fa-calendar"></i>发布时间:
+                                    <?php  echo date("Y-m-d",$vo['addtime'])  ?></span>
+                                <span><i class="fa fa-user"></i> 作者:<?php echo $vo['author']; ?></span>
                                 <span><i class="fa fa-user"></i> 浏览量:<?php echo $vo['clicknum']; ?></span>
                                 <span class="text-orange"><i class="fa fa-comments-o"></i>收藏数:<?php echo $vo['collnum']; ?></span>
                             </p>
                         </header>
                         <p class="blog-description">
-                            <?php echo $vo['content']; ?>
+                           
+                                <?php 
+                                    $str=strip_tags($vo['content']);
+                                    echo mb_substr($str,0,300).".....";
+                                ?>
+                           
                         </p>
                         <p class="text-right blog-link-more"><a href="./bloginfo?id=<?php echo $vo['id']; ?>" class="btn btn-theme btn-orange">详细信息</a></p>
                     </article>
