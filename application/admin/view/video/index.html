@@ -72,6 +72,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           <th>描述</th>
           <th>类型</th>
           <th>价格</th>
+            <th>添加时间</th>
           <th>购买</th>
           <th>收藏</th>
           <th>浏览</th>
@@ -85,17 +86,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           <td>Column content</td>
           <td>Column content</td>
         </tr> -->
-<?php $i=1;      ?>
+
 {volist name="info" id="vo"}
-        <?php 
-           $i+=2; 
-        
-           if($i%2==1){
-            echo "<tr class=\"success\">";
-          }else{
-            echo "<tr class=\"active\">";
-          }
-        ?>
+       <tr>
           <th scope="row">{$vo.title}</th>
           <td>{$vo.desc}</td>
           <td>{$vo.type}</td>
@@ -105,7 +98,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           <td>{$vo.num}</td>
           <td>{$vo.collnum}</td>
           <td>{$vo.viewnum}</td>
-          <td><a href="./auserinfo"><button type="button" class="btn btn-xs btn-info">删除</button></a></td>
+          <td><a href="/auserinfo"><button type="button" class="btn btn-xs btn-info">删除</button></a></td>
         </tr>
 {/volist}
       </tbody>
