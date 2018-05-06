@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:50:"D:\WWW\dt./application/admin\view\index\index.html";i:1525491494;s:35:"public/static/admin/common/nav.html";i:1525492043;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:50:"D:\WWW\dt./application/admin\view\index\index.html";i:1525491494;s:35:"public/static/admin/common/nav.html";i:1525503722;}*/ ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -93,10 +93,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <a href="http://localhost/dt/public/static/admin/#"><i class="fa fa-indent nav_icon"></i>电淘管理<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="adtvideo.html">视频管理</a>
+                                    <a href="./avideo">视频管理</a>
                                 </li>
                                 <li>
-                                    <a href="http://localhost/dt/public/static/admin/dtvideo.html">软件管理</a>
+                                    <a href="./soft">软件管理</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
