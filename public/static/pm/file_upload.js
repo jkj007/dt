@@ -26,7 +26,7 @@ $(function () {
         url: url,
         dataType: 'json',
         autoUpload: false,
-        acceptFileTypes: /(\.|\/)(gif|jpe?g|png|wmv)$/i,
+        acceptFileTypes: /(\.|\/)(gif|jpe?g|png|mp4)$/i,
         maxFileSize: 0,
         // Enable image resizing, except for Android and Opera,
         // which actually support image resizing, but fail to
@@ -39,6 +39,7 @@ $(function () {
         //图片添加完成后触发的事件
     }).on('fileuploadadd', function (e, data) {
         data.context = $('<span/>').appendTo('#files');
+        $('#files').find('video').remove();
         $.each(data.files, function (index, file) {
 
             var node = $('<span/>').text(file.name);

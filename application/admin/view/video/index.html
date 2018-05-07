@@ -98,7 +98,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           <td>{$vo.num}</td>
           <td>{$vo.collnum}</td>
           <td>{$vo.viewnum}</td>
-          <td><a href="/auserinfo"><button type="button" class="btn btn-xs btn-info">删除</button></a></td>
+          <td class="btn-group">
+                <button type="button" onclick="event.preventDefault();
+                                                     document.getElementById('del-form').submit();" class="btn btn-xs btn-info">删除</button>
+                <button type="button" onclick="location.href='/avideo/'+{$vo.id}+'/edit'" class="btn btn-xs btn-info">修改</button>
+            </td>
+          <form id="del-form" action="/avideo/{$vo.id}" method="POST" style="display: none;">
+                <input type="hidden" name="_method" value="DELETE" >
+          </form>
         </tr>
 {/volist}
       </tbody>
