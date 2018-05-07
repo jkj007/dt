@@ -17,7 +17,7 @@ class Index extends Controller
     	return view();
     }
     public function reg(){
-    	return view();
+    	//return view();
     }
     public function dtvideo(){
       return view();
@@ -51,14 +51,14 @@ class Index extends Controller
             $this->error('手机号已存在');
         }
          //组装注册信息
-        $data=array('phone'=>$_POST['phone'],'pass'=>mymd5($_POST['pass']),'addtime'=>time(),'state'=>1);
+        $data=array('phone'=>$_POST['phone'],'pass'=>mymd5($_POST['pass']),'addtime'=>time(),'state'=>2);
         if(db('users')->insert($data)){
           $this->success("注册成功!",'admin/admin/admin');
         }
     }
     //登陆验证
     public function loginin(){
-        $res=db('users')->where('phone',$_POST['phone'])->where('pass',mymd5($_POST['pass']))->select();
+        $res=db('users')->where('state','>=',2)->where('phone',$_POST['phone'])->where('pass',mymd5($_POST['pass']))->select();
         if($res){
           //登陆成功
           session($_SERVER['REMOTE_ADDR']."islogin",$_POST['phone']);
@@ -158,6 +158,12 @@ class Index extends Controller
       if(db('bbs')->where('id',$_GET['id'])->delete()){
         $this->success("删除成功!",'admin/admin/bbs');
       }
+    }
+    public function edituser(){
+      $res=db('users')->where('id',$_GET['id'])->find();
+      $this->assign('info',$res);
+      return view();
+
     }
 
 

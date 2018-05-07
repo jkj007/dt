@@ -40,6 +40,7 @@ return [
     'abbscomment' => 'admin/index/bbscomment',
     'aupdatebbs' => 'admin/index/updatebbs',
     'abbsdel' => 'admin/index/bbsdel',
+    'aedituser' => 'admin/index/edituser',
 
 
     //视频路由-pm
