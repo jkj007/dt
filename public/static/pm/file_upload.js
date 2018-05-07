@@ -26,7 +26,7 @@ $(function () {
         url: url,
         dataType: 'json',
         autoUpload: false,
-        acceptFileTypes: /(\.|\/)(gif|jpe?g|png|mp4)$/i,
+        acceptFileTypes: /(\.|\/)(mp4)$/i,
         maxFileSize: 0,
         // Enable image resizing, except for Android and Opera,
         // which actually support image resizing, but fail to
@@ -41,13 +41,15 @@ $(function () {
         data.context = $('<span/>').appendTo('#files');
         $('#files').find('video').remove();
         $.each(data.files, function (index, file) {
-
-            var node = $('<span/>').text(file.name);
-            if (!index) {
-                node
+                var node = $('<span/>').text(file.name);
+                if (!index) {
+                    node
                     .append('<br>')
                     .append(uploadButton.clone(true).data(data));
-            }
+                }
+            
+            
+            
             node.appendTo(data.context);
 
         });
@@ -96,7 +98,7 @@ $(function () {
         //上传请求失败时触发的回调函数
     }).on('fileuploadfail', function (e, data) {
         $.each(data.files, function (index) {
-            var error = $('<span class="text-danger"/>').text('File upload failed.');
+            var error = $('<span class="text-danger"/>').text('文件上传失败.');
             $(data.context.children()[index])
                 .append('<br>')
                 .append(error);

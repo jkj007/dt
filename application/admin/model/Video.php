@@ -7,7 +7,7 @@ class Video extends Model
 {
     //开启时间戳自动写入
     protected $autoWriteTimestamp = 'datetime';
-
+    protected $datetime_format =false;
     public function getDescAttr($value){
         return mb_substr(strip_tags($value),0,20,'utf-8')."...";
     }
