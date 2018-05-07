@@ -96,7 +96,7 @@ class Index extends Controller
             $this->error('手机号已存在');
         }
          //组装注册信息
-        $data=array('name'=>$_POST['name'],'come'=>$_POST['come'],'phone'=>$_POST['phone'],'pass'=>mymd5($_POST['pass']),'addtime'=>time(),'state'=>2);
+        $data=array('name'=>$_POST['name'],'come'=>$_POST['come'],'phone'=>$_POST['phone'],'pass'=>mymd5($_POST['pass']),'addtime'=>time(),'state'=>1);
         if(db('users')->insert($data)){
           $this->success("注册成功!",'./index');
         }

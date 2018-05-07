@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:57:"D:\phpStudy\WWW\dt./application/admin\view\index\reg.html";i:1523349132;s:33:"./public/static/admin/bottom.html";i:1522295972;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:57:"D:\phpStudy\WWW\dt./application/admin\view\index\reg.html";i:1525581510;s:33:"./public/static/admin/bottom.html";i:1522295972;}*/ ?>
 <!DOCTYPE HTML>
 <html>
 <head>

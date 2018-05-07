@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:59:"D:\phpStudy\WWW\dt./application/admin\view\index\login.html";i:1523343892;s:33:"./public/static/admin/bottom.html";i:1522295972;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:59:"D:\phpStudy\WWW\dt./application/admin\view\index\login.html";i:1525581616;s:33:"./public/static/admin/bottom.html";i:1522295972;}*/ ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -33,9 +33,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<input type="password" name="pass" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
 		<div class="submit"><input type="submit"  value="登陆"></div>
 		<div class="login-social-link">
-          <a href="./areg"  class="facebook myself">
-              手机注册
-          </a>
+        
           <a href="./afindpass" class="twitter myself">
               密码找回
           </a>

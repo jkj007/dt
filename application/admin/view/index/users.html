@@ -93,7 +93,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           <td><?php if($vo['come']==1){echo "网站";}else{}  ?></td>
           <td><?php echo  date("Y-m-d",$vo['addtime']);   ?></td>
           <td>100</td>
-          <td><a href="./auserinfo"><button type="button" class="btn btn-xs btn-info">查看详情</button></a></td>
+          <td>
+            <a href="./auserinfo?id={$vo.id}"><button type="button" class="btn btn-xs btn-info">查看详情</button></a>
+            <a href="./aedituser?id={$vo.id}"><button type="button" class="btn btn-xs btn-info">修改等级</button></a>
+          </td>
         </tr>
 {/volist}
       </tbody>

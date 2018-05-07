@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:59:"D:\phpStudy\WWW\dt./application/admin\view\index\users.html";i:1525496791;s:35:"public/static/admin/common/nav.html";i:1525509765;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:59:"D:\phpStudy\WWW\dt./application/admin\view\index\users.html";i:1525581826;s:35:"public/static/admin/common/nav.html";i:1525509765;}*/ ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -196,7 +196,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           <td><?php if($vo['come']==1){echo "网站";}else{}  ?></td>
           <td><?php echo  date("Y-m-d",$vo['addtime']);   ?></td>
           <td>100</td>
-          <td><a href="./auserinfo"><button type="button" class="btn btn-xs btn-info">查看详情</button></a></td>
+          <td>
+            <a href="./auserinfo?id=<?php echo $vo['id']; ?>"><button type="button" class="btn btn-xs btn-info">查看详情</button></a>
+            <a href="./aedituser?id=<?php echo $vo['id']; ?>"><button type="button" class="btn btn-xs btn-info">修改等级</button></a>
+          </td>
         </tr>
 <?php endforeach; endif; else: echo "" ;endif; ?>
       </tbody>
