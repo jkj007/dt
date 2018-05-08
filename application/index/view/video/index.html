@@ -50,9 +50,10 @@
                     <p class="button-full"><a href="./jd" class="btn btn-theme btn-green"><i class="fa fa-play"></i> 购买视频 <small>￥{$video->price} <i class="fa fa-heart"></i></small></a></p>
                 </div>
                 <div class="col-md-8">
-                    <h3 class="video-title"><a href="__PUBLIC__/index/video.htm">{$video->title}</a></h3>
+                    <h3 class="video-title"><a href="/dtx/{$video->id}">{$video->title}</a></h3>
                     <div class="video-description">
                         {$video->getData('desc')}
+                        <a href="/dtx/{$video->id}">[查看更多..]</a>
                     </div>
                     <div class="row video-params">
                         <div class="col-md-4">

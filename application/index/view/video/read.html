@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>eLearn - Video</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />	
+    <!-- CSS Files -->
+	{include file="public/static/index/common/head.html"/}
+</head>
+<body>
+    <header class="main">
+        <div class="container">
+           {include file="public/static/index/common/nav.html"/}
+        </div>
+    </header>
+    
+    <div class="page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <h1>视频标题</h1>
+                </div>
+                <div class="col-md-5">
+                    <ol class="breadcrumb pull-right">
+                        <li><a href="__PUBLIC__/index/index.htm">资源</a></li>
+                        <li><a href="__PUBLIC__/index/categories.htm">电淘系</a></li>
+                        <li class="active">视频</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Video: film view -->
+    <section class="content content-light  video-film">
+        <div class="container">
+            <!-- Video film view - center -->
+            <div class="row">
+                <div class="col-md-8">
+                    <article>
+                        <!-- Video film - player -->
+                        <video width="617" height="350" src="/public/videos/{$video->video}" controls=""></video>
+                        
+                        <div class="video-content">
+                            <p>{$video->getData('desc')}</p>
+                        </div>
+                        
+                        <hr class="invisible" />
+                        <hr class="invisible" />
+                        
+                        <!-- Video - related -->
+                        <section class="related">
+                            <h2>相关软件</h2>
+                            <div class="row  videos-list">
+                                <article class="col-md-6  video-item">
+                                    <a href="__PUBLIC__/index/video.htm" class="video-prev video-prev-small"></a>
+                                    <p class="button-full"><a href="__PUBLIC__/index/video.htm" class="btn btn-theme btn-green">软件1</a></p>
+                                </article>
+                                <article class="col-md-6  video-item">
+                                    <a href="__PUBLIC__/index/video.htm" class="video-prev video-prev-small"></a>
+                                    <p class="button-full"><a href="__PUBLIC__/index/video.htm" class="btn btn-theme btn-green">软件2</a></p>
+                                </article>
+                            </div>
+                            <div class="row">
+                                <article class="col-md-6  video-item">
+                                    <a href="__PUBLIC__/index/video.htm" class="video-prev video-prev-small"></a>
+                                    <p class="button-full"><a href="__PUBLIC__/index/video.htm" class="btn btn-theme btn-green">软件3</a></p>
+                                </article>
+                                <article class="col-md-6  video-item">
+                                    <a href="__PUBLIC__/index/video.htm" class="video-prev video-prev-small"></a>
+                                    <p class="button-full"><a href="__PUBLIC__/index/video.htm" class="btn btn-theme btn-green">软件4</a></p>
+                                </article>
+                            </div>
+                        </section>
+                    </article>
+                </div>
+                <aside class="col-md-4">
+                    <h3 class="video-title">{$video->title}</h3>
+                    <p class="video-params">
+                        作者: <b>{$video->price}</b> <br />
+                        日期: <b>{:date('Y-m-d',strtotime($video->create_time))}</b> <br />
+                        标签: <b>{$video->type}</b> <br />
+                        浏览量: <b>{$video->viewnum}</b> <br />
+                        收藏: <b>{$video->collnum}</b> <!-- <a href="__PUBLIC__/index/#"><i class="fa fa-heart"></i></a> -->
+                    </p>
+                    <div class="row buttons-margin-horizontal">
+                        <div class="col-md-6 button-full">
+                            <a class="btn btn-theme btn-red"><i class="fa fa-heart"></i> 喜欢</a>
+                        </div>
+                        <div class="col-md-6 button-full">
+                            <a class="btn btn-theme btn-orange"><i class="fa fa-plus"></i>收藏</a>
+                        </div>
+                    </div>
+                    <p class="button-full buttons-margin-horizontal"><a class="btn btn-theme btn-green"><i class="fa fa-download"></i> 购买 (已出售{$video->num}份)</a></p>
+                    <div class="blue-box video-social">
+                        <div class="row">
+                            <div class="col-md-4">
+                                分享微信
+                            </div>
+                            <div class="col-md-4">
+                                分享微博
+                            </div>
+                            <div class="col-md-4">
+                                分享QQ
+                            </div>  
+                        
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12" style="width:100%;">推荐视频</div>
+                        <div class="col-md-12" style="width:100%;height: 300px;background-color: green;margin: 15px;">333</div>
+                        <div class="col-md-12" style="width:100%;height: 300px;background-color: green;margin: 15px;">333</div>
+                        <div class="col-md-12" style="width:100%;height: 300px;background-color: green;margin: 15px;">333</div>
+                    </div>
+                </aside>
+            </div>
+    </section>
+    
+    {include file="public/static/index/common/footer.html"/}
+
+</body>
+</html>

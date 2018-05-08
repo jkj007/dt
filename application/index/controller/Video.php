@@ -53,7 +53,8 @@ class Video extends Controller
      */
     public function read($id)
     {
-        //
+        $video = M::get($id);
+        return $this->fetch('read',compact('video'));
     }
 
     /**
