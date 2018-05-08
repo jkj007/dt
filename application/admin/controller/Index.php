@@ -163,7 +163,6 @@ class Index extends Controller
       $res=db('users')->where('id',$_GET['id'])->find();
       $this->assign('info',$res);
       return view();
-
     }
 
 

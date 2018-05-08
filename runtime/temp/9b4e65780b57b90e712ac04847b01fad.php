@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:59:"D:\phpStudy\WWW\dt./application/index\view\index\index.html";i:1523431016;s:35:"public/static/index/common/nav.html";i:1525575336;s:38:"public/static/index/common/footer.html";i:1524878979;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:59:"D:\phpStudy\WWW\dt./application/index\view\index\index.html";i:1523431016;s:35:"public/static/index/common/nav.html";i:1525657944;s:38:"public/static/index/common/footer.html";i:1524878979;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +22,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="http://localhost/dt/public/static/index/index.htm"><img id="logo" src="http://localhost/dt/public/static/index/img/logo.png" alt="eLearn" /></a>
+                    <a class="navbar-brand" href="http://localhost/dt/public/static/index/index.htm"><img height="45px" id="logo" src="http://localhost/dt/public/static/index/img/mylogo.png" alt="eLearn" /></a>
                 </div>
                 <div class="collapse navbar-collapse">
                 <div class="navbar-right menu-main"> 
