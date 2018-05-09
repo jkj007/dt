@@ -132,8 +132,7 @@ class Mycenter extends Controller
     }
     //原手机发送验证码
     public function sendolddx(){
-        //$phone=session("username.phone");
-        $phone="15035020734";
+        $phone=session("username.phone");
         if(sendmessage($phone)==0){
             return 1;  //发送成功
         }else{
