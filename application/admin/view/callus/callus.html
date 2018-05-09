@@ -1,0 +1,136 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Basic_tables</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Modern Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+ <!-- Bootstrap Core CSS -->
+<link href="__PUBLIC__/admin/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+<!-- Custom CSS -->
+<link href="__PUBLIC__/admin/css/style.css" rel='stylesheet' type='text/css' />
+<link href="__PUBLIC__/admin/css/font-awesome.css" rel="stylesheet"> 
+<!-- jQuery -->
+<script src="__PUBLIC__/admin/js/jquery.min.js"></script>
+<!--webfonts-->
+<!--//webfonts-->  
+<!-- Bootstrap Core JavaScript -->
+<script src="__PUBLIC__/admin/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div id="wrapper">
+     <!-- Navigation -->
+        <nav class="top1 navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="__PUBLIC__/admin/index.html">Modern</a>
+            </div>
+            <!-- /.navbar-header -->
+            {include file="public/static/admin/common/nav.html"/}
+            <!-- /.navbar-static-side -->
+        </nav>
+        <div id="page-wrapper">
+        <div class="col-md-12 graphs">
+	   <div class="xs">
+      
+  	 <h3>联系信息</h3>
+    <form action="./asearchs" class="form-horizontal" method="post" onsubmit=" return checkform()" name="myform">
+       <div class="form-group">
+            <label for="focusedinput" class="col-sm-1 control-label">主题:</label>
+                  <div class="col-sm-2">
+                    <input type="text" class="form-control1" id="focusedinput" placeholder="主题" name="title">
+                  </div>
+           <input type="submit" class="btn btn-warning warning_22" value="搜索">
+      </div>
+     </form>
+  	<div class="bs-example4" data-example-id="contextual-table">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>称呼</th>
+          <th>主题</th>
+          <th>内容</th>
+          <th>邮箱</th>
+          <th>时间</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+      {if condition="count($info) gt 0"}
+      {volist  name="info" id="vo"}
+        <tr class="active">
+          <th class='col-md-2'><?php echo $vo['name']?></th>
+          <td class='col-md-3'><?php echo mb_substr($vo['title'],0,15) ?>...</td>
+          <td class='col-md-3'><?php echo mb_substr($vo['content'],0,10) ?>...</td>
+          <td class='col-md-2'><?php echo $vo['email']?></td>
+          <td class='col-md-3'><?php echo date("Y-m-d H:i:s",$vo['addtime']) ?></td>
+          <td class='col-md-2'><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal<?php echo $vo['id']?>">查看详情</button></td>
+        </tr>
+             <div class="modal fade" id="myModal<?php echo $vo['id']?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                <h2 class="modal-title">详情内容</h2>
+                            </div>
+                            <div class="modal-body">
+                                称呼：<?php echo $vo['name']?>
+                                <hr>
+                                时间：<?php echo date("Y-m-d H:i:s",$vo['addtime'])?>
+                                <hr>
+                                邮箱：<?php echo $vo['email']?>
+                                <hr>
+                                主题：<?php echo $vo['title']?>
+                                <hr>
+                                内容：
+                                <div>
+                                    <br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $vo['content']?>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        {/volist}
+        {else /}<tr></tr><td colspan="6" rowspan="" headers="" align="center">未搜索到信息<a href="./acallus">点击返回</a></td>
+    {/if}
+      </tbody>
+    </table>
+    {$page}
+   </div>
+  </div>
+  <div class="copy_layout">
+      <p>Copyright &copy; 2015.Company name All rights reserved.More Templates <a href="__PUBLIC__/admin/http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="__PUBLIC__/admin/http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
+  </div>
+   </div>
+      </div>
+      <!-- /#page-wrapper -->
+   </div>
+    <!-- /#wrapper -->
+<!-- Nav CSS -->
+<link href="__PUBLIC__/admin/css/custom.css" rel="stylesheet">
+<!-- Metis Menu Plugin JavaScript -->
+<script src="__PUBLIC__/admin/js/metisMenu.min.js"></script>
+<script src="__PUBLIC__/admin/js/custom.js"></script>
+<script>
+    function checkform(){
+        var form=document.myform;
+        if(form.title.value.length<1){
+            alert("搜索主题不能为空！");
+            return false;
+        }
+        return true;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="Access-Control-Allow-Origin" content="*">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
+		<title>个人资料</title>
+		<link rel="stylesheet" href="__PUBLIC__/index/plugin/bootstrap/css/bootstrap.min.css" />
+		<link href="__PUBLIC__/index/css/mycenter/admin.css" rel="stylesheet" type="text/css">
+		<link href="__PUBLIC__/index/css/mycenter/amazeui.css" rel="stylesheet" type="text/css">
+		<link href="__PUBLIC__/index/css/mycenter/personal.css" rel="stylesheet" type="text/css">
+		<link href="__PUBLIC__/index/css/mycenter/infstyle.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="__PUBLIC__/index/css/style.css" />
+		<!-- <link rel="stylesheet" href="__PUBLIC__/index/plugin/animate.min.css" /> -->
+<!-- 		<link rel="stylesheet" href="__PUBLIC__/index/plugin/font-awesome/css/font-awesome.min.css" /> -->
+		<script src="__PUBLIC__/index/script/jquery.min.js"></script>
+		<script src="__PUBLIC__/index/script/amazeui.js"></script>
+	</head>
+
+	<body>
+		<!--头 -->
+    <header class="main">
+        <div class="container">
+            {include file="public/static/index/common/nav.html"/}
+        </div>
+    </header>
+		<div class="center">
+			<div class="col-main">
+				<div class="main-wrap">
+					<div class="user-info" style="height:600px">
+						<!--标题 -->
+						<div class="am-cf am-padding">
+							<div class="am-fl am-cf"><strong class="am-text-danger am-text-lg">个人资料</strong> / <small>Personal&nbsp;information</small></div>
+						</div>
+						<hr/>
+						<!--头像 -->
+						<div class="user-infoPic">
+							<div class="filePic">
+								<input type="file" class="inputPic" allowexts="gif,jpeg,jpg,png" accept="image/*">
+								{if condition="$info['face'] eq null"}
+								<img class="am-circle am-img-thumbnail" src="__PUBLIC__/index/img/getAvatar.do.jpg" alt="" />
+								{else/}
+								<img class="am-circle am-img-thumbnail" src="__PUBLIC__/index/img/face/{$info.face}" alt="" />
+								{/if}
+							</div>
+							<p class="am-form-help">头像</p>
+							<div class="info-m">
+								<div><b>用户名：<i>{$info.name}</i></b></div>
+								<div class="vip">
+                                      <span></span><a href="#">会员升级</a>
+								</div>
+							</div>
+						</div>
+
+						<!--个人信息 -->
+						<div class="info-main">
+							<form class="am-form am-form-horizontal">
+								<div class="am-form-group">
+									<label for="user-name2" class="am-form-label">昵称</label>
+									<div class="am-form-content">
+										<input type="text" id="user-name2"  value="{$info['name']}" readonly >
+									</div>
+								</div>
+								<div class="am-form-group">
+									<label for="user-name" class="am-form-label">姓名</label>
+									<div class="am-form-content">
+										<input type="text" id="user-name2"  value="{$info['truename']}" readonly>
+									</div>
+								</div>
+								<div class="am-form-group">
+									<label for="user-phone" class="am-form-label">电话</label>
+									<div class="am-form-content">
+										<input id="user-phone" value="{$info['phone']}" readonly type="tel">
+									</div>
+								</div>
+								<div class="am-form-group">
+									<label for="user-safety" class="am-form-label">账号安全</label>
+									<div class="am-form-content safety">
+										<a href="safety.html">
+											<span class="am-icon-angle-right"></span>
+										</a>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		<!--个人中心侧边菜单-->
+			{include file="public/static/index/common/aside.html"/}
+		</div>
+		{include file="public/static/index/common/footer.html"/}
+	</body>
+
+</html>

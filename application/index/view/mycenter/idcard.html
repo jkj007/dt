@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
+		<title>实名认证</title>
+		{include file="public/static/index/common/head.html"/}
+        <script src="__PUBLIC__/index/plugin/jquery1.10.2.min.js" type="text/javascript"></script>
+	</head>
+
+	<body>
+		<!--头 -->
+		<header class="main">
+            <div class="container">
+                {include file="public/static/index/common/nav.html"/}
+            </div>
+        </header>
+		<div class="center">
+			<div class="col-main">
+				<div class="main-wrap am-form-horizontal" style="height:600px;background:#fff">
+					<div class="am-cf am-padding">
+						<div class="am-fl am-cf"><strong class="am-text-danger am-text-lg">实名认证</strong> / <small>Real&nbsp;authentication</small></div>
+					</div>
+					<hr/>
+                    <div class="authentication">
+                        <p class="tip">请填写您身份证上的真实信息，以用于实名认证</p>
+                        <div class="authenticationInfo">
+                            <p class="title">填写个人信息</p>
+                            <div class="am-form-group">
+                                <label for="user-name" class="am-form-label">真实姓名</label>
+                                <div class="am-form-content">
+                                    <input type="text" id="username" placeholder="请输入您的真实姓名" >
+                                </div>
+                            </div>
+                            <p class="title">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                            <div class="am-form-group">
+                                <label for="user-IDcard" class="am-form-label">身份证号</label>
+                                <div class="am-form-content">
+                                    <input type="tel"  placeholder="请输入您的身份证信息" id="idcard">
+                                </div>
+                            </div>
+                        </div><br>
+                        <div class="info-btn">
+                            <div class="am-btn am-btn-secondary" id="checked">提交</div>
+                        </div>
+                    </div>
+				</div>
+                <script>
+                    $("#checked").click(function(){
+                        if($("#username").val()==""){
+                            alert("姓名不能为空");
+                            return false;
+                        }
+                        if($("#idcard").val().match(/[0-9xX]{18}/)==null){
+                            alert("身份证号不符合");
+                            return false;
+                        }
+                        var name=$("#username").val();
+                        var idcard=$("#idcard").val();
+                        $.post("idcard",{name:name,idcard:idcard},
+                            function(data){
+                                if(data==1){
+                                    alert("恭喜，认证成功！");
+                                }else{
+                                    alert("认证失败！请核对信息");
+                                }
+                        });
+                    })
+                </script>
+				<!--底部-->
+			</div>
+            <!--个人中心侧边菜单-->
+            {include file="public/static/index/common/aside.html"/}
+
+		</div>
+            {include file="public/static/index/common/footer.html"/} 
+	</body>
+
+</html>
