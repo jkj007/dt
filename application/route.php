@@ -41,6 +41,9 @@ return [
     'aupdatebbs' => 'admin/index/updatebbs',
     'abbsdel' => 'admin/index/bbsdel',
     'aedituser' => 'admin/index/edituser',
+    //l
+    'acallus' => 'admin/callus/callus',
+    'asearchs'=> 'admin/callus/searchs',
 
 
     //视频路由-pm
@@ -72,7 +75,19 @@ return [
     'findpass'=>'index/index/findpass',
     'codecheck'=>'index/index/codecheck',
     'com'=>'index/index/com',
-
+    //l
+    'addinfo'=> 'index/contact/addinfo',
+    'mycenter'=>'index/mycenter/mycenter',
+    'uploadface'=>"index/mycenter/upload_face",
+    'checkidcard'=>'index/mycenter/checkidcard',
+    'idcard'=>'index/mycenter/idcard',
+    'information'=>'index/mycenter/information',
+    'safety'=>'index/mycenter/safety',
+    'password'=>'index/mycenter/password',
+    'checkpass'=>'index/mycenter/checkpass',
+    'bindphone'=>'index/mycenter/bindphone',
+    'sendolddx'=>'index/mycenter/sendolddx',
+    'checkcode'=>'index/mycenter/checkcode',
 
 ];
 

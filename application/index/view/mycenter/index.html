@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
+		<title>分享号 - 个人中心</title>
+		{include file="public/static/index/common/head.html"/}
+		<script src="__PUBLIC__/index/plugin/jquery1.10.2.min.js" type="text/javascript"></script>
+		<script src="__PUBLIC__/index/script/amazeui.js" type="text/javascript"></script>
+	</head>
+
+	<body>
+		<!--头 -->
+    <header class="main">
+        <div class="container">
+            {include file="public/static/index/common/nav.html"/}
+        </div>
+    </header>
+		<div class="center" style="margin-top:0;">
+			<div class="col-main">
+				<div class="main-wrap">
+					<div class="wrap-left" style="height:600px">
+						<div class="wrap-list">
+							<div class="m-user">
+								<!--个人信息 -->
+
+								<div class="m-userinfo">
+									<a href="news.html">
+										<div class="tipsBox"><i class="am-icon-envelope"></i></div>
+									</a>
+									<div class="m-baseinfo">
+										<a class="m-pic" href="javascript:;">
+											{if condition="$info['face'] eq null"}
+											<img src="__PUBLIC__/index/img/getAvatar.do.jpg" id="face1">
+											{else /}
+											<img src="__PUBLIC__/index/img/face/{$info.face}" id="face1">
+											{/if}
+										</a>
+										<div class="m-info">
+											<a class="s-name" href="javascript:;" onclick="uploads()">设置头像</a>
+                                            <div class=""><a href="#"><span></span><em>您好，{$Think.session.username.name}！</em></a></div>
+											<div class="safeText"><a href="safety.html">账户安全:<em style="margin-left:20px ;">60</em>分</a>
+												<div class="progressBar"><span style="left: -95px;" class="progress"></span></div>
+											</div>
+										</div>
+									</div>
+									<div class="m-right">
+										<div class="m-new">
+											<a href="news.html"><i class="am-icon-dropbox  am-icon-md" style="padding-right:5px ;"></i>消息盒子</a>
+										</div>
+
+									</div>
+								</div>
+								<div id="faces" style="display:none;width:500px;height:400px;border:3px solid #F8F8FF;position:fixed;float:left;left:500px;top:130px;z-index:999;background:#FAFAFA">
+									<div style="margin-left:150px;margin-top:50px;border:1px solid #F8F8FF;width:200px;height:200px;">
+                                    {if condition="$info['face'] eq null"}
+										<img class="am-circle" id="face" src="__PUBLIC__/index/img/getAvatar.do.jpg" width="140" height="140"/>
+                                    {else /}
+                                        <img class="am-circle" id="face" src="__PUBLIC__/index/img/face/{$info.face}" width="140" height="140"/>
+                                    {/if}
+									</div>
+									<div class="am-form-group am-form-file" style="float:left;margin-left:140px">
+									  <button type="button" class="am-btn am-btn-secondary am-btn-sm">
+									    上传头像</button>
+									  <input type="file" name="face" id="pic">
+									</div>&nbsp;&nbsp;
+									<button type="button" class="am-btn am-btn-secondary am-btn-sm" onclick="end()">
+									    关闭窗口</button>
+								</div>
+								<script>
+                                    function uploads(){
+                                    	var face=document.getElementById("faces");
+                                    	face.style.display="block";
+                                    }
+                                	//上传头像
+									$('#pic').change(function(event) {
+										var formData = new FormData();
+										formData.append("file", $(this).get(0).files[0]);
+                                        var path = $(this).val(),
+                                        extStart = path.lastIndexOf('.'),
+                                        ext = path.substring(extStart,path.length).toUpperCase();
+                                        //判断图片格式
+                                        if(ext !== '.PNG' && ext !== '.JPG' && ext !== '.JPEG' && ext !== '.GIF'){
+                                          alert('上传图片格式必须为：png,jpg,jpeg,gif');
+                                          resetFile();
+                                          return false;
+                                        }
+                                        //获取图片大小
+                                        var size = this.files[0].size / 1024;
+                                        if(size > 10240){
+                                          alert('图片大小不能超过10M');
+                                          resetFile();
+                                          return false;
+                                        }
+										$.ajax({
+											url:'uploadface',
+											type:'POST',
+											data:formData,
+											cache: false,
+											contentType: false,    //不可缺
+											processData: false,    //不可缺
+											success:function(data){
+											    $('#face').attr('src',"__PUBLIC__/index/img/face/"+data);
+											}
+										});
+									});
+                                    function end(){
+                                    	var face=document.getElementById("faces");
+                                    	face.style.display="none"; 
+                                    	var pic=$('#face').attr('src');
+                                    	$('#face1').attr('src',pic);
+                                    }
+								</script>
+								<!--个人资产-->
+								<div class="m-userproperty">
+									<div class="s-bar">
+										<i class="s-icon"></i>个人资产
+									</div>
+									<p class="m-coupon">
+										<a href="coupon.html">
+											<em class="m-num">2</em>
+											<span class="m-title">优惠券</span>
+										</a>
+									</p>
+									<p class="m-wallet">
+										<a href="wallet.html">
+											<em class="m-num">0.00</em>
+											<span class="m-title">账户余额</span>
+										</a>
+									</p>
+									<p class="m-bill">
+										<a href="pointnew.html">
+											<em class="m-num">10</em>
+											<span class="m-title">总积分</span>
+										</a>
+									</p>
+								</div>
+
+								<!--我的钱包-->
+								<div class="wallet">
+									<div class="s-bar">
+										<i class="s-icon"></i>商城钱包
+									</div>
+									<p class="m-big squareS">
+										<a href="#">
+											<i><img src="__PUBLIC__/index/img/shopping.png"/></i>
+											<span class="m-title">能购物</span>
+										</a>
+									</p>
+									<p class="m-big squareA">
+										<a href="#">
+											<i><img src="__PUBLIC__/index/img/safe.png"/></i>
+											<span class="m-title">够安全</span>
+										</a>
+									</p>
+									<p class="m-big squareL">
+										<a href="#">
+											<i><img src="__PUBLIC__/index/img/profit.png"/></i>
+											<span class="m-title">很灵活</span>
+										</a>
+									</p>
+								</div>
+
+							</div>
+							<div class="box-container-bottom"></div>
+
+							<!--订单 -->
+							<div class="m-order">
+								<div class="s-bar">
+									<i class="s-icon"></i>我的订单
+									<a class="i-load-more-item-shadow" href="order.html">全部订单</a>
+								</div>
+								<ul>
+									<li><a href="order.html"><i><img src="../images/pay.png"/></i><span>待付款</span></a></li>
+									<li><a href="order.html"><i><img src="../images/send.png"/></i><span>待发货<em class="m-num">1</em></span></a></li>
+									<li><a href="order.html"><i><img src="../images/receive.png"/></i><span>待收货</span></a></li>
+									<li><a href="order.html"><i><img src="../images/comment.png"/></i><span>待评价<em class="m-num">3</em></span></a></li>
+									<li><a href="change.html"><i><img src="../images/refund.png"/></i><span>退换货</span></a></li>
+								</ul>
+								<div class="orderContentBox">
+									<div class="orderContent">
+										<div class="orderContentpic">
+											<div class="imgBox">
+												<a href="orderinfo.html"><img src="../images/heart.jpg"></a>
+											</div>
+										</div>
+										<div class="detailContent">
+											<a href="orderinfo.html" class="delivery">派件</a>
+											<div class="orderID">
+												<span class="time">2016-03-09</span>
+												<span class="splitBorder">|</span>
+												<span class="time">21:52:47</span>
+											</div>
+											<div class="orderID">
+												<span class="num">共2件商品</span>
+											</div>
+										</div>
+										<div class="state">已发货</div>
+										<div class="price"><span class="sym">¥</span>246.<span class="sym">50</span></div>
+									</div>
+									<a href="javascript:void(0);" class="btnPay">再次购买</a>
+								</div>
+							</div>
+
+							<div class="m-order">
+								<ul>
+									<li><a href="order.html"><i><img src="../images/pay.png"/></i><span>待付款</span></a></li>
+									<li><a href="order.html"><i><img src="../images/send.png"/></i><span>待发货<em class="m-num">1</em></span></a></li>
+									<li><a href="order.html"><i><img src="../images/receive.png"/></i><span>待收货</span></a></li>
+									<li><a href="order.html"><i><img src="../images/comment.png"/></i><span>待评价<em class="m-num">3</em></span></a></li>
+									<li><a href="change.html"><i><img src="../images/refund.png"/></i><span>退换货</span></a></li>
+								</ul>
+								<div class="orderContentBox">
+									<div class="orderContent">
+										<div class="orderContentpic">
+											<div class="imgBox">
+												<a href="orderinfo.html"><img src="../images/heart.jpg"></a>
+											</div>
+										</div>
+										<div class="detailContent">
+											<a href="orderinfo.html" class="delivery">派件</a>
+											<div class="orderID">
+												<span class="time">2016-03-09</span>
+												<span class="splitBorder">|</span>
+												<span class="time">21:52:47</span>
+											</div>
+											<div class="orderID">
+												<span class="num">共2件商品</span>
+											</div>
+										</div>
+										<div class="state">已发货</div>
+										<div class="price"><span class="sym">¥</span>246.<span class="sym">50</span></div>
+									</div>
+									<a href="javascript:void(0);" class="btnPay">再次购买</a>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--个人中心侧边菜单-->
+			{include file="public/static/index/common/aside.html"/}
+		</div>
+		{include file="public/static/index/common/footer.html"/}
+	</body>
+
+</html>
