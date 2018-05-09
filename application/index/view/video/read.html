@@ -19,7 +19,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-7">
-                    <h1>视频标题</h1>
+                    <h1>{$video->title}</h1>
                 </div>
                 <div class="col-md-5">
                     <ol class="breadcrumb pull-right">
@@ -51,7 +51,8 @@
                         
                         <!-- Video - related -->
                         <section class="related">
-                            <h2>相关软件</h2>
+                            <h2 class="full-left">相关软件</h2>
+                            <h2 class="full-right">更多>></h2>
                             <div class="row  videos-list">
                                 <article class="col-md-6  video-item">
                                     <a href="__PUBLIC__/index/video.htm" class="video-prev video-prev-small"></a>
@@ -108,10 +109,20 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-12" style="width:100%;">推荐视频</div>
-                        <div class="col-md-12" style="width:100%;height: 300px;background-color: green;margin: 15px;">333</div>
-                        <div class="col-md-12" style="width:100%;height: 300px;background-color: green;margin: 15px;">333</div>
-                        <div class="col-md-12" style="width:100%;height: 300px;background-color: green;margin: 15px;">333</div>
+                        <div class="col-md-12">
+                            
+                              <p>推荐</p>
+                              
+                           
+                        </div>
+                        <article class="col-md-12  video-item">
+                            <a href="__PUBLIC__/index/video.htm" class="video-prev video-prev-small"></a>
+                            <p class="button-full"><a href="__PUBLIC__/index/video.htm" class="btn btn-theme btn-green">视频</a></p>
+                        </article>
+                        <article class="col-md-12  video-item">
+                            <a href="__PUBLIC__/index/video.htm" class="video-prev video-prev-small"></a>
+                            <p class="button-full"><a href="__PUBLIC__/index/video.htm" class="btn btn-theme btn-green">视频</a></p>
+                        </article>
                     </div>
                 </aside>
             </div>

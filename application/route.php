@@ -46,8 +46,11 @@ return [
     //视频路由-pm
     '__rest__'=>[
         'avideo'=>'admin/video',
-        'dtx' =>'index/video'
+        'asoft' =>'admin/soft',
+        'dtx' =>'index/video',
+
     ],
+    'avideo/:id/soft'=>['admin/video/soft',['method'=>'post']],
     'uploadfile'=>['admin/upload_file/upload',['method'=>'post']],
 
 
