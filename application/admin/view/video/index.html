@@ -39,25 +39,33 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div id="page-wrapper">
         <div class="col-md-12 graphs">
 	   <div class="xs">
-      
+
   	<h3>视频列表<small><a href="./avideo/create">新增</a></small></h3>
-    <form action="./assusers" class="form-horizontal" method="post">
+    <form action="/avideo" class="form-horizontal" method="get">
        <div class="form-group">
-            <label for="focusedinput" class="col-sm-1 control-label">姓名:</label>
+            <label for="focusedinput" class="col-sm-1 control-label">标题:</label>
                   <div class="col-sm-2">
-                    <input type="text" class="form-control1" id="focusedinput" placeholder="姓名">
+                    <input type="text" name="title" class="form-control1" id="focusedinput" placeholder="标题">
                   </div>
-            <label for="focusedinput" class="col-sm-1 control-label">手机号:</label>
-                  <div class="col-sm-3">
-                    <input type="text" class="form-control1" id="focusedinput" placeholder="手机号">
-                  </div>
-            <label for="focusedinput" class="col-sm-1 control-label">邀请人:</label>
+           
+            <label for="focusedinput" class="col-sm-1 control-label">类别:</label>
                   <div class="col-sm-2">
-                    <input type="text" class="form-control1" id="focusedinput" placeholder="邀请人">
+                    <select name="type" id="selector1" class="form-control1">
+                      <option value="">全部</option>
+                      <option value="1">小白</option>
+                      <option value="2">高级</option>
+                      <option value="3">专业</option>
+                    </select>
                   </div>
-           <button type="button" class="btn btn-warning warning_22">搜索</button>
+           <button type="submit" class="btn btn-warning warning_22">搜索</button>
       </div>
      </form>
+
+           {if condition="session('msg')!=null"}
+           <div class="alert alert-info {session('code')==0?alert-info:alert-waring}">
+               {:session('msg')}
+           </div>
+           {/if}
   	<div class="bs-example4" data-example-id="contextual-table">
     <table class="table">
       <thead>
@@ -66,6 +74,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           <th>描述</th>
           <th>类型</th>
           <th>价格</th>
+            <th>添加时间</th>
           <th>购买</th>
           <th>收藏</th>
           <th>浏览</th>
@@ -79,17 +88,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           <td>Column content</td>
           <td>Column content</td>
         </tr> -->
-<?php $i=1;      ?>
+
 {volist name="info" id="vo"}
-        <?php 
-           $i+=2; 
-        
-           if($i%2==1){
-            echo "<tr class=\"success\">";
-          }else{
-            echo "<tr class=\"active\">";
-          }
-        ?>
+       <tr>
           <th scope="row">{$vo.title}</th>
           <td>{$vo.desc}</td>
           <td>{$vo.type}</td>
@@ -99,12 +100,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           <td>{$vo.num}</td>
           <td>{$vo.collnum}</td>
           <td>{$vo.viewnum}</td>
-          <td><a href="./auserinfo"><button type="button" class="btn btn-xs btn-info">删除</button></a></td>
+          <td class="btn-group">
+                <button type="button" onclick="event.preventDefault();
+                                                     document.getElementById('del-form').submit();" class="btn btn-xs btn-danger">删除</button>
+                <button type="button" onclick="location.href='/avideo/'+{$vo.id}+'/edit'" class="btn btn-xs btn-info">修改</button>
+                <button data-toggle="modal" data-target="#myModal" type="button" data-whatever="{$vo.id}" class="btn btn-xs btn-warning warning_44">相关软件</button>
+            </td>
+           
+           
         </tr>
 {/volist}
       </tbody>
+       <form id="del-form" action="/avideo/{$vo.id}" method="POST" style="display: none;">
+            <input type="hidden" name="_method" value="DELETE" >
+      </form>
+      {include file="video/model" /} 
     </table>
+
    </div>
+    {$info->appends($search)->render()}
   </div>
   <div class="copy_layout">
       <p>Copyright &copy; 2015.Company name All rights reserved.More Templates <a href="__PUBLIC__/admin/http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="__PUBLIC__/admin/http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
@@ -119,5 +133,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- Metis Menu Plugin JavaScript -->
 <script src="__PUBLIC__/admin/js/metisMenu.min.js"></script>
 <script src="__PUBLIC__/admin/js/custom.js"></script>
+<script>
+  $('#myModal').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget) // Button that triggered the modal
+    var recipient = button.data('whatever') // Extract info from data-* attributes
+    // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+    var modal = $(this)
+    // modal.find('.modal-title').text('New message to ' + recipient)
+    modal.find('.modal-body form').attr('action','/avideo/'+recipient+'/soft')
+  })
+</script>
 </body>
 </html>
