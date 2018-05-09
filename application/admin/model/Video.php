@@ -20,4 +20,9 @@ class Video extends Model
             return '未知类别';
         }
     }
+
+    public function softs()
+    {
+       return $this->belongsToMany('Soft');
+    }
 }

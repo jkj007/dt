@@ -26,7 +26,7 @@ $(function () {
         url: url,
         dataType: 'json',
         autoUpload: false,
-        acceptFileTypes: /(\.|\/)(mp4)$/i,
+        // acceptFileTypes: /(\.|\/)()$/i,
         maxFileSize: 0,
         // Enable image resizing, except for Android and Opera,
         // which actually support image resizing, but fail to

@@ -4,12 +4,23 @@ namespace app\admin\controller;
 use think\Controller;
 use think\Request;
 use app\admin\model\Video as M;
-
+use app\admin\model\Soft as S;
 class Video extends Controller
 {
     public function index(){
-        $info = M::order('create_time desc')->paginate(15);
-        return $this->fetch('index',compact('info'));
+        $where = [];
+        $search = [];
+        if (input('get.type')) {
+            $where['type'] = ['=',input('get.type')];
+            $search['type'] = input('get.type');
+        }
+        if (input('get.title')) {
+            $where['title'] = ['like',input('get.title')."%"];
+            $search['title'] = input('get.title');
+        }
+        $info = M::with('softs')->where($where)->order('create_time desc')->paginate(15);
+        $softs = S::all();
+        return $this->fetch('index',compact('info','search','softs'));
     }
     public function create()
     {
@@ -120,6 +131,13 @@ class Video extends Controller
             }
         }
         return $this->redirect('/avideo','',302,['code'=>0,'msg'=>'修改成功']);
+    }
+
+    public function soft($id)
+    {
+        $video = M::find($id);
+        $video->softs()->sync(input('post.soft/a'));
+        return $this->redirect('/avideo','',302,['code'=>0,'msg'=>'关联成功']);
     }
 
 }
