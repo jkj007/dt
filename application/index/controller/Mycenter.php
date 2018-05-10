@@ -11,7 +11,7 @@ class Mycenter extends Controller
         }
         $res=db("users")->where("phone",session("username.phone"))->find();
         //未实名认证先实名认证
-        if($res['name']!=null){
+        if($res['truename']!=null){
             $this->assign("info",$res);
             return view("index");
         }else{
