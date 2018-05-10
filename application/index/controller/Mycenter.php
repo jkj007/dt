@@ -11,7 +11,7 @@ class Mycenter extends Controller
         }
         $res=db("users")->where("phone",session("username.phone"))->find();
         //未实名认证先实名认证
-        if($res['name']!=null){
+        if($res['truename']!=null){
             $this->assign("info",$res);
             return view("index");
         }else{
@@ -132,8 +132,7 @@ class Mycenter extends Controller
     }
     //原手机发送验证码
     public function sendolddx(){
-        //$phone=session("username.phone");
-        $phone="15035020734";
+        $phone=session("username.phone");
         if(sendmessage($phone)==0){
             return 1;  //发送成功
         }else{
