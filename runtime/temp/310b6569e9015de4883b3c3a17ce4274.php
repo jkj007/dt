@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:61:"D:\phpStudy\WWW\dt./application/index\view\index\contact.html";i:1523342166;s:36:"public/static/index/common/head.html";i:1525505717;s:35:"public/static/index/common/nav.html";i:1525861729;s:38:"public/static/index/common/footer.html";i:1524878979;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:61:"D:\phpStudy\WWW\dt./application/index\view\index\contact.html";i:1525863074;s:36:"public/static/index/common/head.html";i:1525505717;s:35:"public/static/index/common/nav.html";i:1525861729;s:38:"public/static/index/common/footer.html";i:1524878979;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -76,53 +76,48 @@
                 </div>
                 <div class="col-md-5">
                     <ol class="breadcrumb pull-right">
-                        <li><a href="index">Home</a></li>
-                        <li><a href="http://localhost/dt/public/static/index/#">About</a></li>
-                        <li class="active">Contact</li>
+                        <li><a href="index">首页</a></li>
+                        <!--<li><a href="http://localhost/dt/public/static/index/#">About</a></li>-->
+                        <li class="active">联系我们</li>
                     </ol>
                 </div>
             </div>
         </div>
     </div>
-    
-   
-    
     <section class="content content-light">
         <div class="container">
             <p class="header text-center">不要害羞，保持联系！</p>
-            <p class="text-center">Fill out all required fields to send a message. You have to login to your wordpress account to post any comment.<br /> Please don't spam, thank you!</p>
-            
+            <p class="text-center">填写以下信息发送给我们<br /> 请勿发送无意义信息，谢谢！</p>
             <hr class="invisible" />
             <hr class="invisible" />
-            
             <!-- Contact form -->
-            <form action="register.htm" class="contact-form" role="form">
+            <form action="addinfo" class="contact-form" role="form" method="post" onsubmit="return checkform()" name="myform">
                 <h2 class="title-form">Contact form</h2>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="fieldInputName">Name</label>
-                            <input type="text" class="form-control input-lg" id="fieldInputName" placeholder="enter your name" />
+                            <label for="fieldInputName">您的称呼</label>
+                            <input type="text" class="form-control input-lg" id="fieldInputName" placeholder="填写您的名字"  name="name"/>
                         </div>
                         <div class="form-group">
-                            <label for="fieldInputTopic">Subject</label>
-                            <input type="text" class="form-control input-lg" id="fieldInputTopic" placeholder="enter topic of message" />
+                            <label for="fieldInputTopic">留言主题</label>
+                            <input type="text" class="form-control input-lg" id="fieldInputTopic" placeholder="填写留言主题" name="title" />
                         </div>
                         <div class="form-group">
-                            <label for="fieldInputEmail">Email address</label>
-                            <input type="email" class="form-control input-lg" id="fieldInputEmail" placeholder="enter your email address" />
+                            <label for="fieldInputEmail">邮箱地址</label>
+                            <input type="email" class="form-control input-lg" id="fieldInputEmail" placeholder="填写邮箱地址" name="email" />
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="fieldInputMessage">Message</label>
-                            <textarea class="form-control" rows="11" id="fieldInputMessage" placeholder="text of message"></textarea>
+                            <label for="fieldInputMessage">信息内容</label>
+                            <textarea class="form-control" rows="11" id="fieldInputMessage" placeholder="填写您的留言" name="content"></textarea>
                         </div>
                     </div>
                 </div>
                 <p class="text-right buttons-margin-horizontal">
-                    <input type="reset" class="btn btn-theme btn-gray" value="Reset" />
-                    <input type="submit" class="btn btn-theme btn-green" value="Send message" />
+                    <input type="reset" class="btn btn-theme btn-gray" value="重新填写" />
+                    <input type="submit" class="btn btn-theme btn-green" value="发送信息" />
                 </p>
             </form>
             
@@ -130,8 +125,8 @@
             <hr class="invisible" />
             <hr class="invisible" />
             
-            <p class="header text-center">Do you <strong>like</strong> us? So start to <strong>follow us!</strong></p>
-            <p class="text-center">Lets start today and meet a lot of talented people from all over the world.</p>
+            <p class="header text-center">你<strong>喜欢</strong> 我们么? 那么开始 <strong>跟上我们!</strong></p>
+            <p class="text-center">让我们从今天开始，与来自世界各地的许多有才华的人见面。</p>
             
             <hr class="invisible" />
             <hr class="invisible" />
@@ -157,7 +152,32 @@
             </div>
         </div>
     </section>
-    
+    <script>
+        function checkform(){
+            var form=document.myform;
+            var name=form.name.value;
+            var email=form.email.value;
+            var title=form.title.value;
+            var content=form.content.value;
+            if(name.length<1){
+                alert("必填项不能为空！");
+                return false;
+            }
+            if(email.length<1){
+                alert("必填项不能为空！");
+                return false;
+            }
+            if(title.length<1){
+                alert("必填项不能为空！");
+                return false;
+            }
+            if(content.length<1){
+                alert("必填项不能为空！");
+                return false;
+            }
+            return true;
+        }
+    </script>
      <footer class="main bg-dark-img">
         <section class="widgets">
         <div class="container">

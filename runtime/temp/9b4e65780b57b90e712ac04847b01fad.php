@@ -1,5 +1,5 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:59:"D:\phpStudy\WWW\dt./application/index\view\index\index.html";i:1523431016;s:35:"public/static/index/common/nav.html";i:1525861729;s:38:"public/static/index/common/footer.html";i:1524878979;}*/ ?>
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:59:"D:\phpStudy\WWW\dt./application/index\view\index\index.html";i:1525863074;s:35:"public/static/index/common/nav.html";i:1525861729;s:38:"public/static/index/common/footer.html";i:1524878979;}*/ ?>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -64,7 +64,7 @@
                 </div>
                 </div>
             </nav>
-            <p class="header text-center text-white"><strong>Learning</strong> made easy via the <strong>internet</strong> <a href="http://localhost/dt/public/static/index/plans.htm" class="btn btn-theme btn-orange">Start today</a></p>
+            <p class="header text-center text-white"><strong>通过</strong>互联网<strong>更容易的学习</strong> <a href="http://localhost/dt/public/static/index/plans.htm" class="btn btn-theme btn-orange">即刻 开始</a></p>
             <!-- Screens -->
             <div class="screens animation-domready">
                 <p>
@@ -104,7 +104,6 @@
                     </a>
                 </div>
             </div>
-            <figcaption>powered by</figcaption>
         </figure>
     </section>
     
@@ -112,32 +111,32 @@
         <section class="row animation-scroll">
             <figure class="col-md-6 animated" data-animation="bounceInLeft"><img src="http://localhost/dt/public/static/index/img/home1_img1.png" alt="" /></figure>
             <article class="col-md-6 animated" data-animation="bounceInRight">
-                <h3><strong>Learn</strong> from your <strong>home office</strong></h3>
-                <p>We believe that analysis of your company and your customers is key in responding effectively to your promotional needs and we will work with you to fully understand your business.</p>
-                <a href="http://localhost/dt/public/static/index/categories.htm" class="link-more">Check out the library <i class="fa fa-arrow-right "></i></a>
+                <h3><strong>Learn</strong> 在您的<strong>家庭办公室学习</strong></h3>
+                <p>我们相信，对贵公司和客户的分析是对您的促销需求的有效回应，我们将与您合作，全面了解您的业务。</p>
+                <a href="http://localhost/dt/public/static/index/categories.htm" class="link-more">查看图书馆 <i class="fa fa-arrow-right "></i></a>
             </article>
         </section>
         <section class="row animation-scroll">
             <article class="col-md-6 animated" data-animation="bounceInLeft">
-                <h3><strong>Stay tuned</strong> with your <strong>mobile devices</strong></h3>
-                <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur.</p>
-                <a href="http://localhost/dt/public/static/index/#" class="link-more">Check out our webapp <i class="fa fa-arrow-right "></i></a>
+                <h3><strong>持续</strong>关注<stong>您的移动设备</strong></h3>
+                <p>在维罗埃斯特的埃斯特和埃尔多洛丽丝等人。Stet clita kasd gubergren，没有海带，最神圣的一笔，多或多坐。洛瑞姆。伊普。杜尔，坐下，康塞特。</p>
+                <a href="http://localhost/dt/public/static/index/#" class="link-more">查看我们的网络应用<i class="fa fa-arrow-right "></i></a>
             </article>
             <figure class="col-md-6 animated" data-animation="bounceInRight"><img src="http://localhost/dt/public/static/index/img/home1_img2.png" alt="" /></figure>
         </section>
         <section class="row animation-scroll">
             <figure class="col-md-6 animated" data-animation="bounceInLeft"><img src="http://localhost/dt/public/static/index/img/home1_img3.png" alt="" /></figure>
             <article class="col-md-6 animated" data-animation="bounceInRight">
-                <h3><strong>Connect</strong> different file types everywhere</h3>
-                <p>We believe that analysis of your company and your customers is key in responding effectively to your promotional needs and we will work with you to fully understand your business.</p>
-                <a href="http://localhost/dt/public/static/index/#" class="link-more">Check out the dashboard <i class="fa fa-arrow-right "></i></a>
+                <h3><strong>Connect</strong> 将不同的文件类型连接到任何地方</h3>
+                <p>我们相信，对您的公司和客户的分析是有效地响应您的促销需求的关键，我们将与您合作，以充分了解您的业务。</p>
+                <a href="http://localhost/dt/public/static/index/#" class="link-more">查看控制面板 <i class="fa fa-arrow-right "></i></a>
             </article>
         </section>
         <section class="row animation-scroll">
             <article class="col-md-6 animated" data-animation="bounceInLeft">
-                <h3><strong>Share tutorials</strong> with your <strong>friends</strong></h3>
-                <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur.</p>
-                <a href="http://localhost/dt/public/static/index/#" class="link-more">Go to your portal <i class="fa fa-arrow-right "></i></a>
+                <h3><strong>与您的</strong> 朋友 <strong>分享教程</strong></h3>
+                <p>在维罗埃斯特的埃斯特和埃尔多洛丽丝等人。不删……克里塔卡斯德古伯伦，没有海带，是最神圣的悲哀amet坐。洛瑞姆。伊普。杜尔，坐下，康塞特。</p>
+                <a href="http://localhost/dt/public/static/index/#" class="link-more">去您的门户网站 <i class="fa fa-arrow-right "></i></a>
             </article>
             <div class="col-md-6 animated widget-social" data-animation="bounceInRight">
                 <a class="btn btn-social btn-social-circle social-facebook" href="http://localhost/dt/public/static/index/https://www.faceboo/pages/KL-Webmedia/131260293670757"><i class="fa fa-facebook"></i><span class="click-number">32</span></a>
@@ -145,7 +144,7 @@
                 <a class="btn btn-social btn-social-circle social-gplus" href="http://localhost/dt/public/static/index/https://plus.googl/113174627408639682462/posts"><i class="fa fa-google-plus"></i><span class="click-number">14</span></a>
                 <a class="btn btn-social btn-social-circle social-dribbble" href="http://localhost/dt/public/static/index/http://dribbbl/KL-Webmedia"><i class="fa fa-dribbble"></i><span class="click-number">8</span></a>
                 <i class="fa fa-circle fa-lg"></i><i class="fa fa-circle fa-2x"></i><i class="fa fa-circle fa-3x"></i>
-                <span class="text"><i class="fa fa-comments text-orange"></i> <b>32</b> people like your tutorials</span>
+                <span class="text"><i class="fa fa-comments text-orange"></i> <b>32</b>个人喜欢你的教程。</span>
             </div>
         </section>
     </div>
@@ -153,7 +152,7 @@
     
     <section class="content content-dark testimonial">
         <div class="container">
-            <p class="header text-center text-white">We are <strong>51,031</strong> creative teachers so far</p>
+            <p class="header text-center text-white">到目前为止，我们有<strong>51,031</strong>名创意教师</p>
             <div class="face">
                 <a href="http://localhost/dt/public/static/index/#tab-nicole-kidman" data-toggle="tab"><img src="http://localhost/dt/public/static/index/img/65x65.gif" alt="Nicole Kidman" /></a>
                 <a href="http://localhost/dt/public/static/index/#tab-leland-orser" data-toggle="tab"><img src="http://localhost/dt/public/static/index/img/65x65.gif" alt="Leland Orser" /></a>
@@ -163,50 +162,51 @@
             </div>
             <div class="tab-content quote">
                 <blockquote id="tab-nicole-kidman" class="tab-pane fade in active">
-                    <p>&ldquo;This platform is the best idea to teach young people without loosing any time.&rdquo;</p>
+                    <p>&ldquo;这个平台是在不浪费任何时间的情况下教育年轻人的最好方法.&rdquo;</p>
                     <cite>Nicole Kidman <span>(actress)</span></cite>
                 </blockquote>
                 <blockquote id="tab-leland-orser" class="tab-pane fade">
-                    <p>&ldquo;Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies.&rdquo;</p>
+                    <p>&ldquo;这个平台是在不浪费任何时间的情况下教育年轻人的最好方法.&rdquo;</p>
                     <cite>Leland Orser <span>(actor)</span></cite>
                 </blockquote>
                 <blockquote id="tab-henry-cavill" class="tab-pane fade">
-                    <p>&ldquo;Curabitur et ligula. Ut molestie a, ultricies porta urna.Lorem ipsum dolor sit amet enim. Etiam ullamcorper.&rdquo;</p>
+                    <cite> <span></span></cite>
+                    <p>&ldquo;这个平台是在不浪费任何时间的情况下教育年轻人的最好方法.&rdquo;</p>
                     <cite>Henry Cavill <span>(actor)</span></cite>
                 </blockquote>
                 <blockquote id="tab-andres-gertrudix" class="tab-pane fade">
-                    <p>&ldquo;Maecenas malesuada elit lectus felis, malesuada ultricies. Vestibulum commodo volutpat a, convallis ac, laoreet enim. Phasellus fermentum in, dolor.&rdquo;</p>
+                    <p>&ldquo;这个平台是在不浪费任何时间的情况下教育年轻人的最好方法.&rdquo;</p>
                     <cite>Andres Gertrudix <span>(actor)</span></cite>
                 </blockquote>
                 <blockquote id="tab-justin-biber" class="tab-pane fade">
-                    <p>&ldquo;Ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies.&rdquo;</p>
+                    <p>&ldquo;这个平台是在不浪费任何时间的情况下教育年轻人的最好方法.&rdquo;</p>
                     <cite>Justin Biber <span>(singer)</span></cite>
                 </blockquote>
             </div>
-            <a href="http://localhost/dt/public/static/index/plans.htm" class="btn btn-theme btn-green">Start teaching</a>
+            <a href="http://localhost/dt/public/static/index/plans.htm" class="btn btn-theme btn-green">开始教学</a>
         </div>
     </section>
     
     <section class="content content-light">
         <div class="container">
-            <p class="header text-center"><strong>Customize</strong> your tutorials <strong>online base</strong></p>
-            <p class="text-center">We believe that analysis of your company and your customers is key in responding effectively to your promotional needs and we will work with you to fully understand your business.</p>
+            <p class="header text-center"><strong>定制</strong> 你的在线 <strong>基础教程</strong></p>
+            <p class="text-center">我们相信，对您的公司和客户的分析是有效地响应您的促销需求的关键。 我们将与您一起充分了解您的业务.</p>
             
             <hr class="invisible" />
             
             <div class="row">
                 <div class="col-md-6">
-                    <h3>Keep things simple and clean</h3>
+                    <h3>保持简单高效的学习</h3>
                     <ul class="fa-ul list-special">
-                        <li><i class="fa-li fa fa-2x fa-check text-green"></i>update your tutorials daily, weekly or yearly</li>
-                        <li><i class="fa-li fa fa-2x fa-check text-green"></i>build your own tutorials database</li>
-                        <li><i class="fa-li fa fa-2x fa-check text-green"></i>create sections and topics for your tutorials</li>
-                        <li><i class="fa-li fa fa-2x fa-check text-green"></i>create wounderful landing page designs</li>
-                        <li><i class="fa-li fa fa-2x fa-check text-green"></i>send your followers updates about you works</li>
+                        <li><i class="fa-li fa fa-2x fa-check text-green"></i>每天、每周或每年更新你的教程</li>
+                        <li><i class="fa-li fa fa-2x fa-check text-green"></i>建立自己的教程库</li>
+                        <li><i class="fa-li fa fa-2x fa-check text-green"></i>为您的教程创建章节和主题</li>
+                        <li><i class="fa-li fa fa-2x fa-check text-green"></i>创建一个令人震惊的登陆页面设计</li>
+                        <li><i class="fa-li fa fa-2x fa-check text-green"></i>向你的关注者发送关于你内容的更新</li>
                     </ul>
                 </div>
                 <div class="col-md-6">
-                    <h3>Watch the video and create your site</h3>
+                    <h3>观看视频并创建你的网站</h3>
                     <a class="video-prev video-play-here" href="http://localhost/dt/public/static/index/http://www.youtub/v/9QscURRuF0g&amp;autoplay=1" style="height:240px;"></a>
                 </div>
             </div>

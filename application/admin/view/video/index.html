@@ -102,7 +102,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           <td>{$vo.viewnum}</td>
           <td class="btn-group">
                 <button type="button" onclick="event.preventDefault();
-                                                     document.getElementById('del-form').submit();" class="btn btn-xs btn-danger">删除</button>
+                                                     document.getElementsByClassName('del-form')[0].submit();" class="btn btn-xs btn-danger">删除</button>
+                                                     <form class="del-form" action="/avideo/{$vo.id}" method="POST" style="display: none;">
+                                                            <input type="hidden" name="_method" value="DELETE" >
+                                                      </form>
                 <button type="button" onclick="location.href='/avideo/'+{$vo.id}+'/edit'" class="btn btn-xs btn-info">修改</button>
                 <button data-toggle="modal" data-target="#myModal" type="button" data-whatever="{$vo.id}" class="btn btn-xs btn-warning warning_44">相关软件</button>
             </td>
@@ -111,9 +114,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </tr>
 {/volist}
       </tbody>
-       <form id="del-form" action="/avideo/{$vo.id}" method="POST" style="display: none;">
-            <input type="hidden" name="_method" value="DELETE" >
-      </form>
+      
       {include file="video/model" /} 
     </table>
 

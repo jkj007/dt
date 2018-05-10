@@ -54,12 +54,6 @@ class Index extends Controller
         $com="no";
       }
       //该文章浏览量+1
-      //
-      
-
-
-
-      
       $res=db('bbs')->where("id",$_GET['id'])->find();
       $this->assign('info',$res);
       $res2=db('bbs')->order("addtime desc")->limit(5)->select();
