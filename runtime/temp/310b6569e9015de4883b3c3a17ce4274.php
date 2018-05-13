@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:61:"D:\phpStudy\WWW\dt./application/index\view\index\contact.html";i:1525863074;s:36:"public/static/index/common/head.html";i:1525932396;s:35:"public/static/index/common/nav.html";i:1526189991;s:38:"public/static/index/common/footer.html";i:1524878979;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:61:"D:\phpStudy\WWW\dt./application/index\view\index\contact.html";i:1525863074;s:36:"public/static/index/common/head.html";i:1526199919;s:35:"public/static/index/common/nav.html";i:1526199857;s:38:"public/static/index/common/footer.html";i:1524878979;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,13 +6,22 @@
     <title>分享号 - 联系我们</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />	
+    
     <link rel="stylesheet" href="/public/static/index/plugin/bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="/public/static/index/plugin/font-awesome/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="/public/static/index/plugin/pretty-photo/css/prettyPhoto.css" />
+	<link rel="stylesheet" href="/public/static/index/css/style.css" />
+	<link rel="stylesheet" href="/public/static/index/css/animate.min.css" />
+
+
+<!-- <link rel="stylesheet" href="/public/static/index/plugin/bootstrap/css/bootstrap.min.css" />
 <link rel="stylesheet" href="/public/static/index/css/style.css" />
 <link rel="stylesheet" href="/public/static/index/plugin/animate.min.css" />
 <link rel="stylesheet" href="/public/static/index/plugin/font-awesome/css/font-awesome.min.css" />
 <link rel="stylesheet" href="/public/static/index/plugin/pretty-photo/css/prettyPhoto.css" />
 <link rel="stylesheet" href="/public/static/index/css/style.css" />
-<link rel="stylesheet" href="/public/static/index/css/animate.min.css" />
+<link rel="stylesheet" href="/public/static/index/css/animate.min.css" /> -->
+
 
 </head>
 <body>
@@ -31,36 +40,28 @@
                 <div class="collapse navbar-collapse">
                 <div class="navbar-right menu-main"> 
                     <ul class="nav navbar-nav">
-                       <!--  <li class="dropdown active">
-                            <a href="/public/static/index/#" class="dropdown-toggle" data-toggle="dropdown"><span>Home</span> <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="/public/static/index/index.htm">Home, version 1</a></li>
-                                <li><a href="/public/static/index/index2.htm">Home, version 2</a></li>
-                                <li><a href="/public/static/index/index3.htm">Home, version 3</a></li>
-                            </ul>
-                        </li> -->
                         <li><a href="/aboutus"><span>关于我们</span></a></li>
                         <li class="dropdown">
                             <a href="/public/static/index/#" class="dropdown-toggle" data-toggle="dropdown"><span>资源</span> <b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="/dtx">店淘系</a></li>
-                              <!--   <li><a href="/pdd">拼多多</a></li>
-                                <li><a href="/jd">京东</a></li>
-                                <li><a href="/lazada">lazada</a></li> -->
-                            
-                         
+
+                   
+
+                                <?php echo getNav(); ?>
                             </ul>
                         </li>
-                       <!--  <li><a href="/public/static/index/features.htm"><span>Features</span></a></li> -->
-                       <!--  <li>
-                            <a href="blog"><span>提问社区</span> <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="/public/static/index/blog-list.htm">社区列表</a></li>
-                                <li><a href="/public/static/index/blog-post.htm">详细信息</a></li>
-                            </ul>
-                        </li> -->
-                       
+                
+
                         <li class="dropdown">
+                            <a href="/public/static/index/#" class="dropdown-toggle" data-toggle="dropdown"><span>项目概述</span> <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="nexus">投资者关系</a></li>
+                                <li><a href="abstracts">公司简介</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="contact"><span>联系我们</span></a></li>
+                    
+                         <li class="dropdown">
                             <a href="/public/static/index/#" class="dropdown-toggle" data-toggle="dropdown"><span>相关知识</span> <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="/blog">店淘系</a></li>
@@ -72,16 +73,27 @@
                             </ul>
                         </li>
 
-                      <!--   <li><a href="lt"><span>论坛</span></a></li> -->
-                        <li><a href="/contact"><span>联系我们</span></a></li>
-                    </ul>
                     <?php if(\think\Request::instance()->session('username.name') == null): ?>
-                    <a class="btn btn-theme navbar-btn btn-default sign-in" href="/login">登陆</a>
-                    <a class="btn btn-theme navbar-btn btn-orange  sign-up" href="/reg">注册</a>
+                    </ul>
+                    <a class="btn btn-theme navbar-btn btn-default sign-in" href="login">登陆</a>
+                    <a class="btn btn-theme navbar-btn btn-orange  sign-up" href="reg">注册</a>
                     <?php else: ?>
-                    <a class="btn btn-theme navbar-btn btn-orange  sign-up" href="/mycenter">欢迎 <?php echo \think\Request::instance()->session('username.name'); ?> ！</a>
-                    <a class="btn btn-theme navbar-btn btn-orange  sign-up" href="/loginout">注销</a>
+                    <li><a href="mycenter"><span>个人中心</span></a></li>
+                    </ul>
+                    <a class="btn btn-theme navbar-btn btn-default  sign-up" href="loginout">退出</a>
                     <?php endif; ?>
+
+
+                     
+
+                        
+                      <!--   <li><a href="lt"><span>论坛</span></a></li> -->
+                      
+                    </ul>
+                  
+
+                   
+
                 </div>
                 </div>
             </nav>
