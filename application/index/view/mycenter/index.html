@@ -6,6 +6,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
 		<title>分享号 - 个人中心</title>
 		{include file="public/static/index/common/head.html"/}
+		<link href="__PUBLIC__/index/css/mycenter/admin.css" rel="stylesheet" type="text/css">
+		<link href="__PUBLIC__/index/css/mycenter/amazeui.css" rel="stylesheet" type="text/css">
+		<link href="__PUBLIC__/index/css/mycenter/personal.css" rel="stylesheet" type="text/css">
+		<link href="__PUBLIC__/index/css/mycenter/vipstyle.css" rel="stylesheet" type="text/css">
 		<script src="__PUBLIC__/index/plugin/jquery1.10.2.min.js" type="text/javascript"></script>
 		<script src="__PUBLIC__/index/script/amazeui.js" type="text/javascript"></script>
 	</head>
@@ -20,11 +24,10 @@
 		<div class="center" style="margin-top:0;">
 			<div class="col-main">
 				<div class="main-wrap">
-					<div class="wrap-left" style="height:600px">
+					<div class="wrap-left" style="height:650px">
 						<div class="wrap-list">
 							<div class="m-user">
 								<!--个人信息 -->
-
 								<div class="m-userinfo">
 									<a href="news.html">
 										<div class="tipsBox"><i class="am-icon-envelope"></i></div>
@@ -38,7 +41,7 @@
 											{/if}
 										</a>
 										<div class="m-info">
-											<a class="s-name" href="javascript:;" onclick="uploads()">设置头像</a>
+											<a class="s-name" href="javascript:;" onclick="uploads()"><small>设置头像</small></a>
                                             <div class=""><a href="#"><span></span><em>您好，{$Think.session.username.name}！</em></a></div>
 											<div class="safeText"><a href="safety.html">账户安全:<em style="margin-left:20px ;">60</em>分</a>
 												<div class="progressBar"><span style="left: -95px;" class="progress"></span></div>
@@ -120,19 +123,20 @@
 									<p class="m-coupon">
 										<a href="coupon.html">
 											<em class="m-num">2</em>
-											<span class="m-title">优惠券</span>
+											<span class="m-title">视频</span>
+										</a>
+									</p>
+									
+									<p class="m-bill">
+										<a href="pointnew.html">
+											<em class="m-num">10</em>
+											<span class="m-title">软件</span>
 										</a>
 									</p>
 									<p class="m-wallet">
 										<a href="wallet.html">
 											<em class="m-num">0.00</em>
-											<span class="m-title">账户余额</span>
-										</a>
-									</p>
-									<p class="m-bill">
-										<a href="pointnew.html">
-											<em class="m-num">10</em>
-											<span class="m-title">总积分</span>
+											<span class="m-title">账户收入</span>
 										</a>
 									</p>
 								</div>

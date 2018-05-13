@@ -1,5 +1,6 @@
 <?php
 namespace app\index\controller;
+
 use think\Controller;
 class Index extends Controller
 {
@@ -32,8 +33,8 @@ class Index extends Controller
       //查询所有数据
       if(!empty($_POST['title'])){
          $res=db('bbs')->where('title','like','%'.$_POST['title']."%")->order('type desc')->paginate(2);
-       }elseif(input('type')){
-         $res=db('bbs')->where('type',input('type'))->order('type desc')->paginate(2);
+       }elseif(!empty($_GET['type'])){
+         $res=db('bbs')->where('type',$_GET['type'])->order('type desc')->paginate(2);
        }else{
           $res=db('bbs')->order('type desc')->paginate(2);
        }
@@ -45,15 +46,21 @@ class Index extends Controller
     }
     public function bloginfo(){
       //查看用户是否已收藏该文章
-      $res3=db('com')->where("userid",session('username.id'))->
-      where("bbsid",input('id')) ->find();
+      $res3=db('com')->where("userid",$_SESSION['username']['id'])->
+      where("bbsid",$_GET['id']) ->find();
       if($res3){
         $com="yes";
       }else{
         $com="no";
       }
       //该文章浏览量+1
-      $res=db('bbs')->where("id",input('id'))->find();
+      //
+      
+
+
+
+      
+      $res=db('bbs')->where("id",$_GET['id'])->find();
       $this->assign('info',$res);
       $res2=db('bbs')->order("addtime desc")->limit(5)->select();
       $this->assign('info2',$res2);
@@ -89,25 +96,16 @@ class Index extends Controller
             $this->error('手机号已存在');
         }
          //组装注册信息
-        $data=array('name'=>$_POST['name'],'come'=>$_POST['come'],'phone'=>$_POST['phone'],'pass'=>mymd5($_POST['pass']),'addtime'=>time(),'state'=>1,'invitecode'=>'');
+        $data=array('name'=>$_POST['name'],'come'=>$_POST['come'],'phone'=>$_POST['phone'],'pass'=>mymd5($_POST['pass']),'addtime'=>time(),'state'=>1);
         if(db('users')->insert($data)){
-          $id=db('user')->getLastInsID();
-          $invitecode=$id+90359;
-          db('user')->where('id',$id)->update(['invitecode' => $invitecode]);
           $this->success("注册成功!",'./index');
         }
-
-
-
-
-
-
     }
     public function loginin(){
         $res=db('users')->where('phone',$_POST['phone'])->where('pass',mymd5($_POST['pass']))->find();
         if($res){
           //登陆成功
-          session('username',$res);
+          session("username",$res);
           $this->redirect('../index');
         }else{
           //登录失败
@@ -128,11 +126,12 @@ class Index extends Controller
     }
     //收藏文章
     public function com(){
+     
      // 判断是否登录
-      if(@session('username')){
+      if(!empty($_SESSION['username'])){
         //添加收藏信息
-       $time=time();
-        $data=array('userid'=>session('username.id'),'bbsid'=>$_POST['id'],'addtime'=>$time);
+       
+        $data=array('userid'=>$_SESSION['username']['id'],'bbsid'=>$_POST['id']);
         db('com')->insert($data);
         //更新文章的收藏数目
         $res=db('bbs')->where('id',$_POST['id'])->find();
@@ -143,6 +142,15 @@ class Index extends Controller
            echo "no";
       }
       //添加收藏信息
+    }
+
+    //投资者关系
+    public function nexus(){
+        return view("nexus");
+    }
+    //公司简介
+    public function abstracts(){
+        return view("abstracts");
     }
 
 }

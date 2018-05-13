@@ -22,7 +22,7 @@
             return false;
         }
         //密码6-16位
-        if(!$("input[name='pass']").val().match(/^\d{6,16}$/)){
+        if(!$("input[name='pass']").val().match(/^\w{6,16}$/)){
              window.wxc.xcConfirm("密码必须6-16位!", window.wxc.xcConfirm.typeEnum.info);
             return false;
         }
