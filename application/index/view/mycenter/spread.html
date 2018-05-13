@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
+		<title>推广中心</title>
+        <link rel="stylesheet" href="__PUBLIC__/index/plugin/bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="__PUBLIC__/index/css/style.css" />
+		<link href="__PUBLIC__/index/css/mycenter/admin.css" rel="stylesheet" type="text/css">
+        <link href="__PUBLIC__/index/css/mycenter/amazeui.css" rel="stylesheet" type="text/css">
+        <link href="__PUBLIC__/index/css/mycenter/personal.css" rel="stylesheet" type="text/css">
+        <link href="__PUBLIC__/index/css/mycenter/wallet.css" rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="__PUBLIC__/index/script/jquery.min.js"></script>
+		<script src="__PUBLIC__/index/script/amazeui.js"></script>
+	</head>
+
+	<body>
+		<!--头 -->
+        <header class="main">
+            <div class="container">
+                {include file="public/static/index/common/nav.html"/}
+            </div>
+        </header>
+		<div class="center">
+			<div class="col-main">
+				<div class="main-wrap" style="height:650px">
+					<div class="am-cf am-padding">
+						<div class="am-fl am-cf"><strong class="am-text-danger am-text-lg">注册推广</strong> / <small>Registration&nbsp;promotion</small></div>
+					</div>
+					<hr>
+					<div class="finance">
+						<div class="financeText">
+							<p>如果您的朋友通过下面链接访问本网站并注册成为会员，即您邀请成功。</p>
+						</div>
+					</div>
+					<!--交易时间	-->
+					<div class="order-time">
+                        <label class="form-label">推广链接：</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <script type="text/javascript">
+                            function jsCopy(){
+                            var e=document.getElementById("url");
+                            e.select(); //选择对象
+                            document.execCommand("Copy"); //执行浏览器复制命令
+                            }
+                        </script>
+                            <button type="button" class="am-btn am-btn-secondary  am-btn-xs" onClick="jsCopy();">复制</button>
+                        <p><input type="text" id="url" class="am-form-field am-radius" value="{$url}"/></p>
+
+                        <div class="clear"></div>
+                    </div>
+                    <div class="order-time">
+                        <label class="form-label">推广二维码：</label><br><br>
+                        <p><img class="am-radius am-img-thumbnail" alt="240*240" src="http://pan.baidu.com/share/qrcode?w=250&h=250&url={$url}" width="240" height="240" /></p>
+
+                        <div class="clear"></div>
+                    </div>
+				</div>
+				<!--底部-->
+			</div>
+			{include file="public/static/index/common/aside.html"/}
+		</div>
+        {include file="public/static/index/common/footer.html"/}
+	</body>
+</html>

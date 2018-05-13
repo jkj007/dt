@@ -238,7 +238,7 @@ return [
         'list_rows' => 15,
     ],
     'view_replace_str'  =>  [
-       '__PUBLIC__'=>'/public/static',
+       '__PUBLIC__'=>'http://localhost/dt_bak/dt/public/static',
         '__ROOT__' => '/',
         '__ADMIN__'=> '',
     ],

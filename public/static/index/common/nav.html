@@ -24,11 +24,17 @@
                             <a href="__PUBLIC__/index/#" class="dropdown-toggle" data-toggle="dropdown"><span>资源</span> <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="/dtx">店淘系</a></li>
+<<<<<<< HEAD
+                                <li><a href="pdd">拼多多</a></li>
+                                <li><a href="jd">京东</a></li>
+                                <li><a href="lazada">lazada</a></li>
+=======
                               <!--   <li><a href="/pdd">拼多多</a></li>
                                 <li><a href="/jd">京东</a></li>
                                 <li><a href="/lazada">lazada</a></li> -->
                             
                          
+>>>>>>> 8479543e96a059e3a23ddcb1dc23db5761ee6c8d
                             </ul>
                         </li>
                        <!--  <li><a href="__PUBLIC__/index/features.htm"><span>Features</span></a></li> -->
@@ -39,6 +45,27 @@
                                 <li><a href="__PUBLIC__/index/blog-post.htm">详细信息</a></li>
                             </ul>
                         </li> -->
+<<<<<<< HEAD
+                        <li><a href="blog"><span>文章</span></a></li>
+                        <li><a href="lt"><span>论坛</span></a></li>
+                        <li class="dropdown">
+                            <a href="__PUBLIC__/index/#" class="dropdown-toggle" data-toggle="dropdown"><span>项目概述</span> <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="nexus">投资者关系</a></li>
+                                <li><a href="abstracts">公司简介</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="contact"><span>联系我们</span></a></li>
+                    
+                    {if condition="$Request.session.username.name eq null"}
+                    </ul>
+                    <a class="btn btn-theme navbar-btn btn-default sign-in" href="login">登陆</a>
+                    <a class="btn btn-theme navbar-btn btn-orange  sign-up" href="reg">注册</a>
+                    {else/}
+                    <li><a href="mycenter"><span>个人中心</span></a></li>
+                    </ul>
+                    <a class="btn btn-theme navbar-btn btn-default  sign-up" href="loginout">退出</a>
+=======
                        
                         <li class="dropdown">
                             <a href="__PUBLIC__/index/#" class="dropdown-toggle" data-toggle="dropdown"><span>相关知识</span> <b class="caret"></b></a>
@@ -61,6 +88,7 @@
                     {else/}
                     <a class="btn btn-theme navbar-btn btn-orange  sign-up" href="/mycenter">欢迎 {$Request.session.username.name} ！</a>
                     <a class="btn btn-theme navbar-btn btn-orange  sign-up" href="/loginout">注销</a>
+>>>>>>> 8479543e96a059e3a23ddcb1dc23db5761ee6c8d
                     {/if}
                 </div>
                 </div>
