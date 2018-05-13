@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:59:"D:\phpStudy\WWW\dt./application/index\view\index\index.html";i:1525863074;s:35:"public/static/index/common/nav.html";i:1526189913;s:38:"public/static/index/common/footer.html";i:1524878979;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:59:"D:\phpStudy\WWW\dt./application/index\view\index\index.html";i:1525863074;s:35:"public/static/index/common/nav.html";i:1526189991;s:38:"public/static/index/common/footer.html";i:1524878979;}*/ ?>
  <!DOCTYPE html>
 <html lang="en">
 <head>

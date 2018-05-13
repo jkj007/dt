@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:58:"D:\phpStudy\WWW\dt./application/index\view\index\blog.html";i:1526102612;s:36:"public/static/index/common/head.html";i:1525932396;s:35:"public/static/index/common/nav.html";i:1526099974;s:38:"public/static/index/common/footer.html";i:1524878979;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:58:"D:\phpStudy\WWW\dt./application/index\view\index\blog.html";i:1526115766;s:36:"public/static/index/common/head.html";i:1525932396;s:35:"public/static/index/common/nav.html";i:1526189991;s:38:"public/static/index/common/footer.html";i:1524878979;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -82,7 +82,6 @@
                         <li><a href="/contact"><span>联系我们</span></a></li>
                     </ul>
                     <?php if(\think\Request::instance()->session('username.name') == null): ?>
-           
                     <a class="btn btn-theme navbar-btn btn-default sign-in" href="/login">登陆</a>
                     <a class="btn btn-theme navbar-btn btn-orange  sign-up" href="/reg">注册</a>
                     <?php else: ?>
