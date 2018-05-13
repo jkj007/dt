@@ -29,7 +29,7 @@ return [
     'aeditpass' => 'admin/index/editpass',
     'acodecheck' => 'admin/index/codecheck',
     'ausers' => 'admin/index/users',
-    'auserinfo' => 'admin/index/userinfo',
+    'auserinfo/:id' => 'admin/index/userinfo',
     'aeditbbs' => 'admin/index/editbbs',
     'aaddbbs' => 'admin/index/addbbs',
     'abbs' => 'admin/index/bbs',
@@ -39,8 +39,13 @@ return [
     'abbsmessage' => 'admin/index/bbsmessage',
     'abbscomment' => 'admin/index/bbscomment',
     'aupdatebbs' => 'admin/index/updatebbs',
+
     'abbsdel' => 'admin/index/bbsdel',
-    'aedituser' => 'admin/index/edituser',
+
+
+    'aedituser/:id' => 'admin/index/edituser',
+    'aupdateuser' => 'admin/index/updateuser',
+    'acompany' => 'admin/index/company',
     //l
     'acallus' => 'admin/callus/callus',
     'asearchs'=> 'admin/callus/searchs',
@@ -48,10 +53,9 @@ return [
 
     //视频路由-pm
     '__rest__'=>[
-        'avideo'=>'admin/video',
-        'asoft' =>'admin/soft',
-        'dtx' =>'index/video',
-
+        'avideo'=>'admin/admin/video',
+        'asoft' =>'admin/admin/soft',
+        'dtx' =>'index/index/video',
     ],
     'avideo/:id/soft'=>['admin/video/soft',['method'=>'post']],
     'uploadfile'=>['admin/upload_file/upload',['method'=>'post']],
@@ -68,8 +72,14 @@ return [
     'dtx'=>'index/index/dtx',
     'aboutus'=>'index/index/aboutus',
     'contact'=>'index/index/contact',
-    'blog'=>'index/index/blog',
-    'bloginfo'=>'index/index/bloginfo',
+
+  
+    'blog/[:type]'=>['index/index/blog',['method' => 'get']],
+    'blog/[:type]'=>['index/index/blog',['method' => 'get']],
+   // 'blog'=>'index/index/blog',
+    'bloginfo/:id'=>['index/index/bloginfo',['method' => 'get']],
+
+
     'login'=>'index/index/login',
     'reg'=>'index/index/reg',
     'index'=>'index/index/index',

@@ -30,14 +30,25 @@
                         <!-- <li>
                             <a href="__PUBLIC__/admin/index.html"><i class="fa fa-dashboard fa-fw nav_icon"></i></a>
                         </li> -->
-                        <li>
+            
+{if condition="($Request.session.username.state eq 2) or ($Request.session.username.state eq 3)"} 
+        <li>
+            <a href="__PUBLIC__/admin/#"><i class="fa fa-laptop nav_icon"></i>用户管理<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level">
+                <li>
+                    <a href="/ausers">用户管理</a>
+                </li>
+            </ul>
+        </li>
+{elseif condition="$Request.session.username.state eq 4"/}
+        <li>
                             <a href="__PUBLIC__/admin/#"><i class="fa fa-laptop nav_icon"></i>用户管理<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="./ausers">普通用户</a>
+                                    <a href="/ausers">普通用户</a>
                                 </li>
                                 <li>
-                                    <a href="./ausers">代理</a>
+                                    <a href="/acompany">公司代理</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -55,13 +66,13 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="__PUBLIC__/admin/#"><i class="fa fa-envelope nav_icon"></i>论坛管理<span class="fa arrow"></span></a>
+                            <a href="__PUBLIC__/admin/#"><i class="fa fa-envelope nav_icon"></i>文章管理<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="./abbs.html">帖子管理</a>
+                                    <a href="/abbs.html">文章管理</a>
                                 </li>
                                 <li>
-                                    <a href="./aeditbbs">发布帖子</a>
+                                    <a href="/aeditbbs">发布文章</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -96,6 +107,10 @@
                                 <li>
                                     <a href="__PUBLIC__/admin/login.html">Login</a>
                                 </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+{/if}                  
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
