@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
+		<title>账户余额</title>
+		<link rel="stylesheet" href="__PUBLIC__/index/plugin/bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="__PUBLIC__/index/css/style.css" />
+        <link href="__PUBLIC__/index/css/mycenter/admin.css" rel="stylesheet" type="text/css">
+        <link href="__PUBLIC__/index/css/mycenter/amazeui.css" rel="stylesheet" type="text/css">
+        <link href="__PUBLIC__/index/css/mycenter/personal.css" rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="__PUBLIC__/index/script/jquery.min.js"></script>
+        <script src="__PUBLIC__/index/script/amazeui.js"></script>
+		
+	</head>
+
+	<body>
+		<!--头 -->
+		<header class="main">
+            <div class="container">
+                {include file="public/static/index/common/nav.html"/}
+            </div>
+        </header>
+		<div class="center">
+			<div class="col-main">
+				<div class="main-wrap" style="height:650px">
+						<!--标题 -->
+						<div class="am-cf am-padding">
+							<div class="am-fl am-cf"><strong class="am-text-danger am-text-lg">账户余额</strong> / <small>Account&nbsp;Balance</small></div>
+						</div>
+						<hr/>	
+						<div class="finance">
+							<div class="financeText">
+								<p>可用余额:<span>¥0.0</span></p>
+								<a href="safety.html">安全中心：保护账户资产安全</a>
+							</div>
+							<div class="financeTip">
+								<img src="__PUBLIC__/index/img/Balance.png" />
+								<a href="walletlist.html">查看账户明细</a>
+								<p>提示：余额是您在本商城的一个账户，如账户内有款项，下单时可以直接勾选使用，抵消部分总额，方便快捷安全高效。</p>
+							</div>
+						</div>
+				</div>
+				<!--底部-->
+			</div>
+            {include file="public/static/index/common/aside.html"/}            
+		</div>
+        {include file="public/static/index/common/footer.html"/}
+	</body>
+</html>

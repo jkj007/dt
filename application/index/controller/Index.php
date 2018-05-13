@@ -105,7 +105,7 @@ class Index extends Controller
         $res=db('users')->where('phone',$_POST['phone'])->where('pass',mymd5($_POST['pass']))->find();
         if($res){
           //登陆成功
-          $_SESSION['username']=$res;
+          session("username",$res);
           $this->redirect('../index');
         }else{
           //登录失败
@@ -142,6 +142,15 @@ class Index extends Controller
            echo "no";
       }
       //添加收藏信息
+    }
+
+    //投资者关系
+    public function nexus(){
+        return view("nexus");
+    }
+    //公司简介
+    public function abstracts(){
+        return view("abstracts");
     }
 
 }

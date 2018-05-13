@@ -79,6 +79,8 @@ return [
     'codecheck'=>'index/index/codecheck',
     'com'=>'index/index/com',
     //l
+    'nexus'=>'index/index/nexus',
+    'abstracts'=>'index/index/abstracts',
     'addinfo'=> 'index/contact/addinfo',
     'mycenter'=>'index/mycenter/mycenter',
     'uploadface'=>"index/mycenter/upload_face",
@@ -90,8 +92,18 @@ return [
     'checkpass'=>'index/mycenter/checkpass',
     'bindphone'=>'index/mycenter/bindphone',
     'sendolddx'=>'index/mycenter/sendolddx',
-    'checkcode'=>'index/mycenter/checkcode',
-
+    'codecheck'=>'index/mycenter/codecheck',
+    'phonecheck'=>'index/mycenter/phonecheck',
+    'updatephone'=>'index/mycenter/updatephone',
+    'walletlist'=>'index/mycenter/walletlist',
+    'wallet'=>'index/mycenter/wallet',
+    'spread'=>'index/mycenter/spread',
+    'sp_results'=>'index/mycenter/sp_results',
+    'collection'=>'index/mycenter/collection',
+    'foot'=>'index/mycenter/foot',
+    'orders'=>'index/mycenter/orders',
+    'comment'=>'index/mycenter/comment',
+    'consultation'=>'index/mycenter/consultation',
 ];
 
 

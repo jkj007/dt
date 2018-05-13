@@ -25,7 +25,7 @@
         );  
         $smsapi = "http://www.smsbao.com/"; //短信网关
         $user = "775216952"; //短信平台帐号
-        $pass = md5("Fenxianghao123"); //短信平台密码
+        $pass = md5("Fenxianghaodxb"); //短信平台密码
         $dxcode=rand(1000,9999);
         session($_SERVER['REMOTE_ADDR'],$dxcode);
         $content="【分享联盟】验证码:". $dxcode;//要发送的短信内容

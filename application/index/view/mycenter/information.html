@@ -28,7 +28,7 @@
 		<div class="center">
 			<div class="col-main">
 				<div class="main-wrap">
-					<div class="user-info" style="height:600px">
+					<div class="user-info" style="height:640px">
 						<!--标题 -->
 						<div class="am-cf am-padding">
 							<div class="am-fl am-cf"><strong class="am-text-danger am-text-lg">个人资料</strong> / <small>Personal&nbsp;information</small></div>
@@ -71,7 +71,7 @@
 								<div class="am-form-group">
 									<label for="user-phone" class="am-form-label">电话</label>
 									<div class="am-form-content">
-										<input id="user-phone" value="{$info['phone']}" readonly type="tel">
+										<input id="user-phone" value="{$info['phone']|substr=0,3}****{$info['phone']|substr=7}" readonly type="tel">
 									</div>
 								</div>
 								<div class="am-form-group">
