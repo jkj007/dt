@@ -6,19 +6,16 @@ class Index extends Controller
     //主页
     public function index()
     {
-      //判断是否登陆
-      if(!preg_match('/\d{11}/',session($_SERVER['REMOTE_ADDR']."islogin"))){
-          $this->redirect('../alogin');
-      }
+      $this->logincheck();
       return view();
     }
     //登陆页面
     public function login(){
     	return view();
     }
-    public function reg(){
+    //public function reg(){
     	//return view();
-    }
+    //}
     public function dtvideo(){
       return view();
     }
@@ -29,6 +26,7 @@ class Index extends Controller
           echo "no";
        }
     }
+
     public function adduser(){
        header("content-type:text/html;charset=utf8");
        if($_POST['code']!=session($_SERVER['REMOTE_ADDR']) and $_POST['code']){
@@ -58,11 +56,14 @@ class Index extends Controller
     }
     //登陆验证
     public function loginin(){
-        $res=db('users')->where('state','>=',2)->where('phone',$_POST['phone'])->where('pass',mymd5($_POST['pass']))->select();
+        $res=db('users')->where('state','>=',2)->where('phone',$_POST['phone'])->where('pass',mymd5($_POST['pass']))->find();
         if($res){
-          //登陆成功
-          session($_SERVER['REMOTE_ADDR']."islogin",$_POST['phone']);
-          $this->redirect('admin/admin/admin');
+            if($res['state']==2 or $res['state']==3 or $res['state']==4){
+               session('username',$res);
+               $this->redirect('/admin');
+            }else{
+                $this->error('权限有限，如想加入我们，请联系我们！');
+            }
         }else{
           //登录失败
           $this->error('账号或密码错误');
@@ -72,9 +73,10 @@ class Index extends Controller
     public function test(){
     
     }
-    public function findpass(){
-        return view();
-    }
+
+    // public function findpass(){
+    //     return view();
+    // }
     public function codecheck(){
          if($_POST['code']==session($_SERVER['REMOTE_ADDR']) and $_POST['code']){
               session($_SERVER['REMOTE_ADDR'], null);
@@ -106,6 +108,13 @@ class Index extends Controller
           }
         }
         $where[]=" state=1";
+        if(session('username.state')==2 or session('username.state')==3){
+          $come=session('username.come');
+           //$where[]=" come={$come}";
+        }
+
+
+
         $select=implode('and', $where);
         $res=db('users')->where($select)->paginate(3);
         $this->assign('info',$res);
@@ -113,7 +122,10 @@ class Index extends Controller
     }
 
     public function userinfo(){
-         return view();
+           $res=db('users')->where('id',input('id'))->find();
+           $this->assign('info',$res);
+           return view();
+         
     }
     public function editbbs(){
        return view();
@@ -134,7 +146,6 @@ class Index extends Controller
        }
       $this->assign('info',$res);
       return view();
-      
     }
     //文章修改
     public function bbsinfo(){
@@ -153,16 +164,47 @@ class Index extends Controller
       }
     }
     //文章评论
-
     public function bbsdel(){
       if(db('bbs')->where('id',$_GET['id'])->delete()){
         $this->success("删除成功!",'admin/admin/bbs');
       }
     }
     public function edituser(){
-      $res=db('users')->where('id',$_GET['id'])->find();
+      $res=db('users')->where('id',input('id'))->find();
       $this->assign('info',$res);
       return view();
+    }
+    public function updateuser(){
+      if(db('users')->where('id',$_POST['id'])->update($_POST)){
+        $this->success("修改成功!",'/ausers');
+      }else{
+        $this->error("修改失败!");
+      }
+    }
+    public function company(){
+         if($_POST){
+          //将数组转成字符串
+          if($_POST['name']){
+            $where[]=" name like '%{$_POST['name']}%' ";
+          }
+          if($_POST['phone']){
+            $where[]=" phone='{$_POST['phone']}' ";
+          }
+          if($_POST['come']){
+            $where[]=" come='{$_POST['come']}' ";
+          }
+        }
+        $where[]=" state=2";
+        $select=implode('and', $where);
+        $res=db('users')->where($select)->paginate(3);
+        $this->assign('info',$res);
+        return view("company");
+    }
+    public function logincheck(){
+        if(session('username.state')<2){
+           $this->redirect('/alogin');
+           die();
+        }
     }
 
 
