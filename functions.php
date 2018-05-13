@@ -23,3 +23,25 @@ function error($value)
 {
     return Session::has('errors.'.$value)?Session::get('errors.'.$value):'';
 }
+
+function getNav()
+{
+    $share_type = app\admin\model\Type::where('pid',0)->select();
+    if (empty($share_type)) {
+        return '';
+    }
+    foreach ($share_type as $key => $value) {
+        echo '<li><a href="/dtx?id='.$value->id.'">'.$value->name.'</a></li>';
+    }
+}
+
+
+function getTypeName($value)
+{
+    return app\admin\model\Type::where('id',$value)->value('name');
+}
+
+function getTagName($value)
+{
+    return app\admin\model\Tag::where('id',$value)->value('name');
+}

@@ -5,6 +5,8 @@ namespace app\index\controller;
 use think\Controller;
 use think\Request;
 use app\admin\model\Video as M;
+use app\admin\model\Tag;
+use app\admin\model\Type;
 class Video extends Controller
 {
     /**
@@ -14,14 +16,36 @@ class Video extends Controller
      */
     public function index()
     {
+        $parent_id = input('get.id');
         $where = [];
         $search = [];
-        if (input('get.type')) {
-            $where['type'] = ['=',input('get.type')];
-            $search['type'] = input('get.type');
+        if (input('get.tag')) {
+            $search['tag'] = input('get.tag');
+            $video = Tag::find(input('get.tag'))->videos();
+        }else{
+            $video = new M();
         }
-        $videos = M::where($where)->order('id','desc')->paginate(5);
-        return $this->fetch('index',compact('videos','search'));
+        if (input('get.type')) {
+            $search['type']=input('get.type');
+            $where['type_id'] = ['=',input('get.type')];
+        }
+        if (count($search)) {
+            $parm = '';
+            foreach ($search as $key => $value) {
+                $parm .='&'.$key.'='.$value;
+            }
+            $parm.='&id='.$parent_id;
+        }
+        $types = Type::where('pid',$parent_id)->limit(8)->select();
+        // if (input('get.id')) {
+        //     $where['type_id'] = ['=',input('get.id')];
+        //     $search['type'] = input('get.type');
+        // }
+
+        $videos = $video->where($where)->order('create_time','desc')->paginate(5);
+        $tags = Tag::limit(8)->select();
+
+        return $this->fetch('index',compact('videos','search','tags','types','parm','parent_id'));
     }
 
     /**
@@ -53,7 +77,7 @@ class Video extends Controller
      */
     public function read($id)
     {
-        $video = M::get($id);
+        $video = M::with('softs')->find($id);
         return $this->fetch('read',compact('video'));
     }
 

@@ -13,7 +13,7 @@ class Soft extends Model
     }
     public function getTypeAttr($value)
     {
-        $types = ['1'=>'普通','2'=>'推荐','3'=>'置顶'];
+        $types = ['1'=>'普通','2'=>'精选','3'=>'置顶'];
         if (isset($types[$value])) {
             return $types[$value];
         }else{
@@ -26,5 +26,8 @@ class Soft extends Model
     {
        return $this->belongsToMany('Video');
     }
-
+    public function tags()
+    {
+       return $this->belongsToMany('Tag');
+    }
 }
