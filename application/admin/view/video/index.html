@@ -72,9 +72,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <tr>
           <th>标题</th>
           <th>描述</th>
-          <th>类型</th>
+          <th>类别</th>
+          <th>状态</th>
           <th>价格</th>
-            <th>添加时间</th>
+          <th>添加时间</th>
           <th>购买</th>
           <th>收藏</th>
           <th>浏览</th>
@@ -93,6 +94,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
        <tr>
           <th scope="row">{$vo.title}</th>
           <td>{$vo.desc}</td>
+          <td>{$vo.type_id}</td>
           <td>{$vo.type}</td>
           <td>{$vo.price}</td>
           <td>{$vo.create_time}</td>
@@ -101,11 +103,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           <td>{$vo.collnum}</td>
           <td>{$vo.viewnum}</td>
           <td class="btn-group">
-                <button type="button" onclick="event.preventDefault();
-                                                     document.getElementsByClassName('del-form')[0].submit();" class="btn btn-xs btn-danger">删除</button>
-                                                     <form class="del-form" action="/avideo/{$vo.id}" method="POST" style="display: none;">
-                                                            <input type="hidden" name="_method" value="DELETE" >
-                                                      </form>
+                <button type="button" onclick="$('#del-form').attr('action','/avideo/{$vo->id}');$('#del-form').submit()" class="btn btn-xs btn-danger">删除</button>
                 <button type="button" onclick="location.href='/avideo/'+{$vo.id}+'/edit'" class="btn btn-xs btn-info">修改</button>
                 <button data-toggle="modal" data-target="#myModal" type="button" data-whatever="{$vo.id}" class="btn btn-xs btn-warning warning_44">相关软件</button>
             </td>
@@ -114,7 +112,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </tr>
 {/volist}
       </tbody>
-      
+        <form id="del-form" action="" method="POST" style="display: none;">
+            <input type="hidden" name="_method" value="DELETE" >
+        </form>
+
       {include file="video/model" /} 
     </table>
 
@@ -141,6 +142,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
     // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
     var modal = $(this)
+    $.get('/avideo/'+recipient,
+    function(data){
+      ids = JSON.parse(data);
+      $('.soft_video').each(function(i,v){
+        $(ids).each(function(index,id){
+          if($(v).val()==id) {
+            $(v).attr('checked',true);
+          }
+        })
+        
+      })
+    },'json');
     // modal.find('.modal-title').text('New message to ' + recipient)
     modal.find('.modal-body form').attr('action','/avideo/'+recipient+'/soft')
   })

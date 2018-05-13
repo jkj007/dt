@@ -52,69 +52,47 @@
                         <!-- Video - related -->
                         <section class="related">
                             <h2 class="full-left">相关软件</h2>
-                            <h2 class="full-right">更多>></h2>
+                            
                             <div class="row  videos-list">
+                                {volist name='video.softs' id='soft'}
                                 <article class="col-md-6  video-item">
-                                    <a href="__PUBLIC__/index/video.htm" class="video-prev video-prev-small"></a>
-                                    <p class="button-full"><a href="__PUBLIC__/index/video.htm" class="btn btn-theme btn-green">软件1</a></p>
+                                    <img width="293.33" height="200" src="/public/static/pm/img/timg.jpg" alt="">
+                                    <!-- <a href="/soft/{$soft->id}" class="video-prev video-prev-small"></a> -->
+                                    <p class="button-full"><a href="__PUBLIC__/index/video.htm" class="btn btn-theme btn-green">{$soft->title}</a></p>
                                 </article>
-                                <article class="col-md-6  video-item">
+                                {/volist}
+                                <!-- <article class="col-md-6  video-item">
                                     <a href="__PUBLIC__/index/video.htm" class="video-prev video-prev-small"></a>
                                     <p class="button-full"><a href="__PUBLIC__/index/video.htm" class="btn btn-theme btn-green">软件2</a></p>
-                                </article>
+                                </article> -->
                             </div>
-                            <div class="row">
-                                <article class="col-md-6  video-item">
-                                    <a href="__PUBLIC__/index/video.htm" class="video-prev video-prev-small"></a>
-                                    <p class="button-full"><a href="__PUBLIC__/index/video.htm" class="btn btn-theme btn-green">软件3</a></p>
-                                </article>
-                                <article class="col-md-6  video-item">
-                                    <a href="__PUBLIC__/index/video.htm" class="video-prev video-prev-small"></a>
-                                    <p class="button-full"><a href="__PUBLIC__/index/video.htm" class="btn btn-theme btn-green">软件4</a></p>
-                                </article>
-                            </div>
+                            
+                           
                         </section>
                     </article>
                 </div>
                 <aside class="col-md-4">
-                    <h3 class="video-title">{$video->title}</h3>
+                    <h2 >{$video->title}</h2>
                     <p class="video-params">
-                        作者: <b>{$video->price}</b> <br />
+                        价格: <b>{$video->price}</b> <br />
                         日期: <b>{:date('Y-m-d',strtotime($video->create_time))}</b> <br />
-                        标签: <b>{$video->type}</b> <br />
+                        标签: {foreach $video->tags()->limit(3)->select() as $tag}<b>{$tag->name}&nbsp;&nbsp;</b>{/foreach} <br/>
+                        销量: <b>{$video->num}</b> <br />
                         浏览量: <b>{$video->viewnum}</b> <br />
-                        收藏: <b>{$video->collnum}</b> <!-- <a href="__PUBLIC__/index/#"><i class="fa fa-heart"></i></a> -->
+                        收藏量: <b>{$video->collnum}</b>
                     </p>
                     <div class="row buttons-margin-horizontal">
                         <div class="col-md-6 button-full">
-                            <a class="btn btn-theme btn-red"><i class="fa fa-heart"></i> 喜欢</a>
-                        </div>
-                        <div class="col-md-6 button-full">
                             <a class="btn btn-theme btn-orange"><i class="fa fa-plus"></i>收藏</a>
                         </div>
-                    </div>
-                    <p class="button-full buttons-margin-horizontal"><a class="btn btn-theme btn-green"><i class="fa fa-download"></i> 购买 (已出售{$video->num}份)</a></p>
-                    <div class="blue-box video-social">
-                        <div class="row">
-                            <div class="col-md-4">
-                                分享微信
-                            </div>
-                            <div class="col-md-4">
-                                分享微博
-                            </div>
-                            <div class="col-md-4">
-                                分享QQ
-                            </div>  
-                        
+                        <div class="col-md-6 button-full">
+                            <a class="btn btn-theme btn-green"><i class="fa fa-download"></i> 购买</a>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-12">
-                            
-                              <p>推荐</p>
-                              
-                           
-                        </div>
+                        <div class="col-md-12" style="color: red">     
+                                <p class="btn btn-lg btn-danger">往期视频：</p>
+                            </div>
                         <article class="col-md-12  video-item">
                             <a href="__PUBLIC__/index/video.htm" class="video-prev video-prev-small"></a>
                             <p class="button-full"><a href="__PUBLIC__/index/video.htm" class="btn btn-theme btn-green">视频</a></p>

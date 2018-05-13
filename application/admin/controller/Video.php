@@ -5,6 +5,8 @@ use think\Controller;
 use think\Request;
 use app\admin\model\Video as M;
 use app\admin\model\Soft as S;
+use app\admin\model\Type as T;
+use app\admin\model\Tag;
 class Video extends Controller
 {
     public function index(){
@@ -24,7 +26,9 @@ class Video extends Controller
     }
     public function create()
     {
-        return $this->fetch();
+        $tags = Tag::select();
+        $types = T::field('*,concat(path,id) as ipath')->order('ipath')->select();
+        return $this->fetch('create',compact('types','tags'));
     }
 
     public function save(Request $request)
@@ -57,6 +61,9 @@ class Video extends Controller
             session_flash('errors',$error);
             return $this->redirect('/avideo/create');
         }
+        if (count(input('post.tags/a'))>0) {
+            $video->tags()->attach(input('post.tags/a'));
+        }
         $move_path = ROOT_PATH . 'public' . DS . 'videos'.DS.input('post.video');
         if ( is_dir(dirname($move_path)) || mkdir(dirname($move_path),0770,true)) {
             @rename($file_path, $move_path);
@@ -79,12 +86,20 @@ class Video extends Controller
 
     public function edit($id)
     {
-        $video = M::get($id);
-        return $this->fetch('edit',compact('video'));
+        $video = M::find($id);
+        $vide_tag_obj = $video->tags()->field('id')->select();
+        $video_tag = [];
+        foreach ($vide_tag_obj as $key => $value) {
+            $video_tag[] = $value->id;
+        }
+        $tags = Tag::select();
+        $types = T::field('*,concat(path,id) as ipath')->order('ipath')->select();
+        return $this->fetch('edit',compact('video','types','tags','video_tag'));
     }
     public function update(Request $request,$id){
         // dump(input('post.'));exit;
         $old_video = M::get($id);
+
         $data = input('post.');
         if (!input('post.video')){
             $data['video'] = $old_video->video;
@@ -123,12 +138,18 @@ class Video extends Controller
             session_flash('errors',$error);
             return $this->redirect('/avideo/'.$id.'/edit');
         }
+
         if (input('post.video')) {
             @unlink(ROOT_PATH . 'public' . DS . 'videos'.DS.$old_video->video);
             $move_path = ROOT_PATH . 'public' . DS . 'videos'.DS.input('post.video');
             if ( is_dir(dirname($move_path)) || mkdir(dirname($move_path),0770,true)) {
                 @rename($file_path, $move_path);
             }
+        }
+        if (count(input('post.tags/a'))>0) {
+            $video->tags()->sync(input('post.tags/a'));
+        }else{
+            $video->tags()->sync([]);
         }
         return $this->redirect('/avideo','',302,['code'=>0,'msg'=>'修改成功']);
     }
@@ -138,6 +159,22 @@ class Video extends Controller
         $video = M::find($id);
         $video->softs()->sync(input('post.soft/a'));
         return $this->redirect('/avideo','',302,['code'=>0,'msg'=>'关联成功']);
+    }
+    /**
+     * 显示指定的资源
+     *
+     * @param  int  $id
+     * @return \think\Response
+     */
+    public function read($id)
+    {
+        $softs = M::find($id)->softs;
+        $soft_ids = [];
+        foreach ($softs as $key => $value) {
+            $soft_ids[] = $value->id;
+        }
+
+        return json_encode($soft_ids);
     }
 
 }

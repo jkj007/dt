@@ -4,7 +4,8 @@ namespace app\admin\controller;
 use think\Controller;
 use think\Request;
 use app\admin\model\Soft as M;
-
+use app\admin\model\Type as T;
+use app\admin\model\Tag;
 class Soft extends Controller
 {
     public function index(){
@@ -23,7 +24,9 @@ class Soft extends Controller
     }
     public function create()
     {
-        return $this->fetch();
+        $tags = Tag::select();
+        $types = T::field('*,concat(path,id) as ipath')->order('ipath')->select();
+        return $this->fetch('create',compact('tags','types'));
     }
 
     public function save(Request $request)
@@ -43,6 +46,7 @@ class Soft extends Controller
                             'type.require'=>'类型为必填项',
                             'price.require'=>'价格为必填项',
                             'price.number'=>'价格必须为数字',
+
                         ],true)
                     ->save(input('post.'));
         //视频路径
@@ -59,6 +63,9 @@ class Soft extends Controller
         $move_path = ROOT_PATH . 'public' . DS . 'softs'.DS.input('post.video');
         if ( is_dir(dirname($move_path)) || mkdir(dirname($move_path),0770,true)) {
             @rename($file_path, $move_path);
+        }
+        if (count(input('post.tags/a'))>0) {
+            $video->tags()->attach(input('post.tags/a'));
         }
         return $this->redirect('/asoft','',302,['code'=>0,'msg'=>'添加成功']);
     }
@@ -79,7 +86,14 @@ class Soft extends Controller
     public function edit($id)
     {
         $video = M::get($id);
-        return $this->fetch('edit',compact('video'));
+        $vide_tag_obj = $video->tags()->field('id')->select();
+        $video_tag = [];
+        foreach ($vide_tag_obj as $key => $value) {
+            $video_tag[] = $value->id;
+        }
+        $tags = Tag::select();
+        $types = T::field('*,concat(path,id) as ipath')->order('ipath')->select();
+        return $this->fetch('edit',compact('video','types','tags','video_tag'));
     }
     public function update(Request $request,$id){
         // dump(input('post.'));exit;
@@ -128,6 +142,11 @@ class Soft extends Controller
             if ( is_dir(dirname($move_path)) || mkdir(dirname($move_path),0770,true)) {
                 @rename($file_path, $move_path);
             }
+        }
+        if (count(input('post.tags/a'))>0) {
+            $video->tags()->sync(input('post.tags/a'));
+        }else{
+            $video->tags()->sync([]);
         }
         return $this->redirect('/asoft','',302,['code'=>0,'msg'=>'修改成功']);
     }

@@ -19,12 +19,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-7">
-                    <h1>电淘系列</h1>
+                    <h1>{:getTypeName($parent_id)}</h1>
                 </div>
                 <div class="col-md-5">
                     <ol class="breadcrumb pull-right">
                         <li><a href="__PUBLIC__/index/index.htm">资源</a></li>
-                        <li><a href="__PUBLIC__/index/index.htm">电淘系</a></li>
+                        <li><a href="__PUBLIC__/index/index.htm">{:getTypeName($parent_id)}</a></li>
                         <li class="active">视频</li>
                     </ol>
                 </div>
@@ -35,52 +35,69 @@
     <!-- Video list boxes: list -->
     <section class="content content-light  videos-list videos-list-list">
         <div class="container">
-            <div class="filter">
-                <a href="/dtx" class="btn btn-theme navbar-btn btn-orange">全部</a> &nbsp; 
-                <a href="/dtx?type=1" class="btn btn-theme navbar-btn btn-orange">小白</a> &nbsp; 
-                <a href="/dtx?type=2" class="btn btn-theme navbar-btn btn-orange">高端</a> &nbsp; 
-                <a href="/dtx?type=3" class="btn btn-theme navbar-btn btn-orange">专业</a> &nbsp;             
-            </div>
+                <h3>筛选条件：</h3>
+              <table class="table table-bordered">
+                <tr>
+                    <td width="130">当前筛选条件：</td>
+                    <td>
+                        {if condition="isset($search['type'])"}
+                        <a href="/dtx?{$parm}" class="btn btn-sm btn-orange">{:getTypeName($search['type'])}</a> &nbsp; 
+                        {/if}
+                        {if condition="isset($search['tag'])"}
+                        <a href="/dtx?{$parm}" class="btn btn-sm btn-orange">{:getTagName($search['tag'])}</a> &nbsp; 
+                        {/if}
+                    </td>
+                </tr>
+                <tr>
+                    <td  width="130">其他类别：</td>
+                    <td>
+                        <a href="/dtx?id={$parent_id}&tag={$search['tag']??''}" class="btn btn-sm btn-orange">全部</a> &nbsp; 
+                        {volist name='types' id='type'}
+                        <a href="/dtx?id={$parent_id}&type={$type->id}&tag={$search['tag']??''}" class="btn btn-sm btn-orange">{$type->name}</a> &nbsp;
+                        {/volist} 
+                    </td>
+                </tr>
+                <tr>
+                    <td  width="130">标签筛选：</td>
+                    <td>
+                        <a href="/dtx?id={$parent_id}&type={$search['type']??''}" class="btn btn-sm btn-orange">全部</a> &nbsp; 
+                        {volist name='tags' id='tag'}
+                        <a href="/dtx?id={$parent_id}&tag={$tag->id}&type={$search['type']??''}" class="btn btn-sm btn-orange">{$tag->name}</a> &nbsp;
+                        {/volist} 
+                    </td>
+                </tr>
+              </table>
+     
             
             <hr class="invisible" />
             {volist name="videos" id="video"}
-            <article class="row video-item">
-                <div class="col-md-4">
-                    <video width="299.33" height="200" src="/public/videos/{$video->video}" controls=""></video>
-                    <p class="button-full"><a href="./jd" class="btn btn-theme btn-green"><i class="fa fa-play"></i> 购买视频 <small>￥{$video->price} <i class="fa fa-heart"></i></small></a></p>
-                </div>
-                <div class="col-md-8">
-                    <h3 class="video-title"><a href="/dtx/{$video->id}">{$video->title}</a></h3>
-                    <div class="video-description">
-                        {$video->getData('desc')}
-                        <a href="/dtx/{$video->id}">[查看更多..]</a>
+             <article class="col-md-4 video-item">
+                <video width="299.33" height="200" src="/public/videos/{$video->video}" controls=""></video>
+                <h3 class="video-title"><a href="/dtx/{$video->id}">{$video->title}</a></h3>
+                <div class="row video-params">
+                    <div class="col-md-8">
+                        价格: <b>¥{$video->price}</b>
                     </div>
-                    <div class="row video-params">
-                        <div class="col-md-4">
-                            作者: <b>{$video->price}</b>
-                        </div>
-                        <div class="col-md-3">
-                            日期: <b>{:date('Y-m-d',strtotime($video->create_time))}</b>
-                        </div>
-                        <div class="col-md-3">
-                            标签: <b>{$video->type}</b>
-                        </div>
-                        <div class="col-md-2">
-                            浏览量: <b>{$video->viewnum}</b>
-                        </div>
-                    </div>                        
+                    <div class="col-md-4 text-right">
+                        浏览量: <b>{$video->viewnum}</b>
+                    </div>
+                </div>
+                <div class="row video-params">
+                    <div class="col-md-7">
+                        日期: <b>{:date('Y-m-d',strtotime($video->create_time))}</b>
+                    </div>
+                    <div class="col-md-5 text-right">
+                        收藏: <b>102</b> <a href="__PUBLIC__/index/#"><i class="fa fa-heart"></i></a>
+                    </div>
+                </div>
+                <div class="row video-params">
+                    <div class="col-md-12">
+                        标签: {foreach $video->tags()->limit(3)->select() as $tag}<button class="btn btn-xs btn-primary">{$tag->name}</button>{/foreach}
+                    </div>
                 </div>
             </article>
             {/volist}
-          
-            <!-- Pagination -->
-           <!--  <ul class="pagination">
-                <li class="disabled"><a href="__PUBLIC__/index/#"><</a></li>
-                <li class="active"><a href="__PUBLIC__/index/videos-list.htm">1 <span class="sr-only">(current)</span></a></li>
-                <li><a href="__PUBLIC__/index/#">2</a></li>
-                <li><a href="__PUBLIC__/index/#">3</a></li>
-                <li><a href="__PUBLIC__/index/#">></i></a></li>
-            </ul> -->
+            
             {$videos->appends($search)->render()}
 
         </div>        

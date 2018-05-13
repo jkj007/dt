@@ -1,0 +1,12 @@
+<?php
+
+namespace app\admin\model;
+
+use think\Model;
+
+class Type extends Model
+{
+    //开启时间戳自动写入
+    protected $autoWriteTimestamp = 'datetime';
+    protected $datetime_format =false;
+}

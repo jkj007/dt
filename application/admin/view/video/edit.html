@@ -44,6 +44,7 @@
                     <div class="tab-pane active" id="horizontal-form">
                         <form id="commentForm" action="/avideo/{$video->id}" method="post" class="form-horizontal">
                             <input type="hidden" name="_method" value="PUT">
+                            <input type="hidden" name="id" value="{$video->id}">
                             <div class='form-group {if condition="error('title')!=null"}has-error{/if}'>
                                 <label for="focusedinput" class="col-sm-2 control-label">标题</label>
                                 <div class="col-sm-8">
@@ -51,6 +52,27 @@
                                 </div>
                                 <div class="col-sm-2">
                                     <p class="help-block">{:error('title')}</p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="selector1" class="col-sm-2 control-label">视频类别</label>
+                                <div class="col-sm-8">
+                                    <select name="type_id" id="selector1" class="form-control1">
+                                        {volist name='types' id='vo'}
+                                        <option value="{$vo->id}" {if condition="$video->getData('type_id') eq $vo->id"}selected{/if}>{:str_repeat('&nbsp;',($vo.level-1)*4)}{$vo->name}</option>
+                                        {/volist}
+                                    </select>
+                                </div>
+                                <div class="col-sm-2">
+                                    <p class="help-block">请选择父类，默认跟类别</p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="checkbox" class="col-sm-2 control-label">视频标签</label>
+                                <div class="col-sm-8"> 
+                                    {volist name='tags' id='tag'}
+                                    <div class="checkbox-inline"><label><input type="checkbox" name="tags[]" value="{$tag->id}" {if condition="in_array($tag->id,$video_tag)"}checked{/if}> {$tag->name}</label></div>
+                                    {/volist}
                                 </div>
                             </div>
                             <div class='form-group {if condition="error('video')!=null"}has-error{/if}'>

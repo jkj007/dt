@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>新增类别</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Modern Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+    Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+     <!-- Bootstrap Core CSS -->
+    <link href="/public/static/admin/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+    <!-- Custom CSS -->
+    <link href="/public/static/admin/css/style.css" rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="/public/static/jQuery-File-Upload/css/jquery.fileupload.css">
+    <!-- jQuery -->
+    <link href="/public/static/admin/css/custom.css" rel="stylesheet">
+</head>
+<body>
+	<div id="wrapper">
+        <!-- Navigation -->
+        <nav class="top1 navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/public/static/admin/index.html">Modern</a>
+            </div>
+            <!-- /.navbar-header -->
+            {include file="public/static/admin/common/nav.html"/}
+            <!-- /.navbar-static-side -->
+        </nav>
+        <div id="page-wrapper">
+            <div class="graphs">
+	     	<div class="xs">
+  	       		<h3>新增资源类别</h3>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="horizontal-form">
+                        <form id="commentForm" action="/atype" method="post" class="form-horizontal">
+                            <div class="form-group">
+                                <label for="selector1" class="col-sm-2 control-label">父级类别</label>
+                                <div class="col-sm-8">
+                                    <select name="pid" id="selector1" class="form-control1">
+                                        <option value="0">根类别</option>
+                                        {volist name='types' id='type'}
+                                        <option value="{$type->id}">{$type->name}</option>
+                                        {/volist}
+                                    </select>
+                                </div>
+                                <div class="col-sm-2">
+                                    <p class="help-block">请选择父类，默认跟类别</p>
+                                </div>
+                            </div>
+                            <div class='form-group {if condition="error('name')!=null"}has-error{/if}'>
+                                <label for="focusedinput" class="col-sm-2 control-label">类别名</label>
+                                <div class="col-sm-8">
+                                    <input name="name" type="text" class="form-control1" id="focusedinput" value="{:old('name')}" >
+                                </div>
+                                <div class="col-sm-2">
+                                    <p class="help-block">{:error('name')}</p>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="checkbox" class="col-sm-2 control-label"></label>
+                                <div class="col-sm-8">
+                                    <button type="submit" class="btn btn_5  btn-info">提交</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+  			</div>
+            <div class="copy_layout">
+                <p>
+                    Copyright &copy; 2015.Company name All rights reserved.More Templates
+                    <a href="/public/static/admin/http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a>
+                    - Collect from
+                    <a href="/public/static/admin/http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>
+                </p>
+            </div>
+        </div>
+        </div>
+    </div>
+    <!--jquery-->
+    <script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+    <!-- Bootstrap JS is not required, but included for the responsive demo navigation -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <!-- 原模板js -->
+    <script src="/public/static/admin/js/metisMenu.min.js"></script>
+    <script src="/public/static/admin/js/custom.js"></script>
+    </script>
+</body>
+</html>
