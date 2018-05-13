@@ -24,14 +24,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-7">
-                    <h1>分享号-文章</h1>
+                    <h1>相关知识-店淘系</h1>
                 </div>
-                <div class="col-md-5">
-                    <ol class="breadcrumb pull-right">
-                        <li><a href="__PUBLIC__/index/index.htm">Home</a></li>
-                        <li class="active">Blog</li>
-                    </ol>
-                </div>
+               
             </div>
         </div>
     </div>
@@ -39,9 +34,9 @@
     <section class="content content-light  blog">
         <div class="container">
             <div class="filter">
-                    <a href="./blog?type=1" class="btn btn-theme navbar-btn btn-orange">普通</a> &nbsp; 
-                    <a href="./blog?type=2" class="btn btn-theme navbar-btn btn-orange">精选</a> &nbsp; 
-                    <a href="./blog?type=3" class="btn btn-theme navbar-btn btn-orange">顶置</a> &nbsp;             
+                    <a href="/blog/1" class="btn btn-theme navbar-btn btn-orange">普通</a> &nbsp; 
+                    <a href="/blog/2" class="btn btn-theme navbar-btn btn-orange">精选</a> &nbsp; 
+                    <a href="/blog/3" class="btn btn-theme navbar-btn btn-orange">顶置</a> &nbsp;             
             </div>
             <div class="row">
                  <hr class="invisible" />
@@ -76,7 +71,7 @@
                                     <?php  echo date("Y-m-d",$vo['addtime'])  ?></span>
                                 <span><i class="fa fa-user"></i> 作者:{$vo.author}</span>
                                 <span><i class="fa fa-user"></i> 浏览量:{$vo.clicknum}</span>
-                                <span class="text-orange"><i class="fa fa-comments-o"></i>收藏数:{$vo.collnum}</span>
+                                <span><i class="fa fa-comments-o"></i>收藏数:{$vo.collnum}</span>
                             </p>
                         </header>
                         <p class="blog-description">
@@ -87,7 +82,7 @@
                                 ?>
                            
                         </p>
-                        <p class="text-right blog-link-more"><a href="./bloginfo?id={$vo.id}" class="btn btn-theme btn-orange">详细信息</a></p>
+                        <p class="text-right blog-link-more"><a href="/bloginfo/{$vo.id}" class="btn btn-theme btn-orange">详细信息</a></p>
                     </article>
                 {/volist}
 
@@ -96,10 +91,8 @@
 
                  
                 </div>
-                
                 <!-- Blog - sidebar -->
                 <aside class="col-md-4" role="complementary">
-                
                     <!-- Widget: Search -->
                     <section class="widget search">
                         <h2>搜索</h2>
@@ -113,21 +106,15 @@
                         <nav>
                         <ul>
                              {volist name="info2" id="vo2"}
-                            <li><a href="./bloginfo?id={$vo2.id}"><i class="fa fa-play"></i>{$vo2.title}</a></li>
+                            <li><a href="/bloginfo/{$vo2.id}"><i class="fa fa-play"></i>{$vo2.title}</a></li>
                                {/volist}
                         </ul>
                         </nav>
                     </section>
-
-
-
-            
-              
                 </aside>
             </div>
         </div>        
     </section>
-    
    {include file="public/static/index/common/footer.html"/}
 </body>
 </html>

@@ -25,13 +25,15 @@
     </style>
     <script>
         function comment(){
-            $.post("./com", { id: <?php echo $info['id'] ?> },
+            $.post("/com", { id: <?php echo $info['id'] ?> },
                function(data){
                  if(data=='yes'){
                     $('#com2').addClass("text-orange");
                     $('#com3').removeAttr("href");
                     $('#com').attr("color","#f97307");
                     $('#com').html("已收藏");
+                   num=parseInt($('.collnum').html());
+                    $('.collnum').html(num+1);
                  }else if(data=='no'){
                     //请登录
                     alert("请登录");
@@ -56,12 +58,7 @@
                 <div class="col-md-7">
                     <h1>1000 Teacher Tutorials</h1>
                 </div>
-                <div class="col-md-5">
-                    <ol class="breadcrumb pull-right">
-                        <li><a href="__PUBLIC__/index/index.htm">Home</a></li>
-                        <li class="active">Blog</li>
-                    </ol>
-                </div>
+               
             </div>
         </div>
     </div>
@@ -78,7 +75,7 @@
                             <p class="blue-box blog-params">
                                 <span><i class="fa fa-calendar"></i> <time datetime="2013-01-10T21:01"><?php    echo date("Y-m-d",$info['addtime']);   ?></time></span>
                                 <span><i class="fa fa-user"></i> {$info.author}</span>
-                                <span><i class="fa fa-comments-o"></i>{$info.collnum}人已收藏</span>
+                                <span><i class="fa fa-comments-o"></i><font class="collnum">{$info.collnum}</font>人已收藏</span>
 
                         <?php
                             if($com=='yes'){

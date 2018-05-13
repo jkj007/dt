@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>分享号-公司代理</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Modern Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+ <!-- Bootstrap Core CSS -->
+<link href="__PUBLIC__/admin/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+<!-- Custom CSS -->
+<link href="__PUBLIC__/admin/css/style.css" rel='stylesheet' type='text/css' />
+<link href="__PUBLIC__/admin/css/font-awesome.css" rel="stylesheet"> 
+<!-- jQuery -->
+<script src="__PUBLIC__/admin/js/jquery.min.js"></script>
+<!--webfonts-->
+<!--//webfonts-->  
+<!-- Bootstrap Core JavaScript -->
+<script src="__PUBLIC__/admin/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div id="wrapper">
+     <!-- Navigation -->
+        <nav class="top1 navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="__PUBLIC__/admin/index.html">Modern</a>
+            </div>
+            <!-- /.navbar-header -->
+            {include file="public/static/admin/common/nav.html"/}
+            <!-- /.navbar-static-side -->
+        </nav>
+        <div id="page-wrapper">
+        <div class="col-md-12 graphs">
+	   <div class="xs">
+      
+  	 <h3>公司代理</h3>
+    <form action="./ausers" class="form-horizontal" method="post">
+       <div class="form-group">
+            <label for="focusedinput" class="col-sm-1 control-label">姓名:</label>
+                  <div class="col-sm-2">
+                    <input type="text" name="name" class="form-control1" id="focusedinput" placeholder="姓名">
+                  </div>
+            <label for="focusedinput" class="col-sm-1 control-label">手机号:</label>
+                  <div class="col-sm-3">
+                    <input type="text" name="phone" class="form-control1" id="focusedinput" placeholder="手机号">
+                  </div>
+            <label for="focusedinput" class="col-sm-1 control-label">邀请人:</label>
+                  <div class="col-sm-2">
+                    <input type="text" name="come" class="form-control1" id="focusedinput" placeholder="邀请人">
+                  </div>
+           <button class="btn btn-warning warning_22">搜索</button>
+      </div>
+     </form>
+  	<div class="bs-example4" data-example-id="contextual-table">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>姓名</th>
+          <th>手机号</th>
+          <th>邀请人</th>
+          <th>注册时间</th>
+          <th>充值金额</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+       <!--  <tr class="active">
+          <th scope="row">1</th>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+        </tr> -->
+<?php $i=1;      ?>
+{volist name="info" id="vo"}
+        <?php 
+           $i+=2; 
+        
+           if($i%2==1){
+            echo "<tr class=\"success\">";
+          }else{
+            echo "<tr class=\"active\">";
+          }
+        ?>
+          <th scope="row">{$vo.name}</th>
+          <td>{$vo.phone}</td>
+          <td><?php if($vo['come']==1){echo "网站";}else{}  ?></td>
+          <td><?php echo  date("Y-m-d",$vo['addtime']);   ?></td>
+          <td>100</td>
+          <td>
+            <a href="./auserinfo/{$vo.id}"><button type="button" class="btn btn-xs btn-info">查看详情</button></a>
+            <a href="./aedituser/{$vo.id}"><button type="button" class="btn btn-xs btn-info">修改等级</button></a>
+          </td>
+        </tr>
+{/volist}
+      </tbody>
+    </table>
+
+{$info->render()}
+
+
+
+   </div>
+  </div>
+  <div class="copy_layout">
+      <p>Copyright &copy; 2015.Company name All rights reserved.More Templates <a href="__PUBLIC__/admin/http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="__PUBLIC__/admin/http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
+  </div>
+   </div>
+      </div>
+      <!-- /#page-wrapper -->
+   </div>
+    <!-- /#wrapper -->
+<!-- Nav CSS -->
+<link href="__PUBLIC__/admin/css/custom.css" rel="stylesheet">
+<!-- Metis Menu Plugin JavaScript -->
+<script src="__PUBLIC__/admin/js/metisMenu.min.js"></script>
+<script src="__PUBLIC__/admin/js/custom.js"></script>
+</body>
+</html>

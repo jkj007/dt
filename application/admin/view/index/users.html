@@ -51,10 +51,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                   <div class="col-sm-3">
                     <input type="text" name="phone" class="form-control1" id="focusedinput" placeholder="手机号">
                   </div>
+          
+          {if condition="($Request.session.username.state eq 2) or ($Request.session.username.state eq 3)"}
+
+          {elseif condition="$Request.session.username.state eq 4"/}
             <label for="focusedinput" class="col-sm-1 control-label">邀请人:</label>
                   <div class="col-sm-2">
                     <input type="text" name="come" class="form-control1" id="focusedinput" placeholder="邀请人">
                   </div>
+            {/if} 
+
+
            <button class="btn btn-warning warning_22">搜索</button>
       </div>
      </form>
@@ -94,8 +101,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           <td><?php echo  date("Y-m-d",$vo['addtime']);   ?></td>
           <td>100</td>
           <td>
-            <a href="./auserinfo?id={$vo.id}"><button type="button" class="btn btn-xs btn-info">查看详情</button></a>
-            <a href="./aedituser?id={$vo.id}"><button type="button" class="btn btn-xs btn-info">修改等级</button></a>
+            <a href="./auserinfo/{$vo.id}"><button type="button" class="btn btn-xs btn-info">查看详情</button></a>
+            <a href="./aedituser/{$vo.id}"><button type="button" class="btn btn-xs btn-info">修改等级</button></a>
           </td>
         </tr>
 {/volist}
