@@ -53,18 +53,11 @@ return [
 
     //视频路由-pm
     '__rest__'=>[
-<<<<<<< HEAD
         'atype' =>'admin/type',
         'atag' =>'admin/tag',
         'avideo'=>'admin/video',
         'asoft' =>'admin/soft',
         'dtx' =>'index/video',
-
-=======
-        'avideo'=>'admin/admin/video',
-        'asoft' =>'admin/admin/soft',
-        'dtx' =>'index/index/video',
->>>>>>> 8479543e96a059e3a23ddcb1dc23db5761ee6c8d
     ],
     'avideo/:id/soft'=>['admin/video/soft',['method'=>'post']],
     'uploadfile'=>['admin/upload_file/upload',['method'=>'post']],
@@ -82,7 +75,7 @@ return [
     'aboutus'=>'index/index/aboutus',
     'contact'=>'index/index/contact',
 
-  
+
     'blog/[:type]'=>['index/index/blog',['method' => 'get']],
     'blog/[:type]'=>['index/index/blog',['method' => 'get']],
    // 'blog'=>'index/index/blog',
