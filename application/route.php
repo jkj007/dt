@@ -58,9 +58,6 @@ return [
         'avideo'=>'admin/video',
         'asoft' =>'admin/soft',
         'dtx' =>'index/video',
-        'avideo'=>'admin/admin/video',
-        'asoft' =>'admin/admin/soft',
-        'dtx' =>'index/index/video',
     ],
     'avideo/:id/soft'=>['admin/video/soft',['method'=>'post']],
     'uploadfile'=>['admin/upload_file/upload',['method'=>'post']],
@@ -78,7 +75,7 @@ return [
     'aboutus'=>'index/index/aboutus',
     'contact'=>'index/index/contact',
 
-  
+
     'blog/[:type]'=>['index/index/blog',['method' => 'get']],
     'blog/[:type]'=>['index/index/blog',['method' => 'get']],
    // 'blog'=>'index/index/blog',
