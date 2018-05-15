@@ -13,6 +13,17 @@
         <link href="__PUBLIC__/index/css/mycenter/wallet.css" rel="stylesheet" type="text/css">
 		<script type="text/javascript" src="__PUBLIC__/index/script/jquery.min.js"></script>
 		<script src="__PUBLIC__/index/script/amazeui.js"></script>
+        <script>
+            window.onload=function(){
+                var sel=document.getElementById("timechange");
+                var opt=sel.options;
+                for (var i = 0; i < opt.length; i++) {
+                    if({$Think.session.timesort.sort}==opt[i].value){
+                        opt[i].setAttribute("selected","true");
+                    }
+                }
+            }
+        </script>
 	</head>
 
 	<body>
@@ -31,7 +42,11 @@
 					<hr>
 					<div class="finance">
 						<div class="financeText">
-							<p>已邀请用户人数:<span>0</span></p>
+                        {if condition="$num gt 0"}
+							<p>已邀请用户人数:<span>{$num}</span></p>
+                        {else/}
+                            <p>已邀请用户人数:<span>0</span></p>
+                        {/if}
 							<p>总收入:<span>¥0.0</span></p>
 						</div>
 					</div>
@@ -39,12 +54,12 @@
 					<div class="order-time">
 						<label class="form-label">注册时间：</label>
 						<div class="show-input">
-							<select class="am-selected" data-am-selected>
-								<option value="today">今天</option>
-								<option value="sevenDays" selected="">最近一周</option>
-								<option value="oneMonth">最近一个月</option>
-								<option value="threeMonths">最近三个月</option>
-								<option class="date-trigger">最近一年</option>
+							<select class="am-selected" data-am-selected name="timesort" id="timechange">
+                                <option value="0">所有</option>
+								<option value="1">最近一周</option>
+								<option value="2">最近一个月</option>
+                                <option value="3">最近三个月</option>
+								<option value="4">最近一年</option>
 							</select>
 						</div>
 						<div class="clear"></div>
@@ -58,16 +73,18 @@
 						</div>
 						<div class="clear"></div>
 						<div class="walletCont">
+                        {if condition="count($info) gt 0"}
+                        {volist  name="info" id="vo"}
 							<li class="cost">
 								<div class="time">
-									<p> 2016-03-12
+									<p> <?php echo date("Y-m-d",$vo['addtime'])?>
 									</p>
-									<p class="text-muted"> 18:41
+									<p class="text-muted"> <?php echo date("H:i:s",$vo['addtime'])?>
 									</p>
 								</div>
 								<div class="title name">
 									<p class="content" style="padding:0px">
-										消费
+										{$vo.name}
 									</p>
 								</div>
 
@@ -78,125 +95,20 @@
 									<span>余额：</span><em>0</em>
 								</div>
 							</li>
-
-							<li>
-								<div class="time">
-									<p> 2016-03-06
-									</p>
-									<p class="text-muted"> 22:22
-									</p>
-								</div>
-								<div class="title name">
-									<p class="content" style="padding:0px">
-										退款至钱包
-									</p>
-								</div>
-
-								<div class="amount">
-									<span class="amount-pay">+16.00</span>
-								</div>
-								<div class="balance">
-									<span>余额：</span><em>32</em>
-								</div>
-							</li>
-
-							<li class="cost">
-								<div class="time">
-									<p> 2016-02-28
-									</p>
-									<p class="text-muted"> 17:58
-									</p>
-								</div>
-								<div class="title name">
-									<p class="content" style="padding:0px">
-										消费
-									</p>
-								</div>
-
-								<div class="amount">
-									<span class="amount-pay">-16.00</span>
-								</div>
-								<div class="balance">
-									<span>余额：</span><em>16</em>
-								</div>
-							</li>
-
-							<li class="cost">
-								<div class="time">
-									<p> 2016-02-14
-									</p>
-									<p class="text-muted"> 20:42
-									</p>
-								</div>
-								<div class="title name">
-									<p class="content" style="padding:0px">
-										提现
-									</p>
-								</div>
-
-								<div class="amount">
-									<span class="amount-pay">-100.00</span>
-								</div>
-								<div class="balance">
-									<span>余额：</span><em>32</em>
-								</div>
-							</li>
-
-							<li>
-								<div class="time">
-									<p> 2016-02-02
-									</p>
-									<p class="text-muted"> 13:24
-									</p>
-								</div>
-								<div class="title name">
-									<p class="content" style="padding:0px">
-										充值
-									</p>
-								</div>
-
-								<div class="amount">
-									<span class="amount-pay">+132.00</span>
-								</div>
-								<div class="balance">
-									<span>余额：</span><em>132</em>
-								</div>
-							</li>
-                            <li>
-                                <div class="time">
-                                    <p> 2016-02-02
-                                    </p>
-                                    <p class="text-muted"> 13:24
-                                    </p>
-                                </div>
-                                <div class="title name">
-                                    <p class="content" style="padding:0px">
-                                        充值
-                                    </p>
-                                </div>
-
-                                <div class="amount">
-                                    <span class="amount-pay">+132.00</span>
-                                </div>
-                                <div class="balance">
-                                    <span>余额：</span><em>132</em>
-                                </div>
-                            </li>
-
-						</div>	
-
+                            {/volist}
+                            {else/}
+                            <li style="text-align:center">暂无邀请好友</li>
+                            {/if}
+						</div>
 						<!--分页-->
-                        <ul class="am-pagination am-pagination-right">
-                            <li class="am-disabled"><a href="#">&laquo;</a></li>
-                            <li class="am-active"><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">&raquo;</a></li>
-                        </ul>
+                        {$page}
 					</div>
 				</div>
+                <script>
+                    $("#timechange").change(function(){
+                        window.location.href="sp_sort?timesort="+$("#timechange").val()
+                    });
+                </script>
 				<!--底部-->
 			</div>
 			{include file="public/static/index/common/aside.html"/}

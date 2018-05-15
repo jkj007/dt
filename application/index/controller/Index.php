@@ -1,11 +1,14 @@
 <?php
 namespace app\index\controller;
-
 use think\Controller;
 class Index extends Controller
 {
     public function index()
     {
+      //判断是否有邀请码
+      if(!empty(input("fromuid"))){
+         session("fromuid",input("fromuid"));
+      }
        return view();
     }
     public function dtx(){
@@ -33,8 +36,8 @@ class Index extends Controller
       //查询所有数据
       if(!empty($_POST['title'])){
          $res=db('bbs')->where('title','like','%'.$_POST['title']."%")->order('type desc')->paginate(2);
-       }elseif(!empty($_GET['type'])){
-         $res=db('bbs')->where('type',$_GET['type'])->order('type desc')->paginate(2);
+       }elseif(input('type')){
+         $res=db('bbs')->where('type',input('type'))->order('type desc')->paginate(2);
        }else{
           $res=db('bbs')->order('type desc')->paginate(2);
        }
@@ -46,21 +49,15 @@ class Index extends Controller
     }
     public function bloginfo(){
       //查看用户是否已收藏该文章
-      $res3=db('com')->where("userid",$_SESSION['username']['id'])->
-      where("bbsid",$_GET['id']) ->find();
+      $res3=db('com')->where("userid",session('username.id'))->
+      where("bbsid",input('id')) ->find();
       if($res3){
         $com="yes";
       }else{
         $com="no";
       }
       //该文章浏览量+1
-      //
-      
-
-
-
-      
-      $res=db('bbs')->where("id",$_GET['id'])->find();
+      $res=db('bbs')->where("id",input('id'))->find();
       $this->assign('info',$res);
       $res2=db('bbs')->order("addtime desc")->limit(5)->select();
       $this->assign('info2',$res2);
@@ -95,16 +92,31 @@ class Index extends Controller
             // 验证失败 输出错误信息
             $this->error('手机号已存在');
         }
+        //邀请码
+        $come=!empty($_POST['come'])?$_POST['come']:null;
          //组装注册信息
-        $data=array('name'=>$_POST['name'],'come'=>$_POST['come'],'phone'=>$_POST['phone'],'pass'=>mymd5($_POST['pass']),'addtime'=>time(),'state'=>1);
+        $data=array('name'=>$_POST['name'],'come'=>$come,'phone'=>$_POST['phone'],'pass'=>mymd5($_POST['pass']),'addtime'=>time(),'state'=>1,'invitecode'=>'');
         if(db('users')->insert($data)){
+          $id=db('users')->getLastInsID();
+          $invitecode=$id+90359;
+          db('users')->where('id',$id)->update(['invitecode' => $invitecode]);
+          if(!empty(input("fromuid"))){
+            session("fromuid",null);
+          }
           $this->success("注册成功!",'./index');
         }
+
+
+
+
+
+
     }
     public function loginin(){
         $res=db('users')->where('phone',$_POST['phone'])->where('pass',mymd5($_POST['pass']))->find();
         if($res){
           //登陆成功
+
           session("username",$res);
           $this->redirect('../index');
         }else{
@@ -126,12 +138,11 @@ class Index extends Controller
     }
     //收藏文章
     public function com(){
-     
      // 判断是否登录
-      if(!empty($_SESSION['username'])){
+      if(@session('username')){
         //添加收藏信息
-       
-        $data=array('userid'=>$_SESSION['username']['id'],'bbsid'=>$_POST['id']);
+       $time=time();
+        $data=array('userid'=>session('username.id'),'bbsid'=>$_POST['id'],'addtime'=>$time);
         db('com')->insert($data);
         //更新文章的收藏数目
         $res=db('bbs')->where('id',$_POST['id'])->find();
@@ -152,5 +163,4 @@ class Index extends Controller
     public function abstracts(){
         return view("abstracts");
     }
-
 }

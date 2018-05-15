@@ -4,7 +4,12 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
 		<title>实名认证</title>
-		{include file="public/static/index/common/head.html"/}
+		<link rel="stylesheet" href="__PUBLIC__/index/plugin/bootstrap/css/bootstrap.min.css" />
+        <link href="__PUBLIC__/index/css/mycenter/admin.css" rel="stylesheet" type="text/css">
+        <link href="__PUBLIC__/index/css/mycenter/amazeui.css" rel="stylesheet" type="text/css">
+        <link href="__PUBLIC__/index/css/mycenter/personal.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="__PUBLIC__/index/css/style.css" />
+        <link href="__PUBLIC__/index/css/mycenter/stepstyle.css" rel="stylesheet" type="text/css">
         <script src="__PUBLIC__/index/plugin/jquery1.10.2.min.js" type="text/javascript"></script>
 	</head>
 
@@ -61,6 +66,8 @@
                             function(data){
                                 if(data==1){
                                     alert("恭喜，认证成功！");
+                                    $("#username").val(" ");
+                                    $("#idcard").val(" ");
                                 }else{
                                     alert("认证失败！请核对信息");
                                 }
