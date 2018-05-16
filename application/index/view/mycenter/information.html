@@ -37,7 +37,6 @@
 						<!--头像 -->
 						<div class="user-infoPic">
 							<div class="filePic">
-								<input type="file" class="inputPic" allowexts="gif,jpeg,jpg,png" accept="image/*">
 								{if condition="$info['face'] eq null"}
 								<img class="am-circle am-img-thumbnail" src="__PUBLIC__/index/img/getAvatar.do.jpg" alt="" />
 								{else/}
@@ -48,7 +47,7 @@
 							<div class="info-m">
 								<div><b>用户名：<i>{$info.name}</i></b></div>
 								<div class="vip">
-                                      <span></span><a href="#">会员升级</a>
+                                      <span></span><a href="nexus">会员升级</a>
 								</div>
 							</div>
 						</div>
@@ -75,11 +74,15 @@
 									</div>
 								</div>
 								<div class="am-form-group">
-									<label for="user-safety" class="am-form-label">账号安全</label>
-									<div class="am-form-content safety">
-										<a href="safety.html">
-											<span class="am-icon-angle-right"></span>
-										</a>
+									<label for="user-come" class="am-form-label">邀请人</label>
+									<div class="am-form-content">
+										<input id="user-come" value="{$info['invitename']}" readonly type="tel">
+									</div>
+								</div>
+								<div class="am-form-group">
+									<label for="user-invite" class="am-form-label">我的邀请码</label>
+									<div class="am-form-content">
+										<input id="user-invite" value="{$info['invitecode']}" readonly type="tel">
 									</div>
 								</div>
 							</form>

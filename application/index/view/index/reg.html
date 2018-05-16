@@ -117,12 +117,16 @@
                                 <input type="password" name="repass" class="form-control input-lg"  placeholder="确认密码" />
                             </div>
                              <div class="form-group">
-                                <label for="fieldInputName">姓名</label>
-                                <input type="text" name="name" class="form-control input-lg" id="fieldInputName" placeholder="请输入您的姓名" />
+                                <label for="fieldInputName">昵称</label>
+                                <input type="text" name="name" class="form-control input-lg" id="fieldInputName" placeholder="请输入您的昵称" />
                             </div>
                             <div class="form-group">
                                 <label for="fieldInputPassword1">邀请码</label>
+                                {if condition="$Think.session.fromuid eq null"}
                                 <input type="text" name="come" class="form-control input-lg"  placeholder="填写邀请码,可不填" />
+                                {else/}
+                                <input type="text" name="come" class="form-control input-lg"  value="{$Think.session.fromuid}" />
+                                {/if}
                             </div>
                             <div class="form-group">
                                 <label for="fieldInputPassword1">*验证码</label>

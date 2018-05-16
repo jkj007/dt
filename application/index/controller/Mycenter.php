@@ -10,7 +10,6 @@ class Mycenter extends Controller
             return view("index/login");
         }
         $res=db("users")->where("phone",session("username.phone"))->find();
-        //未实名认证先实名认证
         $this->assign("info",$res);
         return view("index");
       }
@@ -38,6 +37,8 @@ class Mycenter extends Controller
             return view("index/login");
         }
         $res=db("users")->where("phone",session("username.phone"))->find();
+        $name=db("users")->where("invitecode",$res['come'])->value("name");
+        $res['invitename']=$name;
         $this->assign("info",$res);
         return view("information");
     }
@@ -68,7 +69,7 @@ class Mycenter extends Controller
         $host = "http://idcard.market.alicloudapi.com";
         $path = "/lianzhuo/idcard";
         $method = "GET";
-        $appcode = "e771786ed58e4a83bd720a572af57fc2";
+        $appcode = "d94aec739075496790f9115e3260655f";
         $headers = array();
         array_push($headers, "Authorization:APPCODE " . $appcode);
         $querys = "cardno=".$idcard."&name=".$name;
@@ -91,7 +92,7 @@ class Mycenter extends Controller
         $json=curl_exec($curl);
         $info=json_decode($json,true);
         if($info['resp']['desc']=="匹配"){
-            db("users")->where("phone",session("username.phone"))->update(["name"=>$name,"idcard"=>$idcard,"address"=>$info['data']['address'],"birthday"=>$info['data']['birthday']]);
+            db("users")->where("phone",session("username.phone"))->update(["truename"=>$name,"idcard"=>$idcard,"address"=>$info['data']['address'],"birthday"=>$info['data']['birthday']]);
             return 1;
         }
     }
@@ -182,7 +183,7 @@ class Mycenter extends Controller
     //账单明细
     public function walletlist(){
         //从数据表中获取该用户的账单明细遍历
-        
+        $time=$this->timesort(input("timesort"));//时间排序时用的时间戳
 
         return view("walletlist");
     }
@@ -195,12 +196,33 @@ class Mycenter extends Controller
     }
     //注册推广
     public function spread(){
-        $url="http://www.fenxianghao.cn/?fromuid=".session("username.invitecode");
+        $url="http://www.fenxianghao.com/?fromuid=".session("username.invitecode");
         $this->assign("url",$url);
         return view("spread");
     }
     //推广结果
     public function sp_results(){
+        $res=db("users")->where("come",session("username.invitecode"))->order("id","desc")->paginate(6);
+        $page = $res->render();
+        $res=$res->toArray();
+        $num=db("users")->where("come",session("username.invitecode"))->count();
+        $this->assign("num",$num);
+        $this->assign("info",$res['data']);
+        $this->assign("page",$page);
+        return view("sp_results");
+    }
+    public function sp_sort(){
+        if(input("timesort")){
+            $time=$this->timesort(input("timesort"));
+            $timesort=array("timesort"=>$time,"sort"=>input("timesort"));
+            session("timesort",$timesort);
+        }
+        $res=db("users")->where("come",session("username.invitecode"))->where("addtime",">",session("timesort.timesort"))->order("id","desc")->paginate(6);
+        $page=$res->render();
+        $num=db("users")->where("come",session("username.invitecode"))->count();
+        $this->assign("num",$num);
+        $this->assign("info",$res);
+        $this->assign("page",$page);
         return view("sp_results");
     }
     //收藏
@@ -222,5 +244,20 @@ class Mycenter extends Controller
     //联系商家
     public function consultation(){
         return view("consultation");
+    }
+    //时间排序
+    public function timesort($sort){
+        $sort=$sort?intval($sort):0;
+        switch ($sort) {
+            case 1:return $date = strtotime('-1 week');break;//最近一周
+            case 2:return $date = strtotime('-1 month');break;//最近一月
+            case 3:return $date = strtotime('-3 months');break;//最近三月
+            case 4:return $date = strtotime('-1 year');break;//最近一年
+            case 0:return $date=1396281600;break;
+        }
+    }
+    public function loginout(){
+        session("username",null);
+        return view("index/login");
     }
 }
