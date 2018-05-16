@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:61:"D:\phpStudy\WWW\dt./application/index\view\index\contact.html";i:1525863074;s:36:"public/static/index/common/head.html";i:1526199919;s:35:"public/static/index/common/nav.html";i:1526199857;s:38:"public/static/index/common/footer.html";i:1524878979;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:61:"D:\phpStudy\WWW\dt./application/index\view\index\contact.html";i:1525863074;s:36:"public/static/index/common/head.html";i:1526365806;s:35:"public/static/index/common/nav.html";i:1526365343;s:38:"public/static/index/common/footer.html";i:1526365274;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +12,7 @@
 	<link rel="stylesheet" href="/public/static/index/plugin/pretty-photo/css/prettyPhoto.css" />
 	<link rel="stylesheet" href="/public/static/index/css/style.css" />
 	<link rel="stylesheet" href="/public/static/index/css/animate.min.css" />
-
+	<link rel="shortcut icon" href="/public/static/index/img/logo.ico">
 
 <!-- <link rel="stylesheet" href="/public/static/index/plugin/bootstrap/css/bootstrap.min.css" />
 <link rel="stylesheet" href="/public/static/index/css/style.css" />
@@ -35,7 +35,9 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="/public/static/index/index.htm"><img id="logo" src="/public/static/index/img/logo.png" alt="eLearn" /></a>
+                    <a class="navbar-brand" href="/index">
+                        <img id="index" src="/public/static/index/img/mylogo.png" style="position:relative;top:18px" width="120px" alt="eLearn" />
+                    </a>
                 </div>
                 <div class="collapse navbar-collapse">
                 <div class="navbar-right menu-main"> 
@@ -217,7 +219,7 @@
                 <div class="col-md-2 footer-qlink">
                     <br><br>
                     <br>
-                    <img src="/public/static/index/img/qccode.png" alt="">
+                    <img width="200px" style="position: relative;top:-10px" src="/public/static/index/img/logo.jpg" alt="">
                 </div>
                 <div class="col-md-1 footer-qlink">
                    
@@ -226,9 +228,9 @@
                     <h4>快捷链接</h4>
                     <nav>
                         <ul>
-                            <li><a href="/public/static/index/plans.htm">招商热线:0359-2223333 本站所提供分享号网络科技有限公司版权所有，非法使用者，公司依法追究其刑事责任！</a></li>
-                            <li><a href="/public/static/index/categories.htm">公司电话:05358085508</a></li>
-                            <li><a href="/public/static/index/about-us.htm">公司邮箱:lingdian@yantaiyoutang.com</a></li>
+                            <li><a href="/public/static/index/plans.htm">招商热线:0359-2513144 本站所提供分享号网络科技有限公司版权所有，非法使用者，公司依法追究其刑事责任！</a></li>
+                            <li><a href="/public/static/index/categories.htm">公司电话:0359-2513144</a></li>
+                     
                             <li><a href="/public/static/index/blog-list.htm">公司地址:山西省运城市</a></li>
                             <li><a href="/public/static/index/contact.html">联系我们</a></li>
                         </ul>

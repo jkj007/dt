@@ -131,7 +131,7 @@ class Index extends Controller
       if(!empty($_SESSION['username'])){
         //添加收藏信息
        
-        $data=array('userid'=>$_SESSION['username']['id'],'bbsid'=>$_POST['id']);
+        $data=array('userid'=>session("username.id"),'bbsid'=>$_POST['id']);
         db('com')->insert($data);
         //更新文章的收藏数目
         $res=db('bbs')->where('id',$_POST['id'])->find();
