@@ -24,7 +24,7 @@ class Soft extends Model
 
     public function videos()
     {
-       return $this->belongsToMany('Video');
+       return $this->belongsToMany('Video','video_soft');
     }
     public function tags()
     {

@@ -53,11 +53,12 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="selector1" class="col-sm-2 control-label">视频类别</label>
+                                <label for="selector1" class="col-sm-2 control-label">软件类别</label>
                                 <div class="col-sm-8">
                                     <select name="type_id" id="selector1" class="form-control1">
+                                        <option value="">--请选择软件类别--</option>
                                         {volist name='types' id='type'}
-                                        <option value="{$type->id}">{:str_repeat('&nbsp;',($type.level-1)*4)}{$type->name}</option>
+                                        <option {if condition="$type->pid==0"}disabled{/if} value="{$type->id}">{:str_repeat('&nbsp;',($type.level-1)*4)}{$type->name}</option>
                                         {/volist}
                                     </select>
                                 </div>
