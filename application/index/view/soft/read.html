@@ -19,7 +19,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-7">
-                    <h1>{$video->title}</h1>
+                    <h1>{$soft->title}</h1>
                 </div>
                 <div class="col-md-5">
                     <ol class="breadcrumb pull-right">
@@ -40,10 +40,10 @@
                 <div class="col-md-8">
                     <article>
                         <!-- Video film - player -->
-                        <video width="617" height="350" src="/public/videos/{$video->video}" controls=""></video>
-                        
+                       <!--  <video width="617" height="350" src="/public/videos/{$soft->video}" controls=""></video> -->
+                        <img width="617" height="350" src="/public/static/pm/img/timg.jpg" alt="">
                         <div class="video-content">
-                            <p>{$video->getData('desc')}</p>
+                            <p>{$soft->getData('desc')}</p>
                         </div>
                         
                         <hr class="invisible" />
@@ -51,14 +51,15 @@
                         
                         <!-- Video - related -->
                         <section class="related">
-                            <h2 class="full-left">相关软件</h2>
+                            <h2 class="full-left">相关视频</h2>
                             
                             <div class="row  videos-list">
-                                {volist name='video.softs' id='soft'}
+                                {volist name='soft.videos' id='video'}
                                 <article class="col-md-6  video-item">
-                                    <img width="293.33" height="200" src="/public/static/pm/img/timg.jpg" alt="">
-                                    <!-- <a href="/soft/{$soft->id}" class="video-prev video-prev-small"></a> -->
-                                    <p class="button-full"><a href="/soft/{$soft->id}" class="btn btn-theme btn-green">{$soft->title}</a></p>
+                                    <!-- <img width="293.33" height="200" src="/public/static/pm/img/timg.jpg" alt=""> -->
+                                     <video width="293.33" height="200" src="/public/videos/{$video->video}" controls=""></video>
+                                    <!-- <a href="/video/{$video->id}" class="video-prev video-prev-small"></a> -->
+                                    <p class="button-full"><a href="/dtx/{$video->id}" class="btn btn-theme btn-green">{$video->title}</a></p>
                                 </article>
                                 {/volist}
                                 <!-- <article class="col-md-6  video-item">
@@ -72,14 +73,14 @@
                     </article>
                 </div>
                 <aside class="col-md-4">
-                    <h2 >{$video->title}</h2>
+                    <h2 >{$soft->title}</h2>
                     <p class="video-params">
-                        价格: <b>{$video->price}</b> <br />
-                        日期: <b>{:date('Y-m-d',strtotime($video->create_time))}</b> <br />
-                        标签: {foreach $video->tags()->limit(3)->select() as $tag}<b>{$tag->name}&nbsp;&nbsp;</b>{/foreach} <br/>
-                        销量: <b>{$video->num}</b> <br />
-                        浏览量: <b>{$video->viewnum}</b> <br />
-                        收藏量: <b>{$video->collnum}</b>
+                        价格: <b>{$soft->price}</b> <br />
+                        日期: <b>{:date('Y-m-d',strtotime($soft->create_time))}</b> <br />
+                        标签: {foreach $soft->tags()->limit(3)->select() as $tag}<b>{$tag->name}&nbsp;&nbsp;</b>{/foreach} <br/>
+                        销量: <b>{$soft->num}</b> <br />
+                        浏览量: <b>{$soft->viewnum}</b> <br />
+                        收藏量: <b>{$soft->collnum}</b>
                     </p>
                     <div class="row buttons-margin-horizontal">
                         <div class="col-md-6 button-full">

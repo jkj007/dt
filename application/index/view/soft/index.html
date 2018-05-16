@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>eLearn - Video list</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />	
+    {include file="public/static/index/common/head.html"/}
+
+</head>
+<body>
+    <header class="main">
+        <div class="container">
+            {include file="public/static/index/common/nav.html"/}
+        </div>
+    </header>
+    
+    <div class="page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <h1>{:getTypeName($parent_id)}</h1>
+                </div>
+                <div class="col-md-5">
+                    <ol class="breadcrumb pull-right">
+                        <li><a href="__PUBLIC__/index/index.htm">资源</a></li>
+                        <li><a href="__PUBLIC__/index/index.htm">{:getTypeName($parent_id)}</a></li>
+                        <li class="active">视频</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Video list boxes: list -->
+    <section class="content content-light  videos-list videos-list-list">
+        <div class="container">
+                <h3>筛选条件：</h3>
+              <table class="table table-bordered">
+                <tr>
+                    <td width="130">当前筛选条件：</td>
+                    <td>
+                        {if condition="isset($search['type'])"}
+                        <a href="/soft?{$parm}" class="btn btn-sm btn-orange">{:getTypeName($search['type'])}</a> &nbsp; 
+                        {/if}
+                        {if condition="isset($search['tag'])"}
+                        <a href="/soft?{$parm}" class="btn btn-sm btn-orange">{:getTagName($search['tag'])}</a> &nbsp; 
+                        {/if}
+                    </td>
+                </tr>
+                <tr>
+                    <td  width="130">其他类别：</td>
+                    <td>
+                        <a href="/soft?id={$parent_id}&tag={$search['tag']??''}" class="btn btn-sm btn-orange">全部</a> &nbsp; 
+                        {volist name='types' id='type'}
+                        <a href="/soft?id={$parent_id}&type={$type->id}&tag={$search['tag']??''}" class="btn btn-sm btn-orange">{$type->name}</a> &nbsp;
+                        {/volist} 
+                    </td>
+                </tr>
+                <tr>
+                    <td  width="130">标签筛选：</td>
+                    <td>
+                        <a href="/soft?id={$parent_id}&type={$search['type']??''}" class="btn btn-sm btn-orange">全部</a> &nbsp; 
+                        {volist name='tags' id='tag'}
+                        <a href="/soft?id={$parent_id}&tag={$tag->id}&type={$search['type']??''}" class="btn btn-sm btn-orange">{$tag->name}</a> &nbsp;
+                        {/volist} 
+                    </td>
+                </tr>
+              </table>
+     
+            
+            <hr class="invisible" />
+            {volist name="videos" id="video"}
+             <article class="col-md-4 video-item">
+                <img width="293.33" height="200" src="/public/static/pm/img/timg.jpg" alt="">
+                <h3 class="video-title"><a href="/soft/{$video->id}">{$video->title}</a></h3>
+                <div class="row video-params">
+                    <div class="col-md-8">
+                        价格: <b>¥{$video->price}</b>
+                    </div>
+                    <div class="col-md-4 text-right">
+                        浏览量: <b>{$video->viewnum}</b>
+                    </div>
+                </div>
+                <div class="row video-params">
+                    <div class="col-md-7">
+                        日期: <b>{:date('Y-m-d',strtotime($video->create_time))}</b>
+                    </div>
+                    <div class="col-md-5 text-right">
+                        收藏: <b>102</b> <a href="__PUBLIC__/index/#"><i class="fa fa-heart"></i></a>
+                    </div>
+                </div>
+                <div class="row video-params">
+                    <div class="col-md-12">
+                        标签: {foreach $video->tags()->limit(3)->select() as $tag}<button class="btn btn-xs btn-primary">{$tag->name}</button>{/foreach}
+                    </div>
+                </div>
+            </article>
+            {/volist}
+            
+            {$videos->appends($search)->render()}
+
+        </div>        
+    </section>
+    
+    {include file="public/static/index/common/footer.html"/}
+</body>
+</html>

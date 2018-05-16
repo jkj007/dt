@@ -58,6 +58,7 @@ return [
         'avideo'=>'admin/video',
         'asoft' =>'admin/soft',
         'dtx' =>'index/video',
+        'soft' =>'index/soft',
     ],
     'avideo/:id/soft'=>['admin/video/soft',['method'=>'post']],
     'uploadfile'=>['admin/upload_file/upload',['method'=>'post']],
