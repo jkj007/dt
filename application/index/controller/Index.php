@@ -141,8 +141,13 @@ class Index extends Controller
      // 判断是否登录
       if(@session('username')){
         //添加收藏信息
+
+       
+      
+
        $time=time();
         $data=array('userid'=>session('username.id'),'bbsid'=>$_POST['id'],'addtime'=>$time);
+
         db('com')->insert($data);
         //更新文章的收藏数目
         $res=db('bbs')->where('id',$_POST['id'])->find();

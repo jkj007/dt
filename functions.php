@@ -34,7 +34,16 @@ function getNav()
         echo '<li><a href="/dtx?id='.$value->id.'">'.$value->name.'</a></li>';
     }
 }
-
+function getSoftNav()
+{
+    $share_type = app\admin\model\Type::where('pid',0)->select();
+    if (empty($share_type)) {
+        return '';
+    }
+    foreach ($share_type as $key => $value) {
+        echo '<li><a href="/soft?id='.$value->id.'">'.$value->name.'</a></li>';
+    }
+}
 
 function getTypeName($value)
 {

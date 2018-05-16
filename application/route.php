@@ -53,6 +53,7 @@ return [
 
     //视频路由-pm
     '__rest__'=>[
+
         'atype' =>'admin/type',
         'atag' =>'admin/tag',
         'avideo'=>'admin/video',
