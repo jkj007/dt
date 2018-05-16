@@ -53,20 +53,12 @@ return [
 
     //视频路由-pm
     '__rest__'=>[
-<<<<<<< HEAD
 
-=======
->>>>>>> f7b74474ff5ef15056d7492183385ef0e621225e
         'atype' =>'admin/type',
         'atag' =>'admin/tag',
         'avideo'=>'admin/video',
         'asoft' =>'admin/soft',
         'dtx' =>'index/video',
-<<<<<<< HEAD
-
-
-=======
->>>>>>> f7b74474ff5ef15056d7492183385ef0e621225e
     ],
     'avideo/:id/soft'=>['admin/video/soft',['method'=>'post']],
     'uploadfile'=>['admin/upload_file/upload',['method'=>'post']],
