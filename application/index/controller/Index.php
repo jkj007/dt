@@ -6,7 +6,7 @@ class Index extends Controller
     public function index()
     {
       //判断是否有邀请码
-      if(!empty(input("fromuid"))){
+      if(input("fromuid")){
          session("fromuid",input("fromuid"));
       }
        return view();
@@ -100,7 +100,7 @@ class Index extends Controller
           $id=db('users')->getLastInsID();
           $invitecode=$id+90359;
           db('users')->where('id',$id)->update(['invitecode' => $invitecode]);
-          if(!empty(input("fromuid"))){
+          if(input("fromuid")){
             session("fromuid",null);
           }
           $this->success("注册成功!",'./index');

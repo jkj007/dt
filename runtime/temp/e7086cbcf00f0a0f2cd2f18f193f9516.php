@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:58:"D:\phpStudy\WWW\dt./application/index\view\index\blog.html";i:1526115766;s:36:"public/static/index/common/head.html";i:1526199919;s:35:"public/static/index/common/nav.html";i:1526362443;s:38:"public/static/index/common/footer.html";i:1524878979;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:58:"D:\phpStudy\WWW\dt./application/index\view\index\blog.html";i:1526115766;s:36:"public/static/index/common/head.html";i:1526449849;s:35:"public/static/index/common/nav.html";i:1526450001;s:38:"public/static/index/common/footer.html";i:1526365274;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,20 +8,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />	
     <!-- CSS Files -->
 	 
+
     <link rel="stylesheet" href="/public/static/index/plugin/bootstrap/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="/public/static/index/plugin/font-awesome/css/font-awesome.min.css" />
 	<link rel="stylesheet" href="/public/static/index/plugin/pretty-photo/css/prettyPhoto.css" />
 	<link rel="stylesheet" href="/public/static/index/css/style.css" />
 	<link rel="stylesheet" href="/public/static/index/css/animate.min.css" />
+	<link rel="shortcut icon" href="/public/static/index/img/logo.ico">
 
 
-<!-- <link rel="stylesheet" href="/public/static/index/plugin/bootstrap/css/bootstrap.min.css" />
-<link rel="stylesheet" href="/public/static/index/css/style.css" />
-<link rel="stylesheet" href="/public/static/index/plugin/animate.min.css" />
-<link rel="stylesheet" href="/public/static/index/plugin/font-awesome/css/font-awesome.min.css" />
-<link rel="stylesheet" href="/public/static/index/plugin/pretty-photo/css/prettyPhoto.css" />
-<link rel="stylesheet" href="/public/static/index/css/style.css" />
-<link rel="stylesheet" href="/public/static/index/css/animate.min.css" /> -->
+<link rel="stylesheet" href="/public/static/index/css/animate.min.css" />
+
+
 
 
      <style>
@@ -34,31 +32,32 @@
     <header class="main">
         <div class="container">
             <nav class="navbar" role="navigation">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="/public/static/index/index.htm">
-                        <img id="/index" src="/public/static/index/img/mylogo.jpg" width="120px" alt="eLearn" />
-                    </a>
-                </div>
-                <div class="collapse navbar-collapse">
-                <div class="navbar-right menu-main"> 
-                    <ul class="nav navbar-nav">
-                        <li><a href="/aboutus"><span>关于我们</span></a></li>
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/public/static/index/index.htm"><img id="logo" src="/public/static/index/img/mylogo.png" style="position:relative;top:18px" alt="eLearn" /></a>
+    </div>
+    <div class="collapse navbar-collapse">
+        <div class="navbar-right menu-main">
+            <ul class="nav navbar-nav">
+                <li><a href="/aboutus"><span>关于我们</span></a></li>
+                <li class="dropdown">
+                    <a href="/public/static/index/#" class="dropdown-toggle" data-toggle="dropdown"><span>资源</span> <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                            <?php echo getNav(); ?>
+                    </ul>
+                </li>
+                        </li>
                         <li class="dropdown">
-                            <a href="/public/static/index/#" class="dropdown-toggle" data-toggle="dropdown"><span>资源</span> <b class="caret"></b></a>
+                            <a href="/public/static/index/#" class="dropdown-toggle" data-toggle="dropdown"><span>软件</span> <b class="caret"></b></a>
                             <ul class="dropdown-menu">
-
-                   
-
-                                <?php echo getNav(); ?>
+                                <?php echo getSoftNav(); ?>
                             </ul>
                         </li>
-                
 
                         <li class="dropdown">
                             <a href="/public/static/index/#" class="dropdown-toggle" data-toggle="dropdown"><span>项目概述</span> <b class="caret"></b></a>
@@ -90,21 +89,11 @@
                     </ul>
                     <a class="btn btn-theme navbar-btn btn-default  sign-up" href="loginout">退出</a>
                     <?php endif; ?>
-
-
-                     
-
-                        
-                      <!--   <li><a href="lt"><span>论坛</span></a></li> -->
-                      
                     </ul>
-                  
-
-                   
-
                 </div>
                 </div>
             </nav>
+
         </div>
     </header>
     
@@ -210,7 +199,7 @@
                 <div class="col-md-2 footer-qlink">
                     <br><br>
                     <br>
-                    <img src="/public/static/index/img/qccode.png" alt="">
+                    <img width="200px" style="position: relative;top:-10px" src="/public/static/index/img/logo.jpg" alt="">
                 </div>
                 <div class="col-md-1 footer-qlink">
                    
@@ -219,9 +208,9 @@
                     <h4>快捷链接</h4>
                     <nav>
                         <ul>
-                            <li><a href="/public/static/index/plans.htm">招商热线:0359-2223333 本站所提供分享号网络科技有限公司版权所有，非法使用者，公司依法追究其刑事责任！</a></li>
-                            <li><a href="/public/static/index/categories.htm">公司电话:05358085508</a></li>
-                            <li><a href="/public/static/index/about-us.htm">公司邮箱:lingdian@yantaiyoutang.com</a></li>
+                            <li><a href="/public/static/index/plans.htm">招商热线:0359-2513144 本站所提供分享号网络科技有限公司版权所有，非法使用者，公司依法追究其刑事责任！</a></li>
+                            <li><a href="/public/static/index/categories.htm">公司电话:0359-2513144</a></li>
+                     
                             <li><a href="/public/static/index/blog-list.htm">公司地址:山西省运城市</a></li>
                             <li><a href="/public/static/index/contact.html">联系我们</a></li>
                         </ul>
