@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:59:"D:\phpStudy\WWW\dt./application/index\view\index\index.html";i:1526450851;s:35:"public/static/index/common/nav.html";i:1526450500;s:38:"public/static/index/common/footer.html";i:1526365274;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:59:"D:\phpStudy\WWW\dt./application/index\view\index\index.html";i:1526450851;s:35:"public/static/index/common/nav.html";i:1526450947;s:38:"public/static/index/common/footer.html";i:1526365274;}*/ ?>
  <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,6 +35,7 @@
         <div class="navbar-right menu-main">
             <ul class="nav navbar-nav">
                 <li><a href="/aboutus"><span>关于我们</span></a></li>
+                <li><a href="nexus"><span>投资者关系</span></a></li>
                 <li class="dropdown">
                     <a href="/public/static/index/#" class="dropdown-toggle" data-toggle="dropdown"><span>资源</span> <b class="caret"></b></a>
                     <ul class="dropdown-menu">
@@ -49,14 +50,9 @@
                             </ul>
                         </li>
 
-                        <li class="dropdown">
-                            <a href="/public/static/index/#" class="dropdown-toggle" data-toggle="dropdown"><span>项目概述</span> <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="nexus">投资者关系</a></li>
-                                <li><a href="abstracts">公司简介</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="contact"><span>联系我们</span></a></li>
+                        
+                        
+
                     
                          <li class="dropdown">
                             <a href="/public/static/index/#" class="dropdown-toggle" data-toggle="dropdown"><span>相关知识</span> <b class="caret"></b></a>
@@ -69,6 +65,8 @@
                          
                             </ul>
                         </li>
+                        <li><a href="contact"><span>联系我们</span></a></li>
+                        
 
                     <?php if(\think\Request::instance()->session('username.name') == null): ?>
                     </ul>

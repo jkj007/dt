@@ -206,6 +206,25 @@ class Index extends Controller
            die();
         }
     }
+    public function key(){
+        $res=db('soft_key')->distinct(true)->field('softid')->select();
+        print_r($res);
+
+        // foreach ($res as $key => $value) {
+        //     $week=db('soft_key')->where("type","1")->where("softid",$value)->count();
+        //     $week=db('soft_key')->where("type","1")->where("softid",)->count();
+        //     $month=db('soft_key')->where("type","2")->where("softid",)->count();
+        // }
+        
+        //  $year=db('soft_key')->where("type","3")->count();
+        // $this->assign('info',$res);
+        // return view();
+    }
+    public function addkey(){
+       $res=db('soft')->select();
+       $this->assign('info',$res);
+       return view();
+    }
 
 
 

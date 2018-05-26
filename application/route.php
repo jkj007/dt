@@ -39,6 +39,8 @@ return [
     'abbsmessage' => 'admin/index/bbsmessage',
     'abbscomment' => 'admin/index/bbscomment',
     'aupdatebbs' => 'admin/index/updatebbs',
+    'akey' => 'admin/index/key',
+    'aaddkey' => 'admin/index/addkey',
 
     'abbsdel' => 'admin/index/bbsdel',
 
